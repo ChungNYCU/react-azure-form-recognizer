@@ -2,7 +2,7 @@ import React from 'react';
 
 const GetFormRecongnizerResult = () => {
   const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
-
+  //test
   // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
   const key = "65ade927ebb8467fbf0b42a634b79cd9";
   const endpoint = "https://mfr.cognitiveservices.azure.com/";

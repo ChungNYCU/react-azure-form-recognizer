@@ -1,0 +1,1646 @@
+{
+	"status": "succeeded",
+	"createdDateTime": "2022-07-06T02:01:21Z",
+	"lastUpdatedDateTime": "2022-07-06T02:01:25Z",
+	"analyzeResult": {
+		"apiVersion": "2022-06-30-preview",
+		"modelId": "prebuilt-receipt",
+		"stringIndexType": "textElements",
+		"content": "Contoso\n123 Main Street Redmond, WA 98052\n987-654-3210\n6/10/2019 13:59 Sales Associate: Paul\n2 Surface Pro 6\n$1,998.00\n3 Surface Pen\n$299.97\nSub-Total\n$2,297.97\nTax\n$218.31\nTotal\n$2,516.28",
+		"pages": [
+			{
+				"pageNumber": 1,
+				"angle": 0,
+				"width": 2448,
+				"height": 3264,
+				"unit": "pixel",
+				"words": [
+					{
+						"content": "Contoso",
+						"polygon": [
+							862,
+							275,
+							1566,
+							290,
+							1566,
+							410,
+							862,
+							416
+						],
+						"confidence": 0.996,
+						"span": {
+							"offset": 0,
+							"length": 7
+						}
+					},
+					{
+						"content": "123",
+						"polygon": [
+							593,
+							709,
+							696,
+							706,
+							695,
+							790,
+							591,
+							790
+						],
+						"confidence": 0.994,
+						"span": {
+							"offset": 8,
+							"length": 3
+						}
+					},
+					{
+						"content": "Main",
+						"polygon": [
+							714,
+							706,
+							902,
+							703,
+							902,
+							790,
+							713,
+							790
+						],
+						"confidence": 0.991,
+						"span": {
+							"offset": 12,
+							"length": 4
+						}
+					},
+					{
+						"content": "Street",
+						"polygon": [
+							926,
+							703,
+							1173,
+							704,
+							1173,
+							788,
+							925,
+							790
+						],
+						"confidence": 0.997,
+						"span": {
+							"offset": 17,
+							"length": 6
+						}
+					},
+					{
+						"content": "Redmond,",
+						"polygon": [
+							589,
+							842,
+							961,
+							835,
+							960,
+							928,
+							589,
+							925
+						],
+						"confidence": 0.993,
+						"span": {
+							"offset": 24,
+							"length": 8
+						}
+					},
+					{
+						"content": "WA",
+						"polygon": [
+							979,
+							834,
+							1102,
+							833,
+							1100,
+							927,
+							978,
+							928
+						],
+						"confidence": 0.997,
+						"span": {
+							"offset": 33,
+							"length": 2
+						}
+					},
+					{
+						"content": "98052",
+						"polygon": [
+							1127,
+							832,
+							1365,
+							830,
+							1363,
+							916,
+							1126,
+							926
+						],
+						"confidence": 0.997,
+						"span": {
+							"offset": 36,
+							"length": 5
+						}
+					},
+					{
+						"content": "987-654-3210",
+						"polygon": [
+							587,
+							1114,
+							1110,
+							1114,
+							1111,
+							1200,
+							587,
+							1201
+						],
+						"confidence": 0.991,
+						"span": {
+							"offset": 42,
+							"length": 12
+						}
+					},
+					{
+						"content": "6/10/2019",
+						"polygon": [
+							585,
+							1392,
+							936,
+							1385,
+							937,
+							1483,
+							586,
+							1487
+						],
+						"confidence": 0.992,
+						"span": {
+							"offset": 55,
+							"length": 9
+						}
+					},
+					{
+						"content": "13:59",
+						"polygon": [
+							955,
+							1385,
+							1152,
+							1387,
+							1152,
+							1475,
+							956,
+							1483
+						],
+						"confidence": 0.993,
+						"span": {
+							"offset": 65,
+							"length": 5
+						}
+					},
+					{
+						"content": "Sales",
+						"polygon": [
+							588,
+							1526,
+							794,
+							1525,
+							792,
+							1611,
+							586,
+							1608
+						],
+						"confidence": 0.997,
+						"span": {
+							"offset": 71,
+							"length": 5
+						}
+					},
+					{
+						"content": "Associate:",
+						"polygon": [
+							812,
+							1525,
+							1213,
+							1525,
+							1212,
+							1612,
+							811,
+							1612
+						],
+						"confidence": 0.994,
+						"span": {
+							"offset": 77,
+							"length": 10
+						}
+					},
+					{
+						"content": "Paul",
+						"polygon": [
+							1230,
+							1525,
+							1412,
+							1525,
+							1411,
+							1610,
+							1229,
+							1612
+						],
+						"confidence": 0.991,
+						"span": {
+							"offset": 88,
+							"length": 4
+						}
+					},
+					{
+						"content": "2",
+						"polygon": [
+							605,
+							1802,
+							663,
+							1802,
+							662,
+							1890,
+							605,
+							1889
+						],
+						"confidence": 0.998,
+						"span": {
+							"offset": 93,
+							"length": 1
+						}
+					},
+					{
+						"content": "Surface",
+						"polygon": [
+							682,
+							1802,
+							1000,
+							1798,
+							999,
+							1890,
+							681,
+							1890
+						],
+						"confidence": 0.996,
+						"span": {
+							"offset": 95,
+							"length": 7
+						}
+					},
+					{
+						"content": "Pro",
+						"polygon": [
+							1019,
+							1797,
+							1157,
+							1795,
+							1157,
+							1890,
+							1019,
+							1890
+						],
+						"confidence": 0.998,
+						"span": {
+							"offset": 103,
+							"length": 3
+						}
+					},
+					{
+						"content": "6",
+						"polygon": [
+							1175,
+							1794,
+							1234,
+							1793,
+							1234,
+							1889,
+							1175,
+							1889
+						],
+						"confidence": 0.991,
+						"span": {
+							"offset": 107,
+							"length": 1
+						}
+					},
+					{
+						"content": "$1,998.00",
+						"polygon": [
+							1525,
+							1797,
+							1880,
+							1792,
+							1880,
+							1891,
+							1528,
+							1891
+						],
+						"confidence": 0.992,
+						"span": {
+							"offset": 109,
+							"length": 9
+						}
+					},
+					{
+						"content": "3",
+						"polygon": [
+							606,
+							1937,
+							663,
+							1938,
+							666,
+							2039,
+							608,
+							2039
+						],
+						"confidence": 0.997,
+						"span": {
+							"offset": 119,
+							"length": 1
+						}
+					},
+					{
+						"content": "Surface",
+						"polygon": [
+							685,
+							1938,
+							994,
+							1939,
+							997,
+							2039,
+							687,
+							2039
+						],
+						"confidence": 0.996,
+						"span": {
+							"offset": 121,
+							"length": 7
+						}
+					},
+					{
+						"content": "Pen",
+						"polygon": [
+							1014,
+							1939,
+							1170,
+							1938,
+							1173,
+							2036,
+							1016,
+							2039
+						],
+						"confidence": 0.998,
+						"span": {
+							"offset": 129,
+							"length": 3
+						}
+					},
+					{
+						"content": "$299.97",
+						"polygon": [
+							1590,
+							1939,
+							1876,
+							1939,
+							1876,
+							2030,
+							1591,
+							2030
+						],
+						"confidence": 0.991,
+						"span": {
+							"offset": 133,
+							"length": 7
+						}
+					},
+					{
+						"content": "Sub-Total",
+						"polygon": [
+							830,
+							2226,
+							1211,
+							2223,
+							1211,
+							2313,
+							830,
+							2313
+						],
+						"confidence": 0.995,
+						"span": {
+							"offset": 141,
+							"length": 9
+						}
+					},
+					{
+						"content": "$2,297.97",
+						"polygon": [
+							1521,
+							2218,
+							1888,
+							2220,
+							1883,
+							2324,
+							1526,
+							2320
+						],
+						"confidence": 0.982,
+						"span": {
+							"offset": 151,
+							"length": 9
+						}
+					},
+					{
+						"content": "Tax",
+						"polygon": [
+							833,
+							2358,
+							972,
+							2359,
+							971,
+							2455,
+							832,
+							2454
+						],
+						"confidence": 0.997,
+						"span": {
+							"offset": 161,
+							"length": 3
+						}
+					},
+					{
+						"content": "$218.31",
+						"polygon": [
+							1610,
+							2356,
+							1884,
+							2356,
+							1884,
+							2453,
+							1610,
+							2454
+						],
+						"confidence": 0.991,
+						"span": {
+							"offset": 165,
+							"length": 7
+						}
+					},
+					{
+						"content": "Total",
+						"polygon": [
+							847,
+							2654,
+							1037,
+							2654,
+							1037,
+							2738,
+							847,
+							2737
+						],
+						"confidence": 0.997,
+						"span": {
+							"offset": 173,
+							"length": 5
+						}
+					},
+					{
+						"content": "$2,516.28",
+						"polygon": [
+							1550,
+							2642,
+							1899,
+							2640,
+							1901,
+							2743,
+							1550,
+							2743
+						],
+						"confidence": 0.98,
+						"span": {
+							"offset": 179,
+							"length": 9
+						}
+					}
+				],
+				"lines": [
+					{
+						"content": "Contoso",
+						"polygon": [
+							862,
+							268,
+							1603,
+							271,
+							1602,
+							416,
+							862,
+							415
+						],
+						"spans": [
+							{
+								"offset": 0,
+								"length": 7
+							}
+						]
+					},
+					{
+						"content": "123 Main Street",
+						"polygon": [
+							591,
+							705,
+							1174,
+							702,
+							1175,
+							787,
+							591,
+							790
+						],
+						"spans": [
+							{
+								"offset": 8,
+								"length": 15
+							}
+						]
+					},
+					{
+						"content": "Redmond, WA 98052",
+						"polygon": [
+							589,
+							839,
+							1368,
+							829,
+							1369,
+							921,
+							589,
+							928
+						],
+						"spans": [
+							{
+								"offset": 24,
+								"length": 17
+							}
+						]
+					},
+					{
+						"content": "987-654-3210",
+						"polygon": [
+							586,
+							1113,
+							1111,
+							1113,
+							1111,
+							1200,
+							586,
+							1200
+						],
+						"spans": [
+							{
+								"offset": 42,
+								"length": 12
+							}
+						]
+					},
+					{
+						"content": "6/10/2019 13:59",
+						"polygon": [
+							585,
+							1389,
+							1154,
+							1385,
+							1155,
+							1479,
+							585,
+							1487
+						],
+						"spans": [
+							{
+								"offset": 55,
+								"length": 15
+							}
+						]
+					},
+					{
+						"content": "Sales Associate: Paul",
+						"polygon": [
+							586,
+							1524,
+							1416,
+							1524,
+							1415,
+							1611,
+							586,
+							1611
+						],
+						"spans": [
+							{
+								"offset": 71,
+								"length": 21
+							}
+						]
+					},
+					{
+						"content": "2 Surface Pro 6",
+						"polygon": [
+							604,
+							1798,
+							1239,
+							1793,
+							1239,
+							1887,
+							604,
+							1890
+						],
+						"spans": [
+							{
+								"offset": 93,
+								"length": 15
+							}
+						]
+					},
+					{
+						"content": "$1,998.00",
+						"polygon": [
+							1524,
+							1793,
+							1880,
+							1791,
+							1881,
+							1890,
+							1525,
+							1891
+						],
+						"spans": [
+							{
+								"offset": 109,
+								"length": 9
+							}
+						]
+					},
+					{
+						"content": "3 Surface Pen",
+						"polygon": [
+							600,
+							1936,
+							1180,
+							1937,
+							1180,
+							2038,
+							600,
+							2038
+						],
+						"spans": [
+							{
+								"offset": 119,
+								"length": 13
+							}
+						]
+					},
+					{
+						"content": "$299.97",
+						"polygon": [
+							1589,
+							1938,
+							1879,
+							1938,
+							1879,
+							2029,
+							1589,
+							2029
+						],
+						"spans": [
+							{
+								"offset": 133,
+								"length": 7
+							}
+						]
+					},
+					{
+						"content": "Sub-Total",
+						"polygon": [
+							829,
+							2225,
+							1209,
+							2222,
+							1210,
+							2311,
+							829,
+							2313
+						],
+						"spans": [
+							{
+								"offset": 141,
+								"length": 9
+							}
+						]
+					},
+					{
+						"content": "$2,297.97",
+						"polygon": [
+							1521,
+							2217,
+							1893,
+							2219,
+							1892,
+							2323,
+							1521,
+							2319
+						],
+						"spans": [
+							{
+								"offset": 151,
+								"length": 9
+							}
+						]
+					},
+					{
+						"content": "Tax",
+						"polygon": [
+							828,
+							2358,
+							986,
+							2360,
+							984,
+							2455,
+							831,
+							2455
+						],
+						"spans": [
+							{
+								"offset": 161,
+								"length": 3
+							}
+						]
+					},
+					{
+						"content": "$218.31",
+						"polygon": [
+							1610,
+							2356,
+							1890,
+							2357,
+							1888,
+							2452,
+							1615,
+							2454
+						],
+						"spans": [
+							{
+								"offset": 165,
+								"length": 7
+							}
+						]
+					},
+					{
+						"content": "Total",
+						"polygon": [
+							847,
+							2654,
+							1038,
+							2656,
+							1038,
+							2737,
+							847,
+							2738
+						],
+						"spans": [
+							{
+								"offset": 173,
+								"length": 5
+							}
+						]
+					},
+					{
+						"content": "$2,516.28",
+						"polygon": [
+							1550,
+							2640,
+							1903,
+							2639,
+							1903,
+							2742,
+							1550,
+							2743
+						],
+						"spans": [
+							{
+								"offset": 179,
+								"length": 9
+							}
+						]
+					}
+				],
+				"spans": [
+					{
+						"offset": 0,
+						"length": 188
+					}
+				],
+				"kind": "document"
+			}
+		],
+		"paragraphs": [
+			{
+				"spans": [
+					{
+						"offset": 0,
+						"length": 7
+					}
+				],
+				"boundingRegions": [
+					{
+						"pageNumber": 1,
+						"polygon": [
+							862,
+							268,
+							1603,
+							271,
+							1602,
+							418,
+							861,
+							415
+						]
+					}
+				],
+				"content": "Contoso"
+			},
+			{
+				"spans": [
+					{
+						"offset": 8,
+						"length": 33
+					}
+				],
+				"boundingRegions": [
+					{
+						"pageNumber": 1,
+						"polygon": [
+							587,
+							705,
+							1367,
+							698,
+							1369,
+							921,
+							589,
+							928
+						]
+					}
+				],
+				"content": "123 Main Street Redmond, WA 98052"
+			},
+			{
+				"spans": [
+					{
+						"offset": 42,
+						"length": 12
+					}
+				],
+				"boundingRegions": [
+					{
+						"pageNumber": 1,
+						"polygon": [
+							586,
+							1113,
+							1111,
+							1113,
+							1111,
+							1200,
+							586,
+							1200
+						]
+					}
+				],
+				"content": "987-654-3210"
+			},
+			{
+				"spans": [
+					{
+						"offset": 55,
+						"length": 37
+					}
+				],
+				"boundingRegions": [
+					{
+						"pageNumber": 1,
+						"polygon": [
+							585,
+							1385,
+							1416,
+							1385,
+							1416,
+							1611,
+							585,
+							1611
+						]
+					}
+				],
+				"content": "6/10/2019 13:59 Sales Associate: Paul"
+			},
+			{
+				"spans": [
+					{
+						"offset": 93,
+						"length": 15
+					}
+				],
+				"boundingRegions": [
+					{
+						"pageNumber": 1,
+						"polygon": [
+							604,
+							1798,
+							1239,
+							1793,
+							1239,
+							1887,
+							604,
+							1890
+						]
+					}
+				],
+				"content": "2 Surface Pro 6"
+			},
+			{
+				"spans": [
+					{
+						"offset": 109,
+						"length": 9
+					}
+				],
+				"boundingRegions": [
+					{
+						"pageNumber": 1,
+						"polygon": [
+							1524,
+							1793,
+							1880,
+							1791,
+							1881,
+							1890,
+							1525,
+							1891
+						]
+					}
+				],
+				"content": "$1,998.00"
+			},
+			{
+				"spans": [
+					{
+						"offset": 119,
+						"length": 13
+					}
+				],
+				"boundingRegions": [
+					{
+						"pageNumber": 1,
+						"polygon": [
+							600,
+							1936,
+							1180,
+							1937,
+							1180,
+							2038,
+							600,
+							2038
+						]
+					}
+				],
+				"content": "3 Surface Pen"
+			},
+			{
+				"spans": [
+					{
+						"offset": 133,
+						"length": 7
+					}
+				],
+				"boundingRegions": [
+					{
+						"pageNumber": 1,
+						"polygon": [
+							1589,
+							1938,
+							1879,
+							1938,
+							1879,
+							2029,
+							1589,
+							2029
+						]
+					}
+				],
+				"content": "$299.97"
+			},
+			{
+				"spans": [
+					{
+						"offset": 141,
+						"length": 9
+					}
+				],
+				"boundingRegions": [
+					{
+						"pageNumber": 1,
+						"polygon": [
+							829,
+							2225,
+							1209,
+							2222,
+							1210,
+							2311,
+							829,
+							2313
+						]
+					}
+				],
+				"content": "Sub-Total"
+			},
+			{
+				"spans": [
+					{
+						"offset": 151,
+						"length": 9
+					}
+				],
+				"boundingRegions": [
+					{
+						"pageNumber": 1,
+						"polygon": [
+							1521,
+							2217,
+							1893,
+							2219,
+							1892,
+							2323,
+							1521,
+							2319
+						]
+					}
+				],
+				"content": "$2,297.97"
+			},
+			{
+				"spans": [
+					{
+						"offset": 161,
+						"length": 3
+					}
+				],
+				"boundingRegions": [
+					{
+						"pageNumber": 1,
+						"polygon": [
+							828,
+							2358,
+							986,
+							2360,
+							984,
+							2455,
+							831,
+							2455
+						]
+					}
+				],
+				"content": "Tax"
+			},
+			{
+				"spans": [
+					{
+						"offset": 165,
+						"length": 7
+					}
+				],
+				"boundingRegions": [
+					{
+						"pageNumber": 1,
+						"polygon": [
+							1610,
+							2356,
+							1890,
+							2357,
+							1888,
+							2452,
+							1615,
+							2454
+						]
+					}
+				],
+				"content": "$218.31"
+			},
+			{
+				"spans": [
+					{
+						"offset": 173,
+						"length": 5
+					}
+				],
+				"boundingRegions": [
+					{
+						"pageNumber": 1,
+						"polygon": [
+							847,
+							2654,
+							1038,
+							2656,
+							1038,
+							2737,
+							847,
+							2738
+						]
+					}
+				],
+				"content": "Total"
+			},
+			{
+				"spans": [
+					{
+						"offset": 179,
+						"length": 9
+					}
+				],
+				"boundingRegions": [
+					{
+						"pageNumber": 1,
+						"polygon": [
+							1550,
+							2640,
+							1903,
+							2639,
+							1903,
+							2742,
+							1550,
+							2743
+						]
+					}
+				],
+				"content": "$2,516.28"
+			}
+		],
+		"styles": [],
+		"documents": [
+			{
+				"docType": "receipt.retailMeal",
+				"boundingRegions": [
+					{
+						"pageNumber": 1,
+						"polygon": [
+							0,
+							0,
+							2448,
+							0,
+							2448,
+							3264,
+							0,
+							3264
+						]
+					}
+				],
+				"fields": {
+					"Items": {
+						"type": "array",
+						"valueArray": [
+							{
+								"type": "object",
+								"valueObject": {
+									"Description": {
+										"type": "string",
+										"valueString": "Surface Pro 6",
+										"content": "Surface Pro 6",
+										"boundingRegions": [
+											{
+												"pageNumber": 1,
+												"polygon": [
+													680,
+													1797,
+													1234,
+													1793,
+													1235,
+													1889,
+													681,
+													1893
+												]
+											}
+										],
+										"confidence": 0.992,
+										"spans": [
+											{
+												"offset": 95,
+												"length": 13
+											}
+										]
+									},
+									"Quantity": {
+										"type": "number",
+										"valueNumber": 2,
+										"content": "2",
+										"boundingRegions": [
+											{
+												"pageNumber": 1,
+												"polygon": [
+													605,
+													1802,
+													663,
+													1802,
+													662,
+													1890,
+													605,
+													1889
+												]
+											}
+										],
+										"confidence": 0.995,
+										"spans": [
+											{
+												"offset": 93,
+												"length": 1
+											}
+										]
+									},
+									"TotalPrice": {
+										"type": "number",
+										"valueNumber": 1998,
+										"content": "$1,998.00",
+										"boundingRegions": [
+											{
+												"pageNumber": 1,
+												"polygon": [
+													1525,
+													1797,
+													1880,
+													1792,
+													1880,
+													1891,
+													1528,
+													1891
+												]
+											}
+										],
+										"confidence": 0.995,
+										"spans": [
+											{
+												"offset": 109,
+												"length": 9
+											}
+										]
+									}
+								},
+								"content": "2 Surface Pro 6\n$1,998.00",
+								"boundingRegions": [
+									{
+										"pageNumber": 1,
+										"polygon": [
+											604,
+											1797,
+											1880,
+											1788,
+											1881,
+											1891,
+											605,
+											1900
+										]
+									}
+								],
+								"confidence": 0.494,
+								"spans": [
+									{
+										"offset": 93,
+										"length": 25
+									}
+								]
+							},
+							{
+								"type": "object",
+								"valueObject": {
+									"Description": {
+										"type": "string",
+										"valueString": "Surface Pen",
+										"content": "Surface Pen",
+										"boundingRegions": [
+											{
+												"pageNumber": 1,
+												"polygon": [
+													685,
+													1937,
+													1173,
+													1938,
+													1173,
+													2040,
+													685,
+													2039
+												]
+											}
+										],
+										"confidence": 0.989,
+										"spans": [
+											{
+												"offset": 121,
+												"length": 11
+											}
+										]
+									},
+									"Quantity": {
+										"type": "number",
+										"valueNumber": 3,
+										"content": "3",
+										"boundingRegions": [
+											{
+												"pageNumber": 1,
+												"polygon": [
+													606,
+													1937,
+													663,
+													1938,
+													666,
+													2039,
+													608,
+													2039
+												]
+											}
+										],
+										"confidence": 0.995,
+										"spans": [
+											{
+												"offset": 119,
+												"length": 1
+											}
+										]
+									},
+									"TotalPrice": {
+										"type": "number",
+										"valueNumber": 299.97,
+										"content": "$299.97",
+										"boundingRegions": [
+											{
+												"pageNumber": 1,
+												"polygon": [
+													1590,
+													1939,
+													1876,
+													1939,
+													1876,
+													2030,
+													1591,
+													2030
+												]
+											}
+										],
+										"confidence": 0.995,
+										"spans": [
+											{
+												"offset": 133,
+												"length": 7
+											}
+										]
+									}
+								},
+								"content": "3 Surface Pen\n$299.97",
+								"boundingRegions": [
+									{
+										"pageNumber": 1,
+										"polygon": [
+											606,
+											1937,
+											1876,
+											1939,
+											1876,
+											2041,
+											606,
+											2039
+										]
+									}
+								],
+								"confidence": 0.618,
+								"spans": [
+									{
+										"offset": 119,
+										"length": 21
+									}
+								]
+							}
+						]
+					},
+					"MerchantAddress": {
+						"type": "string",
+						"valueString": "123 Main Street\nRedmond, WA 98052",
+						"content": "123 Main Street Redmond, WA 98052",
+						"boundingRegions": [
+							{
+								"pageNumber": 1,
+								"polygon": [
+									587,
+									706,
+									1364,
+									699,
+									1366,
+									925,
+									589,
+									931
+								]
+							}
+						],
+						"confidence": 0.972,
+						"spans": [
+							{
+								"offset": 8,
+								"length": 33
+							}
+						]
+					},
+					"MerchantName": {
+						"type": "string",
+						"valueString": "Contoso",
+						"content": "Contoso",
+						"boundingRegions": [
+							{
+								"pageNumber": 1,
+								"polygon": [
+									862,
+									275,
+									1566,
+									290,
+									1566,
+									410,
+									862,
+									416
+								]
+							}
+						],
+						"confidence": 0.974,
+						"spans": [
+							{
+								"offset": 0,
+								"length": 7
+							}
+						]
+					},
+					"MerchantPhoneNumber": {
+						"type": "phoneNumber",
+						"valuePhoneNumber": "+19876543210",
+						"content": "987-654-3210",
+						"boundingRegions": [
+							{
+								"pageNumber": 1,
+								"polygon": [
+									587,
+									1114,
+									1110,
+									1114,
+									1111,
+									1200,
+									587,
+									1201
+								]
+							}
+						],
+						"confidence": 0.992,
+						"spans": [
+							{
+								"offset": 42,
+								"length": 12
+							}
+						]
+					},
+					"Subtotal": {
+						"type": "number",
+						"valueNumber": 2297.97,
+						"content": "$2,297.97",
+						"boundingRegions": [
+							{
+								"pageNumber": 1,
+								"polygon": [
+									1521,
+									2218,
+									1888,
+									2220,
+									1883,
+									2324,
+									1526,
+									2320
+								]
+							}
+						],
+						"confidence": 0.988,
+						"spans": [
+							{
+								"offset": 151,
+								"length": 9
+							}
+						]
+					},
+					"Total": {
+						"type": "number",
+						"valueNumber": 2516.28,
+						"content": "$2,516.28",
+						"boundingRegions": [
+							{
+								"pageNumber": 1,
+								"polygon": [
+									1550,
+									2642,
+									1899,
+									2640,
+									1901,
+									2743,
+									1550,
+									2743
+								]
+							}
+						],
+						"confidence": 0.985,
+						"spans": [
+							{
+								"offset": 179,
+								"length": 9
+							}
+						]
+					},
+					"TotalTax": {
+						"type": "number",
+						"valueNumber": 218.31,
+						"content": "$218.31",
+						"boundingRegions": [
+							{
+								"pageNumber": 1,
+								"polygon": [
+									1610,
+									2356,
+									1884,
+									2356,
+									1884,
+									2453,
+									1610,
+									2454
+								]
+							}
+						],
+						"confidence": 0.987,
+						"spans": [
+							{
+								"offset": 165,
+								"length": 7
+							}
+						]
+					},
+					"TransactionDate": {
+						"type": "date",
+						"valueDate": "2019-06-10",
+						"content": "6/10/2019",
+						"boundingRegions": [
+							{
+								"pageNumber": 1,
+								"polygon": [
+									585,
+									1392,
+									936,
+									1385,
+									937,
+									1483,
+									586,
+									1487
+								]
+							}
+						],
+						"confidence": 0.989,
+						"spans": [
+							{
+								"offset": 55,
+								"length": 9
+							}
+						]
+					},
+					"TransactionTime": {
+						"type": "time",
+						"valueTime": "13:59:00",
+						"content": "13:59",
+						"boundingRegions": [
+							{
+								"pageNumber": 1,
+								"polygon": [
+									955,
+									1385,
+									1152,
+									1387,
+									1152,
+									1475,
+									956,
+									1483
+								]
+							}
+						],
+						"confidence": 0.988,
+						"spans": [
+							{
+								"offset": 65,
+								"length": 5
+							}
+						]
+					}
+				},
+				"confidence": 0.906,
+				"spans": [
+					{
+						"offset": 0,
+						"length": 188
+					}
+				]
+			}
+		]
+	}
+}

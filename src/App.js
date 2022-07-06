@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import ImageUploading from "react-images-uploading";
+import InputHelper from './components/InputHelper';
 
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
           </div>
         )}
       </ImageUploading>
+      <InputHelper />
     </div>
   );
 }

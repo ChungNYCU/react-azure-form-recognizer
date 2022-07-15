@@ -17,6 +17,17 @@ const InputHelper = (props) => {
     const [TotalTax, setTotalTax] = useState(data.TotalTax.valueNumber);
     const [Total, setTotal] = useState(data.Total.valueNumber);
 
+    data.MerchantName.valueString = MerchantName;
+    data.MerchantAddress.valueString = MerchantAddress;
+    data.MerchantPhoneNumber.valuePhoneNumber = MerchantPhoneNumber;
+
+    data.TransactionDate.valueDate = TransactionDate;
+    data.TransactionTime.valueTime = TransactionTime;
+
+    data.Subtotal.valueNumber = Subtotal;
+    data.TotalTax.valueNumber = TotalTax;
+    data.Total.valueNumber = Total;
+
     return (
         <div key="fields"> 
             <div key="MerchantName">

@@ -7,6 +7,10 @@ const ItemsList = (props) => {
     const [Quantity, setQuantity] = useState(props.item.Quantity.valueNumber);
     const [TotalPrice, setTotalPrice] = useState(props.item.TotalPrice.valueNumber);
 
+    props.item.Description.valueString = Description;
+    props.item.Quantity.valueNumber = Quantity;
+    props.item.TotalPrice.valueNumber = TotalPrice;
+
     return (
         <div key="item">
             <span>Description: 

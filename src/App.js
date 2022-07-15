@@ -2,9 +2,13 @@ import React from 'react';
 import './App.css';
 import ImageUploading from "react-images-uploading";
 import InputHelper from './components/InputHelper';
+import MockData from './data/receipt_sample_json.json';
 
 
 function App() {
+
+  const data = MockData.analyzeResult.documents[0].fields;
+
   const [images, setImages] = React.useState([]);
   const maxNumber = 20;
   const onChange = (imageList, addUpdateIndex) => {
@@ -57,7 +61,7 @@ function App() {
           </div>
         )}
       </ImageUploading>
-      <InputHelper />
+      <InputHelper propsData = {data}/>
     </div>
   );
 }

@@ -1,11 +1,10 @@
 import React from 'react';
 import {useState} from 'react';
-import PostData from '../data/receipt_sample_json.json';
 import ItemsList from './ItemsList';
 
 const InputHelper = (props) => {
 
-    const data = PostData.analyzeResult.documents[0].fields;
+    const data = props.propsData;
 
     const [MerchantName, setMerchantName] = useState(data.MerchantName.content);
     const [MerchantAddress, setMerchantAddress] = useState(data.MerchantAddress.content);

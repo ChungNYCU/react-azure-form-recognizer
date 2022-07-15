@@ -4,18 +4,19 @@ import ItemsList from './ItemsList';
 
 const InputHelper = (props) => {
 
-    const data = props.propsData;
+    const data = props.propsData; 
 
-    const [MerchantName, setMerchantName] = useState(data.MerchantName.content);
-    const [MerchantAddress, setMerchantAddress] = useState(data.MerchantAddress.content);
-    const [MerchantPhoneNumber, setMerchantPhoneNumber] = useState(data.MerchantPhoneNumber.content);
+    const [MerchantName, setMerchantName] = useState(data.MerchantName.valueString);
+    const [MerchantAddress, setMerchantAddress] = useState(data.MerchantAddress.valueString);
+    const [MerchantPhoneNumber, setMerchantPhoneNumber] = useState(data.MerchantPhoneNumber.valuePhoneNumber);
 
-    const [TransactionDate, setTransactionDate] = useState(data.TransactionDate.content);
-    const [TransactionTime, setTransactionTime] = useState(data.TransactionTime.content);
+    const [TransactionDate, setTransactionDate] = useState(data.TransactionDate.valueDate);
+    const [TransactionTime, setTransactionTime] = useState(data.TransactionTime.valueTime);
 
-    const [Subtotal, setSubtotal] = useState(data.Subtotal.content);
-    const [TotalTax, setTotalTax] = useState(data.TotalTax.content);
-    const [Total, setTotal] = useState(data.Total.content);
+    const [Subtotal, setSubtotal] = useState(data.Subtotal.valueNumber);
+    const [TotalTax, setTotalTax] = useState(data.TotalTax.valueNumber);
+    const [Total, setTotal] = useState(data.Total.valueNumber);
+
 
 
     return (

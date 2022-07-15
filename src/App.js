@@ -4,7 +4,6 @@ import ImageUploading from "react-images-uploading";
 import InputHelper from './components/InputHelper';
 import MockData from './data/receipt_sample_json.json';
 
-
 function App() {
 
   const data = MockData.analyzeResult.documents[0].fields;

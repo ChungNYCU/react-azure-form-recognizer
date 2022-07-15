@@ -1,33 +1,31 @@
-import React, {Component} from 'react';
-import { useState, useEffect } from 'react';
+import React from 'react';
+import {useState} from 'react';
 import PostData from '../data/receipt_sample_json.json';
+import ItemsList from './ItemsList';
 
-const InputHelper = () => {
+const InputHelper = (props) => {
 
     const data = PostData.analyzeResult.documents[0].fields;
 
-    const [MerchantName, setMerchantName] = useState("");
-    const [MerchantAddress, setMerchantAddress] = useState("");
-    const [MerchantPhoneNumber, setMerchantPhoneNumber] = useState("");
+    const [MerchantName, setMerchantName] = useState(data.MerchantName.content);
+    const [MerchantAddress, setMerchantAddress] = useState(data.MerchantAddress.content);
+    const [MerchantPhoneNumber, setMerchantPhoneNumber] = useState(data.MerchantPhoneNumber.content);
 
-    const [TransactionDate, setTransactionDate] = useState("");
-    const [TransactionTime, setTransactionTime] = useState("");
+    const [TransactionDate, setTransactionDate] = useState(data.TransactionDate.content);
+    const [TransactionTime, setTransactionTime] = useState(data.TransactionTime.content);
 
-    const [Subtotal, setSubtotal] = useState("");
-    const [TotalTax, setTotalTax] = useState("");
-    const [Total, setTotal] = useState("");
+    const [Subtotal, setSubtotal] = useState(data.Subtotal.content);
+    const [TotalTax, setTotalTax] = useState(data.TotalTax.content);
+    const [Total, setTotal] = useState(data.Total.content);
 
-    const [Description, setDescription] = useState("");
-    const [Quantity, setQuantity] = useState("");
-    const [TotalPrice, setTotalPrice] = useState("");
 
     return (
         <div key="fields"> 
             <div key="MerchantName">
                 <span>Merchant Name: 
                     <input 
-                    key={"MerchantNameContent"}
-                    value={data.MerchantName.content} 
+                    key="MerchantNameContent"
+                    value={MerchantName}
                     onChange={(e)=>setMerchantName(e.target.value)}
                     />
                 </span>
@@ -35,8 +33,8 @@ const InputHelper = () => {
             <div key="MerchantAddress">
                 <span>Merchant Address: 
                     <input 
-                    key={"MerchantAddressContent"}
-                    value={data.MerchantAddress.content} 
+                    key="MerchantAddressContent"
+                    value={MerchantAddress} 
                     onChange={(e)=>setMerchantAddress(e.target.value)}
                     />
                 </span>
@@ -44,8 +42,8 @@ const InputHelper = () => {
             <div key="MerchantPhoneNumber">
                 <span>Merchant PhoneNumber: 
                     <input 
-                    key={"MerchantPhoneNumberContent"}
-                    value={data.MerchantPhoneNumber.content} 
+                    key="MerchantPhoneNumberContent"
+                    value={MerchantPhoneNumber} 
                     onChange={(e)=>setMerchantPhoneNumber(e.target.value)}
                     />
                 </span>
@@ -53,8 +51,8 @@ const InputHelper = () => {
             <div key="TransactionDate">
                 <span>TransactionDate: 
                     <input 
-                    key={"TransactionDateContent"}
-                    value={data.TransactionDate.content} 
+                    key="TransactionDateContent"
+                    value={TransactionDate} 
                     onChange={(e)=>setTransactionDate(e.target.value)}
                     />
                 </span>
@@ -62,44 +60,22 @@ const InputHelper = () => {
             <div key="TransactionTime">
                 <span>TransactionTime: 
                     <input 
-                    key={"TransactionTimeContent"}
-                    value={data.TransactionTime.content} 
+                    key="TransactionTimeContent"
+                    value={TransactionTime} 
                     onChange={(e)=>setTransactionTime(e.target.value)}
                     />
                 </span>
             </div><br/>
             <div key="Items">
-            {data.Items.valueArray.map((itemDetail, index) => {
-                return <div key={"ItemsValueArray"+String(index)}>
-                    <span>Description: 
-                        <input 
-                        key={"Description"+String(index)}
-                        value={itemDetail.valueObject.Description.content} 
-                        onChange={(e)=>setDescription(e.target.value)}
-                        />
-                    </span><br/>
-                    <span>Quantity: 
-                        <input
-                        key={"Quantity"+String(index)}
-                        value={itemDetail.valueObject.Quantity.content} 
-                        onChange={(e)=>setQuantity(e.target.value)}
-                        />
-                    </span><br/>
-                    <span>TotalPrice: 
-                        <input 
-                        key={"TotalPrice"+String(index)}
-                        value={itemDetail.valueObject.TotalPrice.content} 
-                        onChange={(e)=>setTotalPrice(e.target.value)}
-                        />
-                    </span><br/>
-                </div>
-            })}
+            {data.Items.valueArray.map((itemDetail, index) => (
+                <ItemsList item={itemDetail.valueObject} key={index}/>
+            ))}
             </div><br/>
             <div key="Subtotal">
                 <span>Subtotal: 
                     <input 
-                    key={"SubtotalContent"}
-                    value={data.Subtotal.content} 
+                    key="SubtotalContent"
+                    value={Subtotal} 
                     onChange={(e)=>setSubtotal(e.target.value)}
                     />
                 </span>
@@ -107,8 +83,8 @@ const InputHelper = () => {
             <div key="TotalTax">
                 <span>TotalTax: 
                     <input 
-                    key={"TotalTaxContent"}
-                    value={data.TotalTax.content} 
+                    key="TotalTaxContent"
+                    value={TotalTax} 
                     onChange={(e)=>setTotalTax(e.target.value)}
                     />
                 </span>
@@ -116,8 +92,8 @@ const InputHelper = () => {
             <div key="Total">
                 <span>Total: 
                     <input 
-                    key={"TotalContent"}
-                    value={data.Total.content} 
+                    key="TotalContent"
+                    value={Total} 
                     onChange={(e)=>setTotal(e.target.value)}
                     />
                 </span>

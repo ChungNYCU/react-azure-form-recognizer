@@ -3,9 +3,9 @@ import {useState} from 'react';
 
 const ItemsList = (props) => {
 
-    const [Description, setDescription] = useState(props.item.Description.content);
-    const [Quantity, setQuantity] = useState(props.item.Quantity.content);
-    const [TotalPrice, setTotalPrice] = useState(props.item.TotalPrice.content);
+    const [Description, setDescription] = useState(props.item.Description.valueString);
+    const [Quantity, setQuantity] = useState(props.item.Quantity.valueNumber);
+    const [TotalPrice, setTotalPrice] = useState(props.item.TotalPrice.valueNumber);
 
     return (
         <div key="item">

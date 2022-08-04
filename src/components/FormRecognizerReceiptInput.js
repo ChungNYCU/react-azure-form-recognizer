@@ -4,7 +4,7 @@ import ItemsList from './ItemsList';
 
 const FormRecognizerReceiptInput = (props) => {
 
-    const data = props.propsData;
+    const data = props.propsData; 
 
     const [merchantName, setMerchantName] = useState(data.MerchantName.valueString);
     const [merchantAddress, setMerchantAddress] = useState(data.MerchantAddress.valueString);

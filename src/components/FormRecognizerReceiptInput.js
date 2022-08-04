@@ -2,31 +2,31 @@ import React from 'react';
 import {useState} from 'react';
 import ItemsList from './ItemsList';
 
-const InputHelper = (props) => {
+const FormRecognizerReceiptInput = (props) => {
 
     const data = props.propsData;
 
-    const [MerchantName, setMerchantName] = useState(data.MerchantName.valueString);
-    const [MerchantAddress, setMerchantAddress] = useState(data.MerchantAddress.valueString);
-    const [MerchantPhoneNumber, setMerchantPhoneNumber] = useState(data.MerchantPhoneNumber.valuePhoneNumber);
+    const [merchantName, setMerchantName] = useState(data.MerchantName.valueString);
+    const [merchantAddress, setMerchantAddress] = useState(data.MerchantAddress.valueString);
+    const [merchantPhoneNumber, setMerchantPhoneNumber] = useState(data.MerchantPhoneNumber.valuePhoneNumber);
 
-    const [TransactionDate, setTransactionDate] = useState(data.TransactionDate.valueDate);
-    const [TransactionTime, setTransactionTime] = useState(data.TransactionTime.valueTime);
+    const [transactionDate, setTransactionDate] = useState(data.TransactionDate.valueDate);
+    const [transactionTime, setTransactionTime] = useState(data.TransactionTime.valueTime);
 
-    const [Subtotal, setSubtotal] = useState(data.Subtotal.valueNumber);
-    const [TotalTax, setTotalTax] = useState(data.TotalTax.valueNumber);
-    const [Total, setTotal] = useState(data.Total.valueNumber);
+    const [subtotal, setSubtotal] = useState(data.Subtotal.valueNumber);
+    const [totalTax, setTotalTax] = useState(data.TotalTax.valueNumber);
+    const [total, setTotal] = useState(data.Total.valueNumber);
 
-    data.MerchantName.valueString = MerchantName;
-    data.MerchantAddress.valueString = MerchantAddress;
-    data.MerchantPhoneNumber.valuePhoneNumber = MerchantPhoneNumber;
+    data.MerchantName.valueString = merchantName;
+    data.MerchantAddress.valueString = merchantAddress;
+    data.MerchantPhoneNumber.valuePhoneNumber = merchantPhoneNumber;
 
-    data.TransactionDate.valueDate = TransactionDate;
-    data.TransactionTime.valueTime = TransactionTime;
+    data.TransactionDate.valueDate = transactionDate;
+    data.TransactionTime.valueTime = transactionTime;
 
-    data.Subtotal.valueNumber = Subtotal;
-    data.TotalTax.valueNumber = TotalTax;
-    data.Total.valueNumber = Total;
+    data.Subtotal.valueNumber = subtotal;
+    data.TotalTax.valueNumber = totalTax;
+    data.Total.valueNumber = total;
 
     return (
         <div key="fields"> 
@@ -34,7 +34,7 @@ const InputHelper = (props) => {
                 <span>Merchant Name: 
                     <input 
                     key="MerchantNameContent"
-                    value={MerchantName}
+                    value={merchantName}
                     onChange={(e)=>setMerchantName(e.target.value)}
                     />
                 </span>
@@ -43,7 +43,7 @@ const InputHelper = (props) => {
                 <span>Merchant Address: 
                     <input 
                     key="MerchantAddressContent"
-                    value={MerchantAddress} 
+                    value={merchantAddress} 
                     onChange={(e)=>setMerchantAddress(e.target.value)}
                     />
                 </span>
@@ -52,7 +52,7 @@ const InputHelper = (props) => {
                 <span>Merchant PhoneNumber: 
                     <input 
                     key="MerchantPhoneNumberContent"
-                    value={MerchantPhoneNumber} 
+                    value={merchantPhoneNumber} 
                     onChange={(e)=>setMerchantPhoneNumber(e.target.value)}
                     />
                 </span>
@@ -61,7 +61,7 @@ const InputHelper = (props) => {
                 <span>TransactionDate: 
                     <input 
                     key="TransactionDateContent"
-                    value={TransactionDate} 
+                    value={transactionDate} 
                     onChange={(e)=>setTransactionDate(e.target.value)}
                     />
                 </span>
@@ -70,7 +70,7 @@ const InputHelper = (props) => {
                 <span>TransactionTime: 
                     <input 
                     key="TransactionTimeContent"
-                    value={TransactionTime} 
+                    value={transactionTime} 
                     onChange={(e)=>setTransactionTime(e.target.value)}
                     />
                 </span>
@@ -84,7 +84,7 @@ const InputHelper = (props) => {
                 <span>Subtotal: 
                     <input 
                     key="SubtotalContent"
-                    value={Subtotal} 
+                    value={subtotal} 
                     onChange={(e)=>setSubtotal(e.target.value)}
                     />
                 </span>
@@ -93,7 +93,7 @@ const InputHelper = (props) => {
                 <span>TotalTax: 
                     <input 
                     key="TotalTaxContent"
-                    value={TotalTax} 
+                    value={totalTax} 
                     onChange={(e)=>setTotalTax(e.target.value)}
                     />
                 </span>
@@ -102,7 +102,7 @@ const InputHelper = (props) => {
                 <span>Total: 
                     <input 
                     key="TotalContent"
-                    value={Total} 
+                    value={total} 
                     onChange={(e)=>setTotal(e.target.value)}
                     />
                 </span>
@@ -111,4 +111,4 @@ const InputHelper = (props) => {
     )
 }
 
-export default InputHelper;
+export default FormRecognizerReceiptInput;

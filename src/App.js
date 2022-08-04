@@ -1,7 +1,8 @@
 import React from 'react';
+import ImageUploading from 'react-images-uploading';
+
 import './App.css';
-import ImageUploading from "react-images-uploading";
-import InputHelper from './components/InputHelper';
+import FormRecognizerReceiptInput from './components/FormRecognizerReceiptInput';
 import MockData from './data/receipt_sample_json.json';
 
 function App() {
@@ -11,15 +12,13 @@ function App() {
   const [images, setImages] = React.useState([]);
   const maxNumber = 20;
   const onChange = (imageList, addUpdateIndex) => {
-    // data for submit
     console.log(imageList, addUpdateIndex);
     setImages(imageList);
   };
-  let lenOfimages = images.length;
 
   return (
     <div className="App">
-      <div>Number of receipts: {lenOfimages}</div>
+      <div>Number of receipts: {images.length}</div>
       <ImageUploading
         multiple
         value={images}
@@ -37,7 +36,6 @@ function App() {
           isDragging,
           dragProps
         }) => (
-          // write your building UI
           <div className="upload__image-wrapper">
             <button
               style={isDragging ? { color: "red" } : null}
@@ -60,7 +58,7 @@ function App() {
           </div>
         )}
       </ImageUploading>
-      <InputHelper propsData = {data}/>
+      <FormRecognizerReceiptInput propsData = {data}/>
     </div>
   );
 }

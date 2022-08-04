@@ -3,34 +3,34 @@ import {useState} from 'react';
 
 const ItemsList = (props) => {
 
-    const [Description, setDescription] = useState(props.item.Description.valueString);
-    const [Quantity, setQuantity] = useState(props.item.Quantity.valueNumber);
-    const [TotalPrice, setTotalPrice] = useState(props.item.TotalPrice.valueNumber);
+    const [description, setDescription] = useState(props.item.Description.valueString);
+    const [quantity, setQuantity] = useState(props.item.Quantity.valueNumber);
+    const [totalPrice, setTotalPrice] = useState(props.item.TotalPrice.valueNumber);
 
-    props.item.Description.valueString = Description;
-    props.item.Quantity.valueNumber = Quantity;
-    props.item.TotalPrice.valueNumber = TotalPrice;
+    props.item.Description.valueString = description;
+    props.item.Quantity.valueNumber = quantity;
+    props.item.TotalPrice.valueNumber = totalPrice;
 
     return (
         <div key="item">
             <span>Description: 
                 <input 
                 key="Description"
-                value={Description}
+                value={description}
                 onChange={(e)=>setDescription(e.target.value)}
                 />
             </span><br/>
             <span>Quantity: 
                 <input
                 key="Quantity"
-                value={Quantity} 
+                value={quantity} 
                 onChange={(e)=>setQuantity(e.target.value)}
                 />
             </span><br/>
             <span>TotalPrice: 
                 <input 
                 key="TotalPrice"
-                value={TotalPrice} 
+                value={totalPrice} 
                 onChange={(e)=>setTotalPrice(e.target.value)}
                 />
             </span><br/>

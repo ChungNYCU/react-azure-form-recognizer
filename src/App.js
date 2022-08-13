@@ -1,18 +1,19 @@
 import React from 'react';
+import {useState} from 'react';
 import ImageUploading from 'react-images-uploading';
 
 import './App.css';
-import FormRecognizerReceiptInput from './components/FormRecognizerReceiptInput';
+import GetFormRecongnizerResult from './components/GetFormRecongnizerResult';
 import MockData from './data/receipt_sample_json.json';
 
 function App() {
 
   const data = MockData.analyzeResult.documents[0].fields;
 
-  const [images, setImages] = React.useState([]);
+  const [images, setImages] = useState([]);
   const maxNumber = 20;
   const onChange = (imageList, addUpdateIndex) => {
-    console.log(imageList, addUpdateIndex);
+    //console.log(imageList[0].data_url, addUpdateIndex);
     setImages(imageList);
   };
 
@@ -49,6 +50,7 @@ function App() {
             {imageList.map((image, index) => (
               <div key={index} className="image-item">
                 <img src={image.data_url} alt="" width="500" />
+                <GetFormRecongnizerResult receiptURL={image.data_url}/>
                 <div className="image-item__btn-wrapper">
                   <button onClick={() => onImageUpdate(index)}>Update</button>
                   <button onClick={() => onImageRemove(index)}>Remove</button>
@@ -58,7 +60,9 @@ function App() {
           </div>
         )}
       </ImageUploading>
-      <FormRecognizerReceiptInput propsData = {data}/>
+
+      {/* <FormRecognizerReceiptInput propsData = {data}/> */}
+      {/* <GetFormRecongnizerResult /> */}
     </div>
   );
 }

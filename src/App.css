@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.FileUpload-container {
+  display:flex; 
+  flex-direction:row;
+  margin-left: 10%;
+}
+
+.img {
+  margin-right: 100px;
+}

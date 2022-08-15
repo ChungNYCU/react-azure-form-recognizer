@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import FormRecognizerReceiptInput from './FormRecognizerReceiptInput';
+import FormRecognizerKeyValuePairDisplay from './FormRecognizerKeyValuePairDisplay';
 
-const GetFormRecongnizerResult = (props) => {
+const FormRecongnizerResultDisplay = (props) => {
 
   const [data, setData] = useState([]);
 
@@ -47,11 +47,11 @@ const GetFormRecongnizerResult = (props) => {
   return (
     <div key="Fields">
       {Object.keys(data).map((key, index) => (
-        <FormRecognizerReceiptInput objectKey={key} objectValue={data[key]} key={index} />
+        <FormRecognizerKeyValuePairDisplay objectKey={key} objectValue={data[key]} key={index} />
       ))}
     <button onClick={showTotalValue}>Check total value</button>
     </div>
   )
 }
 
-export default GetFormRecongnizerResult;
+export default FormRecongnizerResultDisplay;

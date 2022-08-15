@@ -1,6 +1,9 @@
 import React from 'react';
 import FormRecognizerKeyValuePairDisplay from './FormRecognizerKeyValuePairDisplay';
 
+// input: item(object)
+// pass items list in ItemsListDisplay 
+// then call FormRecognizerKeyValuePairDisplay to process keyValue pairs.
 const ItemsListDisplay = (props) => {
     const data = props.item;
 

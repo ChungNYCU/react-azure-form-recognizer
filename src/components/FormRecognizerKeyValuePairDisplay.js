@@ -2,10 +2,15 @@ import React from 'react';
 import {useState} from 'react';
 import ItemsListDisplay from './ItemsListDisplay';
 
+// input: objectValue(object), objectKey(string)
+// pass keyValue in and display input fields 
 const FormRecognizerKeyValuePairDisplay = (props) => {
+
     const data = props.objectValue;
     const key = props.objectKey;
 
+    // if key equal to Items then call ItemsListDisplay component to process data, 
+    // otherwise generate input feild by key and value.
     if(key === 'Items'){
         return (
             <div key={key}>

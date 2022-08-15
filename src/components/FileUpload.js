@@ -4,14 +4,19 @@ import uploadFileToBlob, { isStorageConfigured } from './azureBlob';
 import GetFormRecongnizerResult from './GetFormRecongnizerResult';
 import '../App.css';
 
+const containerName = 'test';
+const storageAccountName = process.env.storageresourcename || "msftfr"; // Fill string with your Storage resource name
 const storageConfigured = isStorageConfigured();
 
 const FileUpload = () => {
+  //
+  const [fileNames, setFileNames] = useState([]);
+
   // all blobs in container
   const [blobList, setBlobList] = useState([]);
 
   // current file to upload into container
-  const [fileSelected, setFileSelected] = useState(null);
+  const [fileSelected, setFileSelected] = useState([]);
 
   // UI/form management
   const [uploading, setUploading] = useState(false);
@@ -19,19 +24,23 @@ const FileUpload = () => {
 
   const onFileChange = (event) => {
     // capture file into state
-    console.log(event.target.files[0]);
-    setFileSelected(event.target.files[0]);
+    console.log(event.target.files);
+    setFileSelected(event.target.files);
   };
 
-  const onFileUpload = async () => {
+  const onFileUpload = () => {
+
+    if(fileSelected.length === 0){
+      alert('No file selected');
+    }
+
     // prepare UI
     setUploading(true);
 
-    // *** UPLOAD TO AZURE STORAGE ***
-    const blobsInContainer = await uploadFileToBlob(fileSelected);
-
-    // prepare UI for results
-    setBlobList(blobsInContainer);
+    for (let i = 0; i < fileSelected.length; i++) {
+      let file = fileSelected.item(i);
+      fileUpload(file);
+    }
 
     // reset state/form
     setFileSelected(null);
@@ -39,10 +48,18 @@ const FileUpload = () => {
     setInputKey(Math.random().toString(36));
   };
 
+  const fileUpload = async (file) => {
+    // *** UPLOAD TO AZURE STORAGE ***
+    const blobsInContainer = await uploadFileToBlob(file);
+    // prepare UI for results
+    fileNames.push(`https://${storageAccountName}.blob.core.windows.net/${containerName}/${file.name}`);
+    setBlobList(blobsInContainer);
+  };
+
   // display form
   const DisplayForm = () => (
     <div>
-      <input type="file" onChange={onFileChange} key={inputKey || ''} />
+      <input type="file" onChange={onFileChange} key={inputKey || ''} multiple/>
       <button type="submit" onClick={onFileUpload}>
         Upload!
       </button>
@@ -54,12 +71,12 @@ const FileUpload = () => {
     <div>
       <h1>Container items</h1>
       <ul>
-        {blobList.map((item) => {
+        {fileNames.map((item) => {
           return (
             <li key={item}>
               <h2>{Path.basename(item)}</h2>
               <div className="FileUpload-container">
-                <img className="img" src={item} alt={item} height="800" width="600"/>
+                <img className="img" src={item} alt={item} height="800" width="450"/>
                 <GetFormRecongnizerResult receiptURL = {item}/>
               </div>
             </li>

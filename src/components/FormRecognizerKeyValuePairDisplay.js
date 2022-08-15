@@ -1,8 +1,8 @@
 import React from 'react';
 import {useState} from 'react';
-import ItemsList from './ItemsList';
+import ItemsListDisplay from './ItemsListDisplay';
 
-const FormRecognizerReceiptInput = (props) => {
+const FormRecognizerKeyValuePairDisplay = (props) => {
     const data = props.objectValue;
     const key = props.objectKey;
 
@@ -11,7 +11,7 @@ const FormRecognizerReceiptInput = (props) => {
             <div key={key}>
                 <h3>Item list</h3>
                 {data.values.map((items, index) => (
-                    <ItemsList item={items.properties} key={index}/>
+                    <ItemsListDisplay item={items.properties} key={index}/>
                 ))}
                 <h3>Transaction information</h3>
             </div>
@@ -34,4 +34,4 @@ const FormRecognizerReceiptInput = (props) => {
     
 }
 
-export default FormRecognizerReceiptInput;
+export default FormRecognizerKeyValuePairDisplay;

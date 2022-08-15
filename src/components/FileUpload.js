@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Path from 'path';
 import uploadFileToBlob, { isStorageConfigured } from './azureBlob';
-import GetFormRecongnizerResult from './GetFormRecongnizerResult';
+import FormRecongnizerResultDisplay from './FormRecongnizerResultDisplay';
 import '../App.css';
 
 const containerName = 'test';
@@ -23,6 +23,9 @@ const FileUpload = () => {
   const [inputKey, setInputKey] = useState(Math.random().toString(36));
 
   const onFileChange = (event) => {
+    // reset file names
+    setFileNames([]);
+
     // capture file into state
     console.log(event.target.files);
     setFileSelected(event.target.files);
@@ -43,7 +46,7 @@ const FileUpload = () => {
     }
 
     // reset state/form
-    setFileSelected(null);
+    setFileSelected([]);
     setUploading(false);
     setInputKey(Math.random().toString(36));
   };
@@ -69,7 +72,7 @@ const FileUpload = () => {
   // display file name and image
   const DisplayImagesFromContainer = () => (
     <div>
-      <h1>Container items</h1>
+      <h1>Uploaded Receipts</h1>
       <ul>
         {fileNames.map((item) => {
           return (
@@ -77,7 +80,7 @@ const FileUpload = () => {
               <h2>{Path.basename(item)}</h2>
               <div className="FileUpload-container">
                 <img className="img" src={item} alt={item} height="800" width="450"/>
-                <GetFormRecongnizerResult receiptURL = {item}/>
+                <FormRecongnizerResultDisplay receiptURL = {item}/>
               </div>
             </li>
           );
@@ -88,7 +91,7 @@ const FileUpload = () => {
 
   return (
     <div>
-      <h1>Upload file to Azure Blob Storage</h1>
+      <h1>Upload receipts to Microsoft Form Recognizer</h1>
       {storageConfigured && !uploading && DisplayForm()}
       {storageConfigured && uploading && <div>Uploading</div>}
       <hr />

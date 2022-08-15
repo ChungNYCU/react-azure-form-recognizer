@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Path from 'path';
-import uploadFileToBlob, { isStorageConfigured } from './azureBlob';
+
 import FormRecongnizerResultDisplay from './FormRecongnizerResultDisplay';
+import uploadFileToBlob, { isStorageConfigured } from './azureBlob';
+
 import '../App.css';
 
 const containerName = 'test';

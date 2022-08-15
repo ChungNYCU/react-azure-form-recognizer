@@ -16,7 +16,6 @@ const FormRecongnizerResultDisplay = (props) => {
   //74fd2f36e33e415d8484bb143df36bfc
   const endpoint = "https://mfr.cognitiveservices.azure.com/";
   const receiptURL = props.receiptURL;
-  console.log(props.receiptURL);
 
   function showTotalValue() {
     alert(data.Total.value);

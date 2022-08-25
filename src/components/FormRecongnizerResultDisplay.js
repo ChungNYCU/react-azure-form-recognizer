@@ -8,6 +8,8 @@ import FormRecognizerKeyValuePairDisplay from './FormRecognizerKeyValuePairDispl
 const FormRecongnizerResultDisplay = (props) => {
 
   const [data, setData] = useState([]);
+  // fetch state: -1=loading, 0=fail, 1=success
+  const [fetchState, setFetchState] = useState(-1);
 
   const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
   // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
@@ -32,8 +34,12 @@ const FormRecongnizerResultDisplay = (props) => {
         } = await poller.pollUntilDone();
         console.log(result.fields);
         setData(result.fields);
+        // set state to success
+        setFetchState(1);
       }catch(err){
         console.log(err);
+        // set state to fail
+        setFetchState(0);
       }
     };
   
@@ -42,7 +48,9 @@ const FormRecongnizerResultDisplay = (props) => {
   
   return (
     <div key="Fields">
-      {Object.keys(data).map((key, index) => (
+      {fetchState===-1 && <h3>Loading...</h3>}
+      {fetchState=== 0 && <h3>Something went wrong, check console log</h3>}
+      {fetchState=== 1 && Object.keys(data).map((key, index) => (
         <FormRecognizerKeyValuePairDisplay objectKey={key} objectValue={data[key]} key={index} />
       ))}
     <button onClick={showTotalValue}>Check total value</button>

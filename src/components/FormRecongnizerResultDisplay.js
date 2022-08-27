@@ -6,10 +6,9 @@ import FormRecognizerKeyValuePairDisplay from './FormRecognizerKeyValuePairDispl
 // pass receipt image url into FormRecongnizerResultDisplay
 // then display all keyValue information as input fields
 const FormRecongnizerResultDisplay = (props) => {
-
+  const state = {loading: -1, fail: 0, success: 1}
   const [data, setData] = useState([]);
-  // fetch state: -1=loading, 0=fail, 1=success
-  const [fetchState, setFetchState] = useState(-1);
+  const [fetchState, setFetchState] = useState(state.loading);
 
   const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
   // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
@@ -35,11 +34,11 @@ const FormRecongnizerResultDisplay = (props) => {
         console.log(result.fields);
         setData(result.fields);
         // set state to success
-        setFetchState(1);
+        setFetchState(state.success);
       }catch(err){
         console.log(err);
         // set state to fail
-        setFetchState(0);
+        setFetchState(state.fail);
       }
     };
   
@@ -48,9 +47,9 @@ const FormRecongnizerResultDisplay = (props) => {
   
   return (
     <div key="Fields">
-      {fetchState===-1 && <h3>Loading...</h3>}
-      {fetchState=== 0 && <h3>Something went wrong, check console log</h3>}
-      {fetchState=== 1 && Object.keys(data).map((key, index) => (
+      {fetchState=== state.loading && <h3>Loading...</h3>}
+      {fetchState=== state.fail && <h3>Something went wrong, check console log</h3>}
+      {fetchState=== state.success && Object.keys(data).map((key, index) => (
         <FormRecognizerKeyValuePairDisplay objectKey={key} objectValue={data[key]} key={index} />
       ))}
     <button onClick={showTotalValue}>Check total value</button>

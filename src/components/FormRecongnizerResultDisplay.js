@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import ImageDisplay from './ImageDisplay';
 import FormRecognizerKeyValuePairDisplay from './FormRecognizerKeyValuePairDisplay';
 
 // input: receiptURL(string)
@@ -19,7 +20,7 @@ const FormRecongnizerResultDisplay = (props) => {
   const receiptURL = props.receiptURL;
 
   // check props is updated or not
-  function showTotalValue() {
+  const showTotalValue = () => {
     alert(data.Total.value);
   }
 
@@ -45,16 +46,21 @@ const FormRecongnizerResultDisplay = (props) => {
   
     fetchData();
   }, []);
+
   
   return (
-    <div key="Fields">
-      {fetchState=== state.loading && <h3>Loading...</h3>}
-      {fetchState=== state.fail && <h3>Something went wrong, check console log</h3>}
-      {fetchState=== state.success && Object.keys(data).map((key, index) => (
-        <FormRecognizerKeyValuePairDisplay objectKey={key} objectValue={data[key]} key={index} />
-      ))}
-    <button onClick={showTotalValue}>Check total value</button>
+    <div className="FormRecongnizerResultDisplay-container">
+      <ImageDisplay receiptURL = {receiptURL} data = {data}/>
+      <div key="Fields">
+        {fetchState=== state.loading && <h3>Loading...</h3>}
+        {fetchState=== state.fail && <h3>Something went wrong, check console log</h3>}
+        {fetchState=== state.success && Object.keys(data).map((key, index) => (
+          <FormRecognizerKeyValuePairDisplay objectKey={key} objectValue={data[key]} key={index} />
+        ))}
+        <button onClick={showTotalValue}>Check total value</button>
+      </div>
     </div>
+    
   )
 }
 

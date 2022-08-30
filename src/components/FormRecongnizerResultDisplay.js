@@ -13,11 +13,12 @@ const FormRecongnizerResultDisplay = (props) => {
   const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
   // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
   const key = "74fd2f36e33e415d8484bb143df36bfc";
-  //65ade927ebb8467fbf0b42a634b79cd9
-  //74fd2f36e33e415d8484bb143df36bfc
+  // 65ade927ebb8467fbf0b42a634b79cd9
+  // 74fd2f36e33e415d8484bb143df36bfc
   const endpoint = "https://mfr.cognitiveservices.azure.com/";
   const receiptURL = props.receiptURL;
 
+  // check props is updated or not
   function showTotalValue() {
     alert(data.Total.value);
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import ItemsListDisplay from './ItemsListDisplay';
-
+ 
 // input: objectValue(object), objectKey(string)
 // pass keyValue in and display input fields 
 const FormRecognizerKeyValuePairDisplay = (props) => {
@@ -22,6 +22,7 @@ const FormRecognizerKeyValuePairDisplay = (props) => {
             </div>
         )
     }else{
+        // update user input field
         const [userInput, setUserInput] = useState(data.value);
         data.value = userInput;
         return (

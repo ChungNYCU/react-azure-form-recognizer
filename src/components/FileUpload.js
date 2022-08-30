@@ -32,7 +32,7 @@ const FileUpload = () => {
     console.log(event.target.files);
 
     // set maximum value to 2 because of Azure subscription is free tier
-    if(event.target.files.length>2){
+    if(event.target.files.length > 2){
       alert('To many files! The max is 2 files.');
     }else{
       setFileSelected(event.target.files);

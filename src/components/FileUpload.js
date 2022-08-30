@@ -86,8 +86,7 @@ const FileUpload = () => {
           return (
             <li key={item}>
               <h2>{Path.basename(item)}</h2>
-              <div className="FileUpload-container">
-                <img className="img" src={item} alt={item} height="800" width="450"/>
+              <div>
                 <FormRecongnizerResultDisplay receiptURL = {item}/>
               </div>
             </li>

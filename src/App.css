@@ -37,12 +37,30 @@
   }
 }
 
-.FileUpload-container {
+.FormRecongnizerResultDisplay-container {
   display:flex; 
   flex-direction:row;
   margin-left: 10%;
 }
 
-.img {
-  margin-right: 100px;
+.ImageDisplay-container{
+  width: 450;
+  height: 800;
+  position: relative;
+  margin: 20px;
+}
+.ImageDisplay-img{
+  width: 450;
+  height: 800;            
+  position: relative;
+  opacity: 1;
+}
+
+.ImageDisplay-overlapInfo{
+  width: 450;
+  height: 800;    
+  top: 0;
+  left: 0;        
+  position: absolute;
+  opacity: 0.5;
 }

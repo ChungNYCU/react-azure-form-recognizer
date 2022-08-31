@@ -1,5 +1,5 @@
 import React from 'react';
-import FormRecognizerKeyValuePairDisplay from './FormRecognizerKeyValuePairDisplay';
+import ResultInputFieldGenerator from './ResultInputFieldGenerator';
 
 // input: item(object)
 // pass items list in ItemsListDisplay 
@@ -10,7 +10,7 @@ const ItemsListDisplay = (props) => {
     return (
         <div>
             {Object.keys(data).map((key, index) => (
-                <FormRecognizerKeyValuePairDisplay objectKey={key} objectValue={data[key]} key={index} />
+                <ResultInputFieldGenerator objectKey={key} objectValue={data[key]} key={index} />
             ))}
             <br />
         </div>

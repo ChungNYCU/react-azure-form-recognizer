@@ -15,8 +15,8 @@ const ResultInputFieldGenerator = (props) => {
         return (
             <div key={key}>
                 <h3>Item list</h3>
-                {data.values.map((items, index) => (
-                    <ItemsListDisplay item={items.properties} key={index} />
+                {data.values.map((item, itemIndex) => (
+                    <ItemsListDisplay data={item.properties} key={itemIndex} />
                 ))}
                 <h3>Transaction information</h3>
             </div>

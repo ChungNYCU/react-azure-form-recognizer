@@ -5,12 +5,13 @@ import ResultInputFieldGenerator from './ResultInputFieldGenerator';
 // pass items list in ItemsListDisplay 
 // then call FormRecognizerKeyValuePairDisplay to process keyValue pairs.
 const ItemsListDisplay = (props) => {
-    const data = props.item;
+    const itemProperties = props.data;
+    const itemKey = props.itemIndex;
 
     return (
-        <div>
-            {Object.keys(data).map((key, index) => (
-                <ResultInputFieldGenerator objectKey={key} objectValue={data[key]} key={index} />
+        <div key = {itemKey}>
+            {Object.keys(itemProperties).map((propertie, propertiesIndex) => (
+                <ResultInputFieldGenerator objectKey={propertie} objectValue={itemProperties[propertie]} key={propertiesIndex} />
             ))}
             <br />
         </div>

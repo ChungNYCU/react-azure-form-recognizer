@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import ItemsListDisplay from './ItemsListDisplay';
+import ItemsListGenerator from './ItemsListGenerator';
 
 // input: objectValue(object), objectKey(string)
 // pass keyValue in and display input fields 
@@ -16,7 +16,7 @@ const ResultInputFieldGenerator = (props) => {
             <div key={key}>
                 <h3>Item list</h3>
                 {data.values.map((item, itemIndex) => (
-                    <ItemsListDisplay data={item.properties} key={itemIndex} />
+                    <ItemsListGenerator data={item.properties} key={itemIndex} />
                 ))}
                 <h3>Transaction information</h3>
             </div>

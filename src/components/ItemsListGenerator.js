@@ -4,7 +4,7 @@ import ResultInputFieldGenerator from './ResultInputFieldGenerator';
 // input: item(object)
 // pass items list in ItemsListDisplay 
 // then call FormRecognizerKeyValuePairDisplay to process keyValue pairs.
-const ItemsListDisplay = (props) => {
+const ItemsListGenerator = (props) => {
     const itemProperties = props.data;
     const itemKey = props.itemIndex;
 
@@ -19,4 +19,4 @@ const ItemsListDisplay = (props) => {
 }
 
 
-export default ItemsListDisplay;
+export default ItemsListGenerator;

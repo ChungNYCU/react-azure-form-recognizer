@@ -32,16 +32,16 @@ const FileUpload = () => {
     console.log(event.target.files);
 
     // set maximum value to 2 because of Azure subscription is free tier
-    if(event.target.files.length > 2){
+    if (event.target.files.length > 2) {
       alert('To many files! The max is 2 files.');
-    }else{
+    } else {
       setFileSelected(event.target.files);
     }
   };
 
   const onFileUpload = () => {
 
-    if(fileSelected.length === 0){
+    if (fileSelected.length === 0) {
       alert('No file selected');
     }
 
@@ -70,7 +70,7 @@ const FileUpload = () => {
   // display form
   const DisplayForm = () => (
     <div>
-      <input type="file" onChange={onFileChange} key={inputKey || ''} multiple/>
+      <input type="file" onChange={onFileChange} key={inputKey || ''} multiple />
       <button type="submit" onClick={onFileUpload}>
         Upload!
       </button>
@@ -87,7 +87,7 @@ const FileUpload = () => {
             <li key={item}>
               <h2>{Path.basename(item)}</h2>
               <div>
-                <FormRecongnizerResultDisplay receiptURL = {item}/>
+                <FormRecongnizerResultDisplay receiptURL={item} />
               </div>
             </li>
           );

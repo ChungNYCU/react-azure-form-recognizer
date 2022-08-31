@@ -7,7 +7,7 @@ import FormRecognizerKeyValuePairDisplay from './FormRecognizerKeyValuePairDispl
 // pass receipt image url into FormRecongnizerResultDisplay
 // then display all keyValue information as input fields
 const FormRecongnizerResultDisplay = (props) => {
-  const state = {loading: -1, fail: 0, success: 1}
+  const state = { loading: -1, fail: 0, success: 1 }
   const [data, setData] = useState([]);
   const [fetchState, setFetchState] = useState(state.loading);
 
@@ -29,7 +29,7 @@ const FormRecongnizerResultDisplay = (props) => {
       const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
       const poller = await client.beginAnalyzeDocument("prebuilt-receipt", receiptURL);
 
-      try{
+      try {
         const {
           documents: [result],
         } = await poller.pollUntilDone();
@@ -37,30 +37,30 @@ const FormRecongnizerResultDisplay = (props) => {
         setData(result.fields);
         // set state to success
         setFetchState(state.success);
-      }catch(err){
+      } catch (err) {
         console.log(err);
         // set state to fail
         setFetchState(state.fail);
       }
     };
-  
+
     fetchData();
   }, []);
 
-  
+
   return (
     <div className="FormRecongnizerResultDisplay-container">
-      <ImageDisplay receiptURL = {receiptURL} data = {data}/>
+      <ImageDisplay receiptURL={receiptURL} data={data} />
       <div key="Fields">
-        {fetchState=== state.loading && <h3>Loading...</h3>}
-        {fetchState=== state.fail && <h3>Something went wrong, check console log</h3>}
-        {fetchState=== state.success && Object.keys(data).map((key, index) => (
+        {fetchState === state.loading && <h3>Loading...</h3>}
+        {fetchState === state.fail && <h3>Something went wrong, check console log</h3>}
+        {fetchState === state.success && Object.keys(data).map((key, index) => (
           <FormRecognizerKeyValuePairDisplay objectKey={key} objectValue={data[key]} key={index} />
         ))}
         <button onClick={showTotalValue}>Check total value</button>
       </div>
     </div>
-    
+
   )
 }
 

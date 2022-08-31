@@ -36,7 +36,7 @@ const createBlobInContainer = async (containerClient, file) => {
 
   // upload file
   await blobClient.uploadBrowserData(file, options);
-  await blobClient.setMetadata({ UserName: 'shubham' });
+  await blobClient.setMetadata({ UserName: '', UserId: '' });
 };
 
 const uploadFileToBlob = async (file) => {

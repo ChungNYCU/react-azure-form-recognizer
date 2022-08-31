@@ -50,7 +50,7 @@ const FormRecongnizerResultDisplay = (props) => {
 
   return (
     <div className="FormRecongnizerResultDisplay-container">
-      <ImageDisplay receiptURL={receiptURL} data={data} width={displayWidth} height={displayHeight}/>
+      <ImageDisplay receiptURL={receiptURL} data={data} width={displayWidth} height={displayHeight} />
       <div key="Fields">
         {fetchState === state.loading && <h3>Loading...</h3>}
         {fetchState === state.fail && <h3>Something went wrong, check console log</h3>}

@@ -102,7 +102,7 @@ const FileUpload = () => {
       {storageConfigured && !uploading && DisplayForm()}
       {storageConfigured && uploading && <div>Uploading</div>}
       <hr />
-      {storageConfigured && blobList.length > 0 && DisplayImagesFromContainer()}
+      {(storageConfigured && blobList.length > 0) && DisplayImagesFromContainer()}
       {!storageConfigured && <div>Storage is not configured.</div>}
     </div>
   );

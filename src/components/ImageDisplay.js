@@ -7,17 +7,19 @@ import HighlightPolygon from './HighlightPolygon';
 const ImageDisplay = (props) => {
     const receiptURL = props.receiptURL;
     const data = props.data;
+    const displayWidth = props.width;
+    const displayHeight = props.height;
 
     // calculate ratio between origin receipt image and compression image
     const img = new Image();
     img.src = receiptURL;
-    const xRatio = 450 / img.width;
-    const yRatio = 800 / img.height;
+    const xRatio = displayWidth / img.width;
+    const yRatio = displayHeight / img.height;
 
     return (
         <div className="ImageDisplay-container">
             <div className="ImageDisplay-img">
-                <img src={receiptURL} alt={receiptURL} width="450" height="800" />
+                <img src={receiptURL} alt={receiptURL} width={displayWidth} height={displayHeight} />
             </div>
             {Object.keys(data).map((key, index) => (
                 <HighlightPolygon objectKey={key} objectValue={data[key]} xRatio={xRatio} yRatio={yRatio} key={index} />

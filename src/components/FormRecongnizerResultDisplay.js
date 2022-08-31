@@ -7,6 +7,8 @@ import FormRecognizerKeyValuePairDisplay from './FormRecognizerKeyValuePairDispl
 // pass receipt image url into FormRecongnizerResultDisplay
 // then display all keyValue information as input fields
 const FormRecongnizerResultDisplay = (props) => {
+  const displayWidth = props.width;
+  const displayHeight = props.height;
   const state = { loading: -1, fail: 0, success: 1 }
   const [data, setData] = useState([]);
   const [fetchState, setFetchState] = useState(state.loading);
@@ -50,7 +52,7 @@ const FormRecongnizerResultDisplay = (props) => {
 
   return (
     <div className="FormRecongnizerResultDisplay-container">
-      <ImageDisplay receiptURL={receiptURL} data={data} />
+      <ImageDisplay receiptURL={receiptURL} data={data} width={displayWidth} height={displayHeight}/>
       <div key="Fields">
         {fetchState === state.loading && <h3>Loading...</h3>}
         {fetchState === state.fail && <h3>Something went wrong, check console log</h3>}

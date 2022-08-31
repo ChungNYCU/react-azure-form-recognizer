@@ -11,7 +11,7 @@ const storageAccountName = process.env.storageresourcename || "msftfr"; // Fill 
 const storageConfigured = isStorageConfigured();
 
 const FileUpload = () => {
-  //
+  // list of image's file name
   const [fileNames, setFileNames] = useState([]);
 
   // all blobs in container
@@ -87,7 +87,7 @@ const FileUpload = () => {
             <li key={item}>
               <h2>{Path.basename(item)}</h2>
               <div>
-                <FormRecongnizerResultDisplay receiptURL={item} />
+                <FormRecongnizerResultDisplay receiptURL={item} width={450} height={800} />
               </div>
             </li>
           );

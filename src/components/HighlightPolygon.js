@@ -7,6 +7,8 @@ const HighlightPolygon = (props) => {
     const key = props.objectKey;
     const xRatio = props.xRatio;
     const yRatio = props.yRatio;
+    const displayWidth = props.width;
+    const displayHeight = props.height;
 
     const getPoint = (pointNo) => {
         const point = data.boundingRegions[0].polygon[pointNo].x * xRatio.toString() + ',' + data.boundingRegions[0].polygon[pointNo].y * yRatio.toString();
@@ -29,7 +31,7 @@ const HighlightPolygon = (props) => {
         const points = getPoints(getPoint(0), getPoint(1), getPoint(2), getPoint(3));
         return (
             <div className="ImageDisplay-overlapInfo" key={key}>
-                <svg width="450" height="800">
+                <svg width={displayWidth} height={displayHeight}>
                     <polygon points={points} />
                 </svg>
             </div>

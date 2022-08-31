@@ -22,7 +22,12 @@ const ImageDisplay = (props) => {
                 <img src={receiptURL} alt={receiptURL} width={displayWidth} height={displayHeight} />
             </div>
             {Object.keys(data).map((key, index) => (
-                <HighlightPolygon objectKey={key} objectValue={data[key]} xRatio={xRatio} yRatio={yRatio} key={index} />
+                <HighlightPolygon
+                    objectKey={key} objectValue={data[key]}
+                    xRatio={xRatio} yRatio={yRatio}
+                    width={displayWidth} height={displayHeight}
+                    key={index}
+                />
             ))}
         </div>
     )

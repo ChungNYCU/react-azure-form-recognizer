@@ -6,8 +6,8 @@ import uploadFileToBlob, { isStorageConfigured } from './azureBlob';
 
 import '../App.css';
 
-const containerName = 'test';
-const storageAccountName = process.env.storageresourcename || "msftfr"; // Fill string with your Storage resource name
+const containerName = process.env.REACT_APP_storageContainerName || "";
+const storageAccountName = process.env.REACT_APP_storageresourcename || ""; // Fill string with your Storage resource name
 const storageConfigured = isStorageConfigured();
 
 const FileUpload = () => {

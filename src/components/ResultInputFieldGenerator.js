@@ -4,7 +4,7 @@ import ItemsListDisplay from './ItemsListDisplay';
 
 // input: objectValue(object), objectKey(string)
 // pass keyValue in and display input fields 
-const FormRecognizerKeyValuePairDisplay = (props) => {
+const ResultInputFieldGenerator = (props) => {
 
     const data = props.objectValue;
     const key = props.objectKey;
@@ -40,4 +40,4 @@ const FormRecognizerKeyValuePairDisplay = (props) => {
 
 }
 
-export default FormRecognizerKeyValuePairDisplay;
+export default ResultInputFieldGenerator;

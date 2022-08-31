@@ -15,8 +15,8 @@ const HighlightPolygon = (props) => {
         return point;
     }
 
-    const getPoints = (a, b, c, d) => {
-        return a + ' ' + b + ' ' + c + ' ' + d;
+    const getPoints = (pt1, pt2, pt3, pt4) => {
+        return pt1 + ' ' + pt2 + ' ' + pt3 + ' ' + pt4;
     }
 
     // if key equal to Items then call HighlightPolygon component again for each item to process data, 
@@ -24,7 +24,12 @@ const HighlightPolygon = (props) => {
     if (key === 'Items') {
         return (
             (data.values.map((items, index) => (
-                <HighlightPolygon objectKey={"Item" + index.toString()} objectValue={items} xRatio={xRatio} yRatio={yRatio} key={index} />
+                <HighlightPolygon
+                    objectKey={"Item" + index.toString()} objectValue={items}
+                    xRatio={xRatio} yRatio={yRatio}
+                    width={displayWidth} height={displayHeight}
+                    key={index}
+                />
             )))
         )
     } else {

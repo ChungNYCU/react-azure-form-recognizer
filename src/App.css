@@ -32,35 +32,46 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
 .FormRecongnizerResultDisplay-container {
-  display:flex; 
-  flex-direction:row;
+  display: flex;
+  flex-direction: row;
   margin-left: 10%;
 }
 
-.ImageDisplay-container{
+.ImageDisplay-container {
   width: 450;
   height: 800;
   position: relative;
   margin: 20px;
 }
-.ImageDisplay-img{
+
+.ImageDisplay-img {
   width: 450;
-  height: 800;            
+  height: 800;
   position: relative;
   opacity: 1;
 }
 
-.ImageDisplay-overlapInfo{
+.ImageDisplay-overlapInfo {
   width: 450;
-  height: 800;    
+  height: 800;
   top: 0;
-  left: 0;        
+  left: 0;
   position: absolute;
+}
+
+.polygon {
+  fill: black;
+  opacity: 0.2;
+}
+
+.polygon:hover {
+  fill: red;
   opacity: 0.5;
 }

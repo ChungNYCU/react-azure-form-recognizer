@@ -35,11 +35,7 @@ const HighlightPolygon = (props) => {
     } else {
         const points = getPoints(getPoint(0), getPoint(1), getPoint(2), getPoint(3));
         return (
-            <div className="ImageDisplay-overlapInfo" key={key}>
-                <svg width={displayWidth} height={displayHeight}>
-                    <polygon points={points} />
-                </svg>
-            </div>
+            <polygon points={points} className={"polygon"} />
         )
     }
 }

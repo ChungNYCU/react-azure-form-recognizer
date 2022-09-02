@@ -21,14 +21,18 @@ const ImageDisplay = (props) => {
             <div className="ImageDisplay-img">
                 <img src={receiptURL} alt={receiptURL} width={displayWidth} height={displayHeight} />
             </div>
-            {Object.keys(data).map((key, index) => (
-                <HighlightPolygon
-                    objectKey={key} objectValue={data[key]}
-                    xRatio={xRatio} yRatio={yRatio}
-                    width={displayWidth} height={displayHeight}
-                    key={index}
-                />
-            ))}
+            <div className="ImageDisplay-overlapInfo">
+                <svg width={displayWidth} height={displayHeight}>
+                    {Object.keys(data).map((key, index) => (
+                        <HighlightPolygon
+                            objectKey={key} objectValue={data[key]}
+                            xRatio={xRatio} yRatio={yRatio}
+                            width={displayWidth} height={displayHeight}
+                            key={index}
+                        />
+                    ))}
+                </svg>
+            </div>
         </div>
     )
 }

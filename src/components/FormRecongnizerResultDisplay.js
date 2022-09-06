@@ -8,13 +8,14 @@ import ResultInputFieldGenerator from './ResultInputFieldGenerator';
 const FormRecongnizerResultDisplay = (props) => {
   const displayWidth = props.width;
   const displayHeight = props.height;
+  const receiptIndex = props.receiptIndex;
   const state = { loading: -1, fail: 0, success: 1 }
   const [data, setData] = useState([]);
   const [fetchState, setFetchState] = useState(state.loading);
 
   const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
   // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
-  const key = process.env.REACT_APP_API_KEY1;
+  const key = process.env.REACT_APP_API_KEY2;
   const endpoint = "https://mfr.cognitiveservices.azure.com/";
   const receiptURL = props.receiptURL;
 
@@ -49,12 +50,19 @@ const FormRecongnizerResultDisplay = (props) => {
 
   return (
     <div className="FormRecongnizerResultDisplay-container">
-      <ImageDisplay receiptURL={receiptURL} data={data} width={displayWidth} height={displayHeight} />
+      <ImageDisplay
+        receiptURL={receiptURL} data={data}
+        width={displayWidth} height={displayHeight}
+        receiptIndex={receiptIndex}
+      />
       <div key="Fields">
         {fetchState === state.loading && <h3>Loading...</h3>}
         {fetchState === state.fail && <h3>Something went wrong, check console log</h3>}
         {fetchState === state.success && Object.keys(data).map((key, index) => (
-          <ResultInputFieldGenerator objectKey={key} objectValue={data[key]} key={index} />
+          <ResultInputFieldGenerator
+            objectKey={key} objectValue={data[key]}
+            receiptIndex={receiptIndex} key={index}
+          />
         ))}
         <button onClick={showTotalValue}>Check total value</button>
       </div>

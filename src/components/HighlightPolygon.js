@@ -9,6 +9,7 @@ const HighlightPolygon = (props) => {
     const yRatio = props.yRatio;
     const displayWidth = props.width;
     const displayHeight = props.height;
+    const receiptIndex = props.receiptIndex;
 
     const getPoint = (pointNo) => {
         const point = data.boundingRegions[0].polygon[pointNo].x * xRatio.toString() + ',' + data.boundingRegions[0].polygon[pointNo].y * yRatio.toString();
@@ -20,11 +21,11 @@ const HighlightPolygon = (props) => {
     }
 
     const handleMouseOver = (e) => {
-        document.getElementById(key + "Input").style.backgroundColor = "rgba(255, 0, 0, .5)";
+        document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "rgba(255, 0, 0, .5)";
     }
 
     const handleMouseOut = (e) => {
-        document.getElementById(key + "Input").style.backgroundColor = "transparent";
+        document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "transparent";
     }
 
     // if key equal to Items then call HighlightPolygon component again for each item to process data, 
@@ -36,7 +37,7 @@ const HighlightPolygon = (props) => {
                     objectKey={"Item" + index.toString()} objectValue={item}
                     xRatio={xRatio} yRatio={yRatio}
                     width={displayWidth} height={displayHeight}
-                    key={index}
+                    receiptIndex={receiptIndex} key={index}
                 />
             )))
         )

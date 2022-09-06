@@ -82,12 +82,12 @@ const FileUpload = () => {
     <div>
       <h1>Uploaded Receipts</h1>
       <ul>
-        {fileNames.map((item) => {
+        {fileNames.map((item, index) => {
           return (
             <li key={item}>
               <h2>{Path.basename(item)}</h2>
               <div>
-                <FormRecongnizerResultDisplay receiptURL={item} width={450} height={800} />
+                <FormRecongnizerResultDisplay receiptURL={item} receiptIndex={index} width={450} height={800} />
               </div>
             </li>
           );

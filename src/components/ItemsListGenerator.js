@@ -7,11 +7,14 @@ import ResultInputFieldGenerator from './ResultInputFieldGenerator';
 const ItemsListGenerator = (props) => {
     const itemProperties = props.data;
     const itemKey = props.objectKey;
+    const receiptIndex = props.receiptIndex;
 
     return (
-        <div key={itemKey} id={itemKey + 'Input'}>
+        <div key={itemKey} id={'Receipt' + receiptIndex + itemKey + 'Input'}>
             {Object.keys(itemProperties).map((propertie, propertiesIndex) => (
-                <ResultInputFieldGenerator objectKey={propertie} objectValue={itemProperties[propertie]} key={propertiesIndex} />
+                <ResultInputFieldGenerator
+                    objectKey={propertie} objectValue={itemProperties[propertie]}
+                    receiptIndex={receiptIndex} key={propertiesIndex} />
             ))}
             <br />
         </div>

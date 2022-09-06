@@ -7,6 +7,7 @@ const ResultInputFieldGenerator = (props) => {
 
     const data = props.objectValue;
     const key = props.objectKey;
+    const receiptIndex = props.receiptIndex;
 
     // if key equal to Items then call ItemsListDisplay component to process data, 
     // otherwise generate input feild by key and value.
@@ -15,7 +16,10 @@ const ResultInputFieldGenerator = (props) => {
             <div key={key}>
                 <h3>Item list</h3>
                 {data.values.map((item, index) => (
-                    <ItemsListGenerator data={item.properties} objectKey={"Item" + index.toString()} key={index} />
+                    <ItemsListGenerator
+                        data={item.properties} objectKey={"Item" + index.toString()}
+                        receiptIndex={receiptIndex} key={index}
+                    />
                 ))}
                 <h3>Transaction information</h3>
             </div>
@@ -25,7 +29,7 @@ const ResultInputFieldGenerator = (props) => {
         const [userInput, setUserInput] = useState(data.value);
         data.value = userInput;
         return (
-            <div key={key} id={key + 'Input'}>
+            <div key={key} id={'Receipt' + receiptIndex + key + 'Input'}>
                 <label>{key + ': '}</label>
                 <input
                     key={key + 'Input'}

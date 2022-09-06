@@ -9,6 +9,7 @@ const ImageDisplay = (props) => {
     const data = props.data;
     const displayWidth = props.width;
     const displayHeight = props.height;
+    const receiptIndex = props.receiptIndex;
 
     // calculate ratio between origin receipt image and compression image
     const img = new Image();
@@ -28,7 +29,7 @@ const ImageDisplay = (props) => {
                             objectKey={key} objectValue={data[key]}
                             xRatio={xRatio} yRatio={yRatio}
                             width={displayWidth} height={displayHeight}
-                            key={index}
+                            receiptIndex={receiptIndex} key={index}
                         />
                     ))}
                 </svg>

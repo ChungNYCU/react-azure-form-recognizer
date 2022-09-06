@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import ItemsListGenerator from './ItemsListGenerator';
 
 // input: objectValue(object), objectKey(string)
@@ -15,8 +14,8 @@ const ResultInputFieldGenerator = (props) => {
         return (
             <div key={key}>
                 <h3>Item list</h3>
-                {data.values.map((item, itemIndex) => (
-                    <ItemsListGenerator data={item.properties} objectKey={"Item" + itemIndex.toString()} key={itemIndex}/>
+                {data.values.map((item, index) => (
+                    <ItemsListGenerator data={item.properties} objectKey={"Item" + index.toString()} key={index} />
                 ))}
                 <h3>Transaction information</h3>
             </div>

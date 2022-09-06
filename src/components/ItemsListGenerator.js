@@ -9,7 +9,7 @@ const ItemsListGenerator = (props) => {
     const itemKey = props.objectKey;
 
     return (
-        <div key={itemKey}>
+        <div key={itemKey} id={itemKey + 'Input'}>
             {Object.keys(itemProperties).map((propertie, propertiesIndex) => (
                 <ResultInputFieldGenerator objectKey={propertie} objectValue={itemProperties[propertie]} key={propertiesIndex} />
             ))}

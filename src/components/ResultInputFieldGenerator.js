@@ -25,14 +25,13 @@ const ResultInputFieldGenerator = (props) => {
         const [userInput, setUserInput] = useState(data.value);
         data.value = userInput;
         return (
-            <div key={key}>
-                <span>{key}:
-                    <input
-                        key={key + 'Input'}
-                        value={userInput}
-                        onChange={(e) => setUserInput(e.target.value)}
-                    />
-                </span>
+            <div key={key} id={key + 'Input'}>
+                <label>{key + ': '}</label>
+                <input
+                    key={key + 'Input'}
+                    value={userInput}
+                    onChange={(e) => setUserInput(e.target.value)}
+                />
             </div>
         )
     }

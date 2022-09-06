@@ -19,6 +19,14 @@ const HighlightPolygon = (props) => {
         return pt1 + ' ' + pt2 + ' ' + pt3 + ' ' + pt4;
     }
 
+    const handleMouseOver = (e) => {
+        document.getElementById(key + "Input").style.backgroundColor = "rgba(255, 0, 0, .5)";
+    }
+
+    const handleMouseOut = (e) => {
+        document.getElementById(key + "Input").style.backgroundColor = "transparent";
+    }
+
     // if key equal to Items then call HighlightPolygon component again for each item to process data, 
     // otherwise generate polygon on image.
     if (key === 'Items') {
@@ -35,7 +43,11 @@ const HighlightPolygon = (props) => {
     } else {
         const points = getPoints(getPoint(0), getPoint(1), getPoint(2), getPoint(3));
         return (
-            <polygon points={points} className={"polygon"} />
+            <polygon
+                points={points}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+                className={"polygon"} id={key} />
         )
     }
 }

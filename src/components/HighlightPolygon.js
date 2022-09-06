@@ -23,9 +23,9 @@ const HighlightPolygon = (props) => {
     // otherwise generate polygon on image.
     if (key === 'Items') {
         return (
-            (data.values.map((items, index) => (
+            (data.values.map((item, index) => (
                 <HighlightPolygon
-                    objectKey={"Item" + index.toString()} objectValue={items}
+                    objectKey={"Item" + index.toString()} objectValue={item}
                     xRatio={xRatio} yRatio={yRatio}
                     width={displayWidth} height={displayHeight}
                     key={index}

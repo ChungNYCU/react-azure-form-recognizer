@@ -6,7 +6,7 @@ import ResultInputFieldGenerator from './ResultInputFieldGenerator';
 // then call FormRecognizerKeyValuePairDisplay to process keyValue pairs.
 const ItemsListGenerator = (props) => {
     const itemProperties = props.data;
-    const itemKey = props.itemIndex;
+    const itemKey = props.objectKey;
 
     return (
         <div key={itemKey}>

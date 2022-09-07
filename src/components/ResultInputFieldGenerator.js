@@ -9,10 +9,17 @@ const ResultInputFieldGenerator = (props) => {
     const key = props.objectKey;
     const receiptIndex = props.receiptIndex;
 
+    const inputMouseOverColor = "rgb(0, 0, 255, .5)";
+    const inputMouseOutColor = "transparent";
+
+    const polygonMouseOverColor = "rgb(0, 0, 255, 1)";
+    const polygonMouseOutColor = "rgba(0, 0, 0, 1)";
+    const highlightPolygonMouseOutColor = "rgba(255, 255, 0, 1)";
+
     const handleMouseOver = (e) => {
         try {
-            document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = "rgba(255, 0, 0, 1)";
-            document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "rgba(255, 0, 0, 0.5)";
+            document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = polygonMouseOverColor;
+            document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = inputMouseOverColor;
         } catch (error) {
             console.error(error);
         }
@@ -20,8 +27,8 @@ const ResultInputFieldGenerator = (props) => {
 
     const handleMouseOut = (e) => {
         try {
-            document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = "rgba(0, 0, 0, 1)";
-            document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "transparent";
+            document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = polygonMouseOutColor;
+            document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = inputMouseOutColor;
         } catch (error) {
             console.error(error);
         }
@@ -29,8 +36,8 @@ const ResultInputFieldGenerator = (props) => {
 
     const handleHighlightMouseOut = (e) => {
         try {
-            document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = "rgba(0, 0, 255, 1)";
-            document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "transparent";
+            document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = highlightPolygonMouseOutColor;
+            document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = inputMouseOutColor;
         } catch (error) {
             console.error(error);
         }

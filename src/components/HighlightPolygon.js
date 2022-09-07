@@ -3,6 +3,7 @@ import React from 'react';
 // input: objectKey(string), objectValue(object), xRatio(float), yRatio(float), key(int)
 // pass data in HighlightPolygon and get points to generate polygon.
 const HighlightPolygon = (props) => {
+    
     const data = props.objectValue;
     const key = props.objectKey;
     const xRatio = props.xRatio;
@@ -10,6 +11,9 @@ const HighlightPolygon = (props) => {
     const displayWidth = props.width;
     const displayHeight = props.height;
     const receiptIndex = props.receiptIndex;
+
+    const mouseOverColor = "rgb(0, 0, 255, 0.5)";
+    const mouseOutColor = "transparent";
 
     const getPoint = (pointNo) => {
         const point = data.boundingRegions[0].polygon[pointNo].x * xRatio.toString() + ',' + data.boundingRegions[0].polygon[pointNo].y * yRatio.toString();
@@ -22,7 +26,7 @@ const HighlightPolygon = (props) => {
 
     const handleMouseOver = (e) => {
         try {
-            document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "rgba(255, 0, 0, .5)";
+            document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = mouseOverColor;
         } catch (error) {
             console.error(error);
         }
@@ -30,7 +34,7 @@ const HighlightPolygon = (props) => {
 
     const handleMouseOut = (e) => {
         try {
-            document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "transparent";
+            document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = mouseOutColor;
         } catch (error) {
             console.error(error);
         }
@@ -47,6 +51,7 @@ const HighlightPolygon = (props) => {
                     width={displayWidth} height={displayHeight}
                     receiptIndex={receiptIndex} key={index}
                 />
+                //generate detail here
             )))
         )
     } if (key === 'Total' || key === 'TransactionDate') {

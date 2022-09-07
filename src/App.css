@@ -72,12 +72,16 @@ label {
   position: absolute;
 }
 
-.polygon {
+.Polygon {
   fill: black;
   opacity: 0.2;
 }
 
-.polygon:hover {
-  fill: red;
-  opacity: 0.5;
+.HighlightPolygon {
+  fill: blue;
+  opacity: 0.2;
+}
+
+polygon:hover {
+  opacity: 0.6;
 }

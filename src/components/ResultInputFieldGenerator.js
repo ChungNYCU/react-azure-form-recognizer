@@ -9,6 +9,24 @@ const ResultInputFieldGenerator = (props) => {
     const key = props.objectKey;
     const receiptIndex = props.receiptIndex;
 
+    const handleMouseOver = (e) => {
+        document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = "rgba(255, 0, 0, 1)";
+        document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "rgba(255, 0, 0, 0.5)";
+
+    }
+
+    const handleMouseOut = (e) => {
+        document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = "rgba(0, 0, 0, 1)";
+        document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "transparent";
+
+    }
+
+    const handleHighlightMouseOut = (e) => {
+        document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = "rgba(0, 0, 255, 1)";
+        document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "transparent";
+
+    }
+
     // if key equal to Items then call ItemsListDisplay component to process data, 
     // otherwise generate input feild by key and value.
     if (key === 'Items') {
@@ -21,7 +39,35 @@ const ResultInputFieldGenerator = (props) => {
                         receiptIndex={receiptIndex} key={index}
                     />
                 ))}
-                <h3>Transaction information</h3>
+                <h3>Other information</h3>
+            </div>
+        )
+    } if (key === 'Description' || key === 'Quantity' || key === 'TotalPrice') {
+        // update user input field
+        const [userInput, setUserInput] = useState(data.value);
+        data.value = userInput;
+        return (
+            <div key={key} id={'Receipt' + receiptIndex + key + 'Input'} >
+                <label>{key + ': '}</label>
+                <input
+                    key={key + 'Input'}
+                    value={userInput}
+                    onChange={(e) => setUserInput(e.target.value)}
+                />
+            </div>
+        )
+    } if (key === 'Total' || key === 'TransactionDate') {
+        // update user input field
+        const [userInput, setUserInput] = useState(data.value);
+        data.value = userInput;
+        return (
+            <div key={key} id={'Receipt' + receiptIndex + key + 'Input'} onMouseOver={handleMouseOver} onMouseOut={handleHighlightMouseOut}>
+                <label>{key + ': '}</label>
+                <input
+                    key={key + 'Input'}
+                    value={userInput}
+                    onChange={(e) => setUserInput(e.target.value)}
+                />
             </div>
         )
     } else {
@@ -29,7 +75,7 @@ const ResultInputFieldGenerator = (props) => {
         const [userInput, setUserInput] = useState(data.value);
         data.value = userInput;
         return (
-            <div key={key} id={'Receipt' + receiptIndex + key + 'Input'}>
+            <div key={key} id={'Receipt' + receiptIndex + key + 'Input'} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
                 <label>{key + ': '}</label>
                 <input
                     key={key + 'Input'}

@@ -42,7 +42,7 @@ const ResultInputFieldGenerator = (props) => {
                 <h3>Other information</h3>
             </div>
         )
-    } if (key === 'Description' || key === 'Quantity' || key === 'TotalPrice') {
+    } if (key === 'Description' || key === 'Quantity' || key === 'Price' || key === 'TotalPrice') {
         // update user input field
         const [userInput, setUserInput] = useState(data.value);
         data.value = userInput;

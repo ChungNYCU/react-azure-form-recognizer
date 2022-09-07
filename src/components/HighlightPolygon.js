@@ -41,14 +41,23 @@ const HighlightPolygon = (props) => {
                 />
             )))
         )
+    } if (key === 'Total' || key === 'TransactionDate') {
+        const points = getPoints(getPoint(0), getPoint(1), getPoint(2), getPoint(3));
+        return (
+            <polygon points={points}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+                className={"HighlightPolygon"} id={'Receipt' + receiptIndex + key + 'Polygon'}
+            />
+        )
     } else {
         const points = getPoints(getPoint(0), getPoint(1), getPoint(2), getPoint(3));
         return (
-            <polygon
-                points={points}
+            <polygon points={points}
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}
-                className={"polygon"} id={key} />
+                className={"Polygon"} id={'Receipt' + receiptIndex + key + 'Polygon'}
+            />
         )
     }
 }

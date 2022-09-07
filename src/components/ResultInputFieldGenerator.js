@@ -10,21 +10,30 @@ const ResultInputFieldGenerator = (props) => {
     const receiptIndex = props.receiptIndex;
 
     const handleMouseOver = (e) => {
-        document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = "rgba(255, 0, 0, 1)";
-        document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "rgba(255, 0, 0, 0.5)";
-
+        try {
+            document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = "rgba(255, 0, 0, 1)";
+            document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "rgba(255, 0, 0, 0.5)";
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     const handleMouseOut = (e) => {
-        document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = "rgba(0, 0, 0, 1)";
-        document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "transparent";
-
+        try {
+            document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = "rgba(0, 0, 0, 1)";
+            document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "transparent";
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     const handleHighlightMouseOut = (e) => {
-        document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = "rgba(0, 0, 255, 1)";
-        document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "transparent";
-
+        try {
+            document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = "rgba(0, 0, 255, 1)";
+            document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "transparent";
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     // if key equal to Items then call ItemsListDisplay component to process data, 

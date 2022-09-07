@@ -1,8 +1,8 @@
 import { BlobServiceClient } from '@azure/storage-blob';
 
-const sasToken = process.env.REACT_APP_storagesastoken || ""; // Fill string with your SAS token
-const containerName = process.env.REACT_APP_storageContainerName || "";
-const storageAccountName = process.env.REACT_APP_storageresourcename || ""; // Fill string with your Storage resource name
+const sasToken = process.env.REACT_APP_storagesastoken; // Fill string with your SAS token
+const containerName = process.env.REACT_APP_storageContainerName;
+const storageAccountName = process.env.REACT_APP_storageresourcename; // Fill string with your Storage resource name
 
 // Feature flag - disable storage feature to app if not configured
 export const isStorageConfigured = () => {

@@ -36,7 +36,7 @@ const FormRecongnizerResultDisplay = (props) => {
         } = await poller.pollUntilDone();
         console.log(result.fields);
 
-        const data = { 'Total': '', 'TransactionDate': ''};
+        const data = { 'Total': { 'value': null }, 'TransactionDate': { 'value': null } };
 
         Object.keys(result.fields).map((key) => (
           data[key] = result.fields[key]

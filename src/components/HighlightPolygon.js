@@ -21,11 +21,19 @@ const HighlightPolygon = (props) => {
     }
 
     const handleMouseOver = (e) => {
-        document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "rgba(255, 0, 0, .5)";
+        try {
+            document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "rgba(255, 0, 0, .5)";
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     const handleMouseOut = (e) => {
-        document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "transparent";
+        try {
+            document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = "transparent";
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     // if key equal to Items then call HighlightPolygon component again for each item to process data, 
@@ -42,23 +50,31 @@ const HighlightPolygon = (props) => {
             )))
         )
     } if (key === 'Total' || key === 'TransactionDate') {
-        const points = getPoints(getPoint(0), getPoint(1), getPoint(2), getPoint(3));
-        return (
-            <polygon points={points}
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-                className={"HighlightPolygon"} id={'Receipt' + receiptIndex + key + 'Polygon'}
-            />
-        )
+        try {
+            const points = getPoints(getPoint(0), getPoint(1), getPoint(2), getPoint(3));
+            return (
+                <polygon points={points}
+                    onMouseOver={handleMouseOver}
+                    onMouseOut={handleMouseOut}
+                    className={"HighlightPolygon"} id={'Receipt' + receiptIndex + key + 'Polygon'}
+                />
+            )
+        } catch (error) {
+            console.error(error);
+        }
     } else {
-        const points = getPoints(getPoint(0), getPoint(1), getPoint(2), getPoint(3));
-        return (
-            <polygon points={points}
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-                className={"Polygon"} id={'Receipt' + receiptIndex + key + 'Polygon'}
-            />
-        )
+        try {
+            const points = getPoints(getPoint(0), getPoint(1), getPoint(2), getPoint(3));
+            return (
+                <polygon points={points}
+                    onMouseOver={handleMouseOver}
+                    onMouseOut={handleMouseOut}
+                    className={"Polygon"} id={'Receipt' + receiptIndex + key + 'Polygon'}
+                />
+            )
+        } catch (error) {
+            console.error(error);
+        }
     }
 }
 

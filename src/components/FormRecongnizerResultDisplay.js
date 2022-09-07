@@ -15,14 +15,15 @@ const FormRecongnizerResultDisplay = (props) => {
 
   const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
   // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
-  const key = process.env.REACT_APP_API_KEY2;
-  const endpoint = "https://mfr.cognitiveservices.azure.com/";
+  const key = process.env.REACT_APP_API_KEY1;
+  const endpoint = process.env.REACT_APP_ENDPOINT;
   const receiptURL = props.receiptURL;
 
   // check props is updated or not
   const showTotalValue = () => {
     alert(data.Total.value);
   }
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,7 +35,15 @@ const FormRecongnizerResultDisplay = (props) => {
           documents: [result],
         } = await poller.pollUntilDone();
         console.log(result.fields);
-        setData(result.fields);
+
+        const data = { 'Total': '', 'TransactionDate': ''};
+
+        Object.keys(result.fields).map((key) => (
+          data[key] = result.fields[key]
+        ));
+
+        setData(data);
+
         // set state to success
         setFetchState(state.success);
       } catch (err) {
@@ -43,8 +52,8 @@ const FormRecongnizerResultDisplay = (props) => {
         setFetchState(state.fail);
       }
     };
-
     fetchData();
+
   }, []);
 
 
@@ -56,6 +65,7 @@ const FormRecongnizerResultDisplay = (props) => {
         receiptIndex={receiptIndex}
       />
       <div key="Fields">
+        <h3>Transaction information</h3>
         {fetchState === state.loading && <h3>Loading...</h3>}
         {fetchState === state.fail && <h3>Something went wrong, check console log</h3>}
         {fetchState === state.success && Object.keys(data).map((key, index) => (

@@ -24,7 +24,6 @@ const FormRecongnizerResultDisplay = (props) => {
     alert(data.Total.value);
   }
 
-
   useEffect(() => {
     const fetchData = async () => {
       const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
@@ -38,11 +37,7 @@ const FormRecongnizerResultDisplay = (props) => {
 
         const data = { 'Total': { 'value': null }, 'TransactionDate': { 'value': null } };
 
-        Object.keys(result.fields).map((key) => (
-          data[key] = result.fields[key]
-        ));
-
-        setData(data);
+        setData(Object.assign(data, result.fields));
 
         // set state to success
         setFetchState(state.success);

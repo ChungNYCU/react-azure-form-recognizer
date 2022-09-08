@@ -46,15 +46,24 @@ const HighlightPolygon = (props) => {
     if (key === 'Items') {
         return (
             (data.values.map((item, index) => (
-                (Object.keys(item.properties).map((propertie, propertiesIndex) => (
+                <svg id={item} key={index}>
                     <HighlightPolygon
-                        objectKey={'Item' + index + '_' + propertie} objectValue={item.properties[propertie]}
+                        objectKey={'Item' + index} objectValue={item}
                         xRatio={xRatio} yRatio={yRatio}
                         width={displayWidth} height={displayHeight}
-                        receiptIndex={receiptIndex} key={propertiesIndex}
+                        receiptIndex={receiptIndex} key={index}
                     />
-                )))
+                    {Object.keys(item.properties).map((propertie, propertiesIndex) => (
+                        <HighlightPolygon
+                            objectKey={'Item' + index + '_' + propertie} objectValue={item.properties[propertie]}
+                            xRatio={xRatio} yRatio={yRatio}
+                            width={displayWidth} height={displayHeight}
+                            receiptIndex={receiptIndex} key={propertiesIndex}
+                        />
+                    ))}
+                </svg>
             )))
+
         )
     } if (key === 'Total' || key === 'TransactionDate') {
         try {

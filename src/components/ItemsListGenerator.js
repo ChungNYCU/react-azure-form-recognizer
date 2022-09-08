@@ -35,7 +35,8 @@ const ItemsListGenerator = (props) => {
     }
     //onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}
     return (
-        <div key={itemKey} id={'Receipt' + receiptIndex + itemKey + 'Input'} >
+        <div key={itemKey} id={'Receipt' + receiptIndex + itemKey + 'Input'}>
+            <span onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} >{itemKey}</span>
             {Object.keys(itemProperties).map((propertie, propertiesIndex) => (
                 <ResultInputFieldGenerator
                     objectKey={itemKey + '_' + propertie} objectValue={itemProperties[propertie]}

@@ -59,7 +59,7 @@ const ResultInputFieldGenerator = (props) => {
                 <h3>Other information</h3>
             </div>
         )
-    }  if (key === 'Total' || key === 'TransactionDate') {
+    } if (key === 'Total' || key === 'TransactionDate') {
         // update user input field
         const [userInput, setUserInput] = useState(data.value);
         data.value = userInput;
@@ -77,9 +77,10 @@ const ResultInputFieldGenerator = (props) => {
         // update user input field
         const [userInput, setUserInput] = useState(data.value);
         data.value = userInput;
+        const labelContent = key.indexOf('_') === -1 ? key : key.slice(key.indexOf('_') + 1);
         return (
             <div key={key} id={'Receipt' + receiptIndex + key + 'Input'} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-                <label>{key + ': '}</label>
+                <label>{labelContent + ': '}</label>
                 <input
                     key={key + 'Input'}
                     value={userInput}

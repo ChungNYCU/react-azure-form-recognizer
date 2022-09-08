@@ -17,7 +17,6 @@ const ResultInputFieldGenerator = (props) => {
     const highlightPolygonMouseOutColor = "rgba(255, 255, 0, 1)";
 
     const handleMouseOver = (e) => {
-        console.log('Receipt' + receiptIndex + key + 'Input');
         try {
             document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = polygonMouseOverColor;
             document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = inputMouseOverColor;

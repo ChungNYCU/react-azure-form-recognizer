@@ -33,7 +33,7 @@ const ItemsListGenerator = (props) => {
             console.error(error);
         }
     }
-    //onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}
+    
     return (
         <div key={itemKey} id={'Receipt' + receiptIndex + itemKey + 'Input'}>
             <span onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} >{itemKey}</span>

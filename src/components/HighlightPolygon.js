@@ -25,7 +25,6 @@ const HighlightPolygon = (props) => {
     }
 
     const handleMouseOver = (e) => {
-        console.log('Receipt' + receiptIndex + key + 'Input');
         try {
             document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = mouseOverColor;
         } catch (error) {

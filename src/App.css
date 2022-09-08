@@ -73,7 +73,7 @@ label {
 }
 
 .Polygon {
-  fill: gray;
+  fill: black;
   opacity: 0.2;
 }
 
@@ -84,4 +84,10 @@ label {
 
 polygon:hover {
   opacity: 0.5;
+}
+
+input {
+  margin-left: 5px;
+  margin-bottom: 2.5px;
+  text-align: left;
 }

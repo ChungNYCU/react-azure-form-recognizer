@@ -85,8 +85,8 @@ const FileUpload = () => {
         {fileNames.map((item, index) => {
           return (
             <li key={item}>
-              <h2>{Path.basename(item)}</h2>
-              <div>
+              <h2 className='h2FileName'>{Path.basename(item)}</h2>
+              <div >
                 <FormRecongnizerResultDisplay receiptURL={item} receiptIndex={index} width={450} height={800} />
               </div>
             </li>

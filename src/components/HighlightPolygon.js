@@ -3,7 +3,7 @@ import React from 'react';
 // input: objectKey(string), objectValue(object), xRatio(float), yRatio(float), key(int)
 // pass data in HighlightPolygon and get points to generate polygon.
 const HighlightPolygon = (props) => {
-    
+
     const data = props.objectValue;
     const key = props.objectKey;
     const xRatio = props.xRatio;
@@ -25,6 +25,7 @@ const HighlightPolygon = (props) => {
     }
 
     const handleMouseOver = (e) => {
+        console.log('Receipt' + receiptIndex + key + 'Input');
         try {
             document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = mouseOverColor;
         } catch (error) {
@@ -45,13 +46,14 @@ const HighlightPolygon = (props) => {
     if (key === 'Items') {
         return (
             (data.values.map((item, index) => (
-                <HighlightPolygon
-                    objectKey={"Item" + index.toString()} objectValue={item}
-                    xRatio={xRatio} yRatio={yRatio}
-                    width={displayWidth} height={displayHeight}
-                    receiptIndex={receiptIndex} key={index}
-                />
-                //generate detail here
+                (Object.keys(item.properties).map((propertie, propertiesIndex) => (
+                    <HighlightPolygon
+                        objectKey={'Item' + index + '_' + propertie} objectValue={item.properties[propertie]}
+                        xRatio={xRatio} yRatio={yRatio}
+                        width={displayWidth} height={displayHeight}
+                        receiptIndex={receiptIndex} key={propertiesIndex}
+                    />
+                )))
             )))
         )
     } if (key === 'Total' || key === 'TransactionDate') {

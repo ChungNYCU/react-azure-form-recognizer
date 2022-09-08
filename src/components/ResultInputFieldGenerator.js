@@ -17,6 +17,7 @@ const ResultInputFieldGenerator = (props) => {
     const highlightPolygonMouseOutColor = "rgba(255, 255, 0, 1)";
 
     const handleMouseOver = (e) => {
+        console.log('Receipt' + receiptIndex + key + 'Input');
         try {
             document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = polygonMouseOverColor;
             document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = inputMouseOverColor;
@@ -51,28 +52,14 @@ const ResultInputFieldGenerator = (props) => {
                 <h3>Item list</h3>
                 {data.values.map((item, index) => (
                     <ItemsListGenerator
-                        data={item.properties} objectKey={"Item" + index.toString()}
+                        data={item.properties} objectKey={'Item' + index.toString()}
                         receiptIndex={receiptIndex} key={index}
                     />
                 ))}
                 <h3>Other information</h3>
             </div>
         )
-    } if (key === 'Description' || key === 'Quantity' || key === 'Price' || key === 'TotalPrice') {
-        // update user input field
-        const [userInput, setUserInput] = useState(data.value);
-        data.value = userInput;
-        return (
-            <div key={key} id={'Receipt' + receiptIndex + key + 'Input'} >
-                <label>{key + ': '}</label>
-                <input
-                    key={key + 'Input'}
-                    value={userInput}
-                    onChange={(e) => setUserInput(e.target.value)}
-                />
-            </div>
-        )
-    } if (key === 'Total' || key === 'TransactionDate') {
+    }  if (key === 'Total' || key === 'TransactionDate') {
         // update user input field
         const [userInput, setUserInput] = useState(data.value);
         data.value = userInput;

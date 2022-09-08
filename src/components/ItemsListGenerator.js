@@ -33,12 +33,12 @@ const ItemsListGenerator = (props) => {
             console.error(error);
         }
     }
-
+    //onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}
     return (
-        <div key={itemKey} id={'Receipt' + receiptIndex + itemKey + 'Input'} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+        <div key={itemKey} id={'Receipt' + receiptIndex + itemKey + 'Input'} >
             {Object.keys(itemProperties).map((propertie, propertiesIndex) => (
                 <ResultInputFieldGenerator
-                    objectKey={propertie} objectValue={itemProperties[propertie]}
+                    objectKey={itemKey + '_' + propertie} objectValue={itemProperties[propertie]}
                     receiptIndex={receiptIndex} key={propertiesIndex} />
             ))}
             <br />

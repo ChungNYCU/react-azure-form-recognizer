@@ -38,7 +38,6 @@ const ResultInputFieldGenerator = (props) => {
         } else {
             setUserInput(e.target.value);
         }
-        console.log(data);
     }
 
     const handleMouseOver = (e) => {

@@ -21,7 +21,7 @@ const FormRecongnizerResultDisplay = (props) => {
 
   // check props is updated or not
   const showTotalValue = () => {
-    alert(data.Total.value);
+    alert(data.TransactionDate.value);
   }
 
   useEffect(() => {
@@ -35,8 +35,7 @@ const FormRecongnizerResultDisplay = (props) => {
         } = await poller.pollUntilDone();
         console.log(result.fields);
 
-        const data = { 'Total': { 'value': null }, 'TransactionDate': { 'value': null } };
-
+        const data = { 'Total': { 'value': '', 'kind': 'number' }, 'TransactionDate': { 'value': null, 'kind': 'date' } };
         setData(Object.assign(data, result.fields));
 
         // set state to success
@@ -69,7 +68,8 @@ const FormRecongnizerResultDisplay = (props) => {
             receiptIndex={receiptIndex} key={index}
           />
         ))}
-        <button onClick={showTotalValue}>Check total value</button>
+        <button onClick={showTotalValue}>Check TransactionDate</button>
+        <button onClick={showTotalValue}>Calculate accruacy</button>
       </div>
     </div>
 

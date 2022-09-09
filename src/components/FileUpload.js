@@ -70,7 +70,7 @@ const FileUpload = () => {
   // display form
   const DisplayForm = () => (
     <div>
-      <input type="file" onChange={onFileChange} key={inputKey || ''} multiple />
+      <input type="file" onChange={onFileChange} key={inputKey || ''} multiple id="fileUpload" />
       <button type="submit" onClick={onFileUpload}>
         Upload!
       </button>

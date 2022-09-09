@@ -11,13 +11,18 @@ const HighlightPolygon = (props) => {
     const displayWidth = props.width;
     const displayHeight = props.height;
     const receiptIndex = props.receiptIndex;
+    const eleExist = document.getElementById('Receipt' + receiptIndex + key + 'Input');
 
     const mouseOverColor = "rgb(0, 0, 255, 0.5)";
     const mouseOutColor = "transparent";
 
     const getPoint = (pointNo) => {
-        const point = data.boundingRegions[0].polygon[pointNo].x * xRatio.toString() + ',' + data.boundingRegions[0].polygon[pointNo].y * yRatio.toString();
-        return point;
+        if ('boundingRegions' in data) {
+            const point = data.boundingRegions[0].polygon[pointNo].x * xRatio.toString() + ',' + data.boundingRegions[0].polygon[pointNo].y * yRatio.toString();
+            return point;
+        } else {
+            return '';
+        }
     }
 
     const getPoints = (pt1, pt2, pt3, pt4) => {
@@ -25,18 +30,14 @@ const HighlightPolygon = (props) => {
     }
 
     const handleMouseOver = (e) => {
-        try {
+        if (eleExist) {
             document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = mouseOverColor;
-        } catch (error) {
-            console.error(error);
         }
     }
 
     const handleMouseOut = (e) => {
-        try {
+        if (eleExist) {
             document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = mouseOutColor;
-        } catch (error) {
-            console.error(error);
         }
     }
 

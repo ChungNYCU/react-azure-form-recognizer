@@ -9,6 +9,7 @@ const ItemsListGenerator = (props) => {
     const itemProperties = props.data;
     const itemKey = props.objectKey;
     const receiptIndex = props.receiptIndex;
+    const polygonExist = document.getElementById('Receipt' + receiptIndex + itemKey + 'Polygon');
 
     const inputMouseOverColor = "rgb(0, 0, 255, .5)";
     const inputMouseOutColor = "transparent";
@@ -17,20 +18,16 @@ const ItemsListGenerator = (props) => {
     const polygonMouseOutColor = "rgba(0, 0, 0, 1)";
 
     const handleMouseOver = (e) => {
-        try {
+        if (polygonExist) {
             document.getElementById('Receipt' + receiptIndex + itemKey + 'Polygon').style.fill = polygonMouseOverColor;
             document.getElementById('Receipt' + receiptIndex + itemKey + 'Input').style.backgroundColor = inputMouseOverColor;
-        } catch (error) {
-            console.error(error);
         }
     }
 
     const handleMouseOut = (e) => {
-        try {
+        if (polygonExist) {
             document.getElementById('Receipt' + receiptIndex + itemKey + 'Polygon').style.fill = polygonMouseOutColor;
             document.getElementById('Receipt' + receiptIndex + itemKey + 'Input').style.backgroundColor = inputMouseOutColor;
-        } catch (error) {
-            console.error(error);
         }
     }
 

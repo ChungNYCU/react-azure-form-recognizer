@@ -9,7 +9,7 @@ const ResultInputFieldGenerator = (props) => {
     const key = props.objectKey;
     const receiptIndex = props.receiptIndex;
     const labelContent = key.indexOf('_') === -1 ? key : key.slice(key.indexOf('_') + 1); // item detail's label name
-    const eleExist = document.getElementById('Receipt' + receiptIndex + key + 'Polygon');
+    const polygonExist = document.getElementById('Receipt' + receiptIndex + key + 'Polygon');
 
     const inputMouseOverColor = "rgb(0, 0, 255, .5)";
     const inputMouseOutColor = "transparent";
@@ -41,21 +41,21 @@ const ResultInputFieldGenerator = (props) => {
     }
 
     const handleMouseOver = (e) => {
-        if (eleExist) {
+        if (polygonExist) {
             document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = polygonMouseOverColor;
             document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = inputMouseOverColor;
         }
     }
 
     const handleMouseOut = (e) => {
-        if (eleExist) {
+        if (polygonExist) {
             document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = polygonMouseOutColor;
             document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = inputMouseOutColor;
         }
     }
 
     const handleHighlightMouseOut = (e) => {
-        if (eleExist) {
+        if (polygonExist) {
             document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = highlightPolygonMouseOutColor;
             document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = inputMouseOutColor;
         }

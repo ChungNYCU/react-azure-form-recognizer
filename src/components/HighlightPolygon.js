@@ -11,7 +11,7 @@ const HighlightPolygon = (props) => {
     const displayWidth = props.width;
     const displayHeight = props.height;
     const receiptIndex = props.receiptIndex;
-    const eleExist = document.getElementById('Receipt' + receiptIndex + key + 'Input');
+    const inputExist = document.getElementById('Receipt' + receiptIndex + key + 'Input');
 
     const mouseOverColor = "rgb(0, 0, 255, 0.5)";
     const mouseOutColor = "transparent";
@@ -30,13 +30,13 @@ const HighlightPolygon = (props) => {
     }
 
     const handleMouseOver = (e) => {
-        if (eleExist) {
+        if (inputExist) {
             document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = mouseOverColor;
         }
     }
 
     const handleMouseOut = (e) => {
-        if (eleExist) {
+        if (inputExist) {
             document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = mouseOutColor;
         }
     }

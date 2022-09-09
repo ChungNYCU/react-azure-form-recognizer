@@ -8,6 +8,8 @@ const ResultInputFieldGenerator = (props) => {
     const data = props.objectValue;
     const key = props.objectKey;
     const receiptIndex = props.receiptIndex;
+    const labelContent = key.indexOf('_') === -1 ? key : key.slice(key.indexOf('_') + 1); // item detail's label name
+    const eleExist = document.getElementById('Receipt' + receiptIndex + key + 'Polygon');
 
     const inputMouseOverColor = "rgb(0, 0, 255, .5)";
     const inputMouseOutColor = "transparent";
@@ -16,32 +18,50 @@ const ResultInputFieldGenerator = (props) => {
     const polygonMouseOutColor = "rgba(0, 0, 0, 1)";
     const highlightPolygonMouseOutColor = "rgba(255, 255, 0, 1)";
 
+    // update user input field
+    const [userInput, setUserInput] = useState(
+        key !== 'TransactionDate' ? data.value :
+            new Date(data.value).toLocaleDateString('zh-Hans-CN', {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                timeZone: 'UTC',
+            }).replaceAll("/", "-"));
+    data.value = userInput;
+
+    const handleValueChange = (e) => {
+        if (!data.hasOwnProperty('origin')) {
+            data['origin'] = data.value;
+        }
+        if (data.kind === 'number') {
+            setUserInput(Number(e.target.value));
+        } else {
+            setUserInput(e.target.value);
+        }
+        console.log(data);
+    }
+
     const handleMouseOver = (e) => {
-        try {
+        if (eleExist) {
             document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = polygonMouseOverColor;
             document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = inputMouseOverColor;
-        } catch (error) {
-            console.error(error);
         }
     }
 
     const handleMouseOut = (e) => {
-        try {
+        if (eleExist) {
             document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = polygonMouseOutColor;
             document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = inputMouseOutColor;
-        } catch (error) {
-            console.error(error);
         }
     }
 
     const handleHighlightMouseOut = (e) => {
-        try {
+        if (eleExist) {
             document.getElementById('Receipt' + receiptIndex + key + 'Polygon').style.fill = highlightPolygonMouseOutColor;
             document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = inputMouseOutColor;
-        } catch (error) {
-            console.error(error);
         }
     }
+
 
     // if key equal to Items then call ItemsListDisplay component to process data, 
     // otherwise generate input feild by key and value.
@@ -59,31 +79,24 @@ const ResultInputFieldGenerator = (props) => {
             </div>
         )
     } if (key === 'Total' || key === 'TransactionDate') {
-        // update user input field
-        const [userInput, setUserInput] = useState(data.value);
-        data.value = userInput;
         return (
             <div key={key} id={'Receipt' + receiptIndex + key + 'Input'} onMouseOver={handleMouseOver} onMouseOut={handleHighlightMouseOut}>
                 <label>{key + ': '}</label>
-                <input
+                <input type={data.kind}
                     key={key + 'Input'}
                     value={userInput}
-                    onChange={(e) => setUserInput(e.target.value)}
+                    onChange={(e) => handleValueChange(e)}
                 />
             </div>
         )
     } else {
-        // update user input field
-        const [userInput, setUserInput] = useState(data.value);
-        data.value = userInput;
-        const labelContent = key.indexOf('_') === -1 ? key : key.slice(key.indexOf('_') + 1);
         return (
             <div key={key} id={'Receipt' + receiptIndex + key + 'Input'} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
                 <label>{labelContent + ': '}</label>
-                <input
+                <input type={data.kind}
                     key={key + 'Input'}
                     value={userInput}
-                    onChange={(e) => setUserInput(e.target.value)}
+                    onChange={(e) => handleValueChange(e)}
                 />
             </div>
         )

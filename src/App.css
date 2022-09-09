@@ -38,6 +38,10 @@
   }
 }
 
+#fileUpload{
+  width: fit-content;
+}
+
 label {
   display: inline-block;
   width: 200px;
@@ -91,6 +95,7 @@ polygon:hover {
 }
 
 input {
+  width: 175px;
   margin-left: 5px;
   margin-bottom: 2.5px;
   text-align: left;

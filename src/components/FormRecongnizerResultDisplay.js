@@ -12,6 +12,7 @@ const FormRecongnizerResultDisplay = (props) => {
   const state = { loading: -1, fail: 0, success: 1 }
   const [data, setData] = useState([]);
   const [fetchState, setFetchState] = useState(state.loading);
+  const [accuracy, setAccuracy] = useState('NaN');
 
   const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
   // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
@@ -44,8 +45,37 @@ const FormRecongnizerResultDisplay = (props) => {
         totalCount += 1;
       }
     }
-    console.log(Math.round(100 * (1 - errorCount / totalCount)) + '%');
+    setAccuracy((100 * (1 - errorCount / totalCount)).toFixed(2) + '%');
+    console.log((100 * (1 - errorCount / totalCount)).toFixed(2) + '%');
   }
+
+  //cannot detect changes in the object because they are same memory address
+  // useEffect(() => {
+  //   const checkAccuracy = () => {
+  //     let totalCount = 0;
+  //     let errorCount = 0;
+  //     for (const [key, value] of Object.entries(data)) {
+  //       if (key === 'Items') {
+  //         for (const [, itemValue] of Object.entries(value.values)) {
+  //           for (const [, propertieValue] of Object.entries(itemValue.properties)) {
+  //             if ('origin' in propertieValue && propertieValue['origin'] !== propertieValue['value']) {
+  //               errorCount += 1;
+  //             }
+  //             totalCount += 1;
+  //           }
+  //         }
+  //       } else {
+  //         if ('origin' in value && value['origin'] !== value['value']) {
+  //           errorCount += 1;
+  //         }
+  //         totalCount += 1;
+  //       }
+  //     }
+  //     console.log(Math.round(100 * (1 - errorCount / totalCount)) + '%');
+  //   }
+  //   checkAccuracy();
+
+  // }, [data]); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -91,8 +121,10 @@ const FormRecongnizerResultDisplay = (props) => {
             receiptIndex={receiptIndex} key={index}
           />
         ))}
-        <button onClick={showTotalValue}>Check TransactionDate</button>
-        <button onClick={checkAccuracy}>Calculate accruacy</button>
+        <button onClick={showTotalValue}>Check TransactionDate</button><br/>
+        <button onClick={checkAccuracy}>Calculate accuracy</button><br/>
+        <span>Accuracy:</span>
+        <span>{accuracy}</span>
       </div>
     </div>
 

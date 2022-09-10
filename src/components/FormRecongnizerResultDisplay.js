@@ -24,6 +24,29 @@ const FormRecongnizerResultDisplay = (props) => {
     alert(data.TransactionDate.value);
   }
 
+  const checkAccuracy = () => {
+    let totalCount = 0;
+    let errorCount = 0;
+    for (const [key, value] of Object.entries(data)) {
+      if (key === 'Items') {
+        for (const [, itemValue] of Object.entries(value.values)) {
+          for (const [, propertieValue] of Object.entries(itemValue.properties)) {
+            if ('origin' in propertieValue && propertieValue['origin'] !== propertieValue['value']) {
+              errorCount += 1;
+            }
+            totalCount += 1;
+          }
+        }
+      } else {
+        if ('origin' in value && value['origin'] !== value['value']) {
+          errorCount += 1;
+        }
+        totalCount += 1;
+      }
+    }
+    console.log(Math.round(100 * (1 - errorCount / totalCount)) + '%');
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
@@ -69,7 +92,7 @@ const FormRecongnizerResultDisplay = (props) => {
           />
         ))}
         <button onClick={showTotalValue}>Check TransactionDate</button>
-        <button onClick={showTotalValue}>Calculate accruacy</button>
+        <button onClick={checkAccuracy}>Calculate accruacy</button>
       </div>
     </div>
 

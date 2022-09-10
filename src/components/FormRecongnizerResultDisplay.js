@@ -6,6 +6,11 @@ import ResultInputFieldGenerator from './ResultInputFieldGenerator';
 // pass receipt image url into FormRecongnizerResultDisplay
 // then display all keyValue information as input fields
 const FormRecongnizerResultDisplay = (props) => {
+  
+  const key = process.env.REACT_APP_API_KEY1;
+  const endpoint = process.env.REACT_APP_ENDPOINT;
+  const receiptURL = props.receiptURL;
+
   const displayWidth = props.width;
   const displayHeight = props.height;
   const receiptIndex = props.receiptIndex;
@@ -18,9 +23,7 @@ const FormRecongnizerResultDisplay = (props) => {
 
   const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
   // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
-  const key = process.env.REACT_APP_API_KEY1;
-  const endpoint = process.env.REACT_APP_ENDPOINT;
-  const receiptURL = props.receiptURL;
+  
 
   // check props is updated or not
   const showTotalValue = () => {
@@ -28,7 +31,7 @@ const FormRecongnizerResultDisplay = (props) => {
   }
 
   useEffect(() => {
-    setModifyCounter(modifyCounter+1);
+    setModifyCounter(modifyCounter + 1);
   }, [modifiedInput]);
 
   useEffect(() => {

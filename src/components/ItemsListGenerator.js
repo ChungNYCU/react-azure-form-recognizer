@@ -36,6 +36,7 @@ const ItemsListGenerator = (props) => {
             <span onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} ><b>{itemKey}</b></span>
             {Object.keys(itemProperties).map((propertie, propertiesIndex) => (
                 <ResultInputFieldGenerator
+                    passModifiedData={props.passModifiedData}
                     objectKey={itemKey + '_' + propertie} objectValue={itemProperties[propertie]}
                     receiptIndex={receiptIndex} key={propertiesIndex} />
             ))}

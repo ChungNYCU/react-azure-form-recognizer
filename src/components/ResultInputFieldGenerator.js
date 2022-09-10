@@ -38,6 +38,7 @@ const ResultInputFieldGenerator = (props) => {
         } else {
             setUserInput(e.target.value);
         }
+        props.passModifiedData(e.target.value);
     }
 
     const handleMouseOver = (e) => {
@@ -70,6 +71,7 @@ const ResultInputFieldGenerator = (props) => {
                 <h3>Item list</h3>
                 {data.values.map((item, index) => (
                     <ItemsListGenerator
+                        passModifiedData={props.passModifiedData}
                         data={item.properties} objectKey={'Item' + index.toString()}
                         receiptIndex={receiptIndex} key={index}
                     />

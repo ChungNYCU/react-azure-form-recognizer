@@ -11,6 +11,7 @@ const HighlightPolygon = (props) => {
     const displayWidth = props.width;
     const displayHeight = props.height;
     const receiptIndex = props.receiptIndex;
+    const importantInfoKey = ['Total', 'TransactionDate'];
     const inputExist = document.getElementById('Receipt' + receiptIndex + key + 'Input');
 
     const mouseOverColor = "rgb(0, 0, 255, 0.5)";
@@ -65,7 +66,7 @@ const HighlightPolygon = (props) => {
             )))
 
         )
-    } if (key === 'Total' || key === 'TransactionDate') {
+    } if (importantInfoKey.includes(key)) {
         try {
             const points = getBoundingPoints(getPoint(0), getPoint(1), getPoint(2), getPoint(3));
             return (

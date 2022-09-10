@@ -8,6 +8,7 @@ const ResultInputFieldGenerator = (props) => {
     const data = props.objectValue;
     const key = props.objectKey;
     const receiptIndex = props.receiptIndex;
+    const importantInfoKey = ['Total', 'TransactionDate'];
     const labelContent = key.indexOf('_') === -1 ? key : key.slice(key.indexOf('_') + 1); // item detail's label name
     const polygonExist = document.getElementById('Receipt' + receiptIndex + key + 'Polygon');
 
@@ -79,7 +80,7 @@ const ResultInputFieldGenerator = (props) => {
                 <h3>Other information</h3>
             </div>
         )
-    } if (key === 'Total' || key === 'TransactionDate') {
+    } if (importantInfoKey.includes(key)) {
         return (
             <div key={key} id={'Receipt' + receiptIndex + key + 'Input'} onMouseOver={handleMouseOver} onMouseOut={handleHighlightMouseOut}>
                 <label>{key + ': '}</label>

@@ -43,16 +43,16 @@ const FormRecongnizerResultDisplay = (props) => {
           for (const [, itemValue] of Object.entries(value.values)) {
             for (const [, propertieValue] of Object.entries(itemValue.properties)) {
               if ('origin' in propertieValue && propertieValue['origin'] !== propertieValue['value']) {
-                errorCount += 1;
+                errorCount++;
               }
-              totalCount += 1;
+              totalCount++;
             }
           }
         } else {
           if ('origin' in value && value['origin'] !== value['value']) {
-            errorCount += 1;
+            errorCount++;
           }
-          totalCount += 1;
+          totalCount++;
         }
       }
       setAccuracy((100 * (1 - errorCount / totalCount)).toFixed(2) + '%');
@@ -82,7 +82,7 @@ const FormRecongnizerResultDisplay = (props) => {
             'kind': 'date'
           }
         };
-        
+
         setData(Object.assign(data, result.fields));
 
         // set state to success

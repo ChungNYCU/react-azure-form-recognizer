@@ -25,7 +25,7 @@ const HighlightPolygon = (props) => {
         }
     }
 
-    const getPoints = (pt1, pt2, pt3, pt4) => {
+    const getBoundingPoints = (pt1, pt2, pt3, pt4) => {
         return pt1 + ' ' + pt2 + ' ' + pt3 + ' ' + pt4;
     }
 
@@ -67,7 +67,7 @@ const HighlightPolygon = (props) => {
         )
     } if (key === 'Total' || key === 'TransactionDate') {
         try {
-            const points = getPoints(getPoint(0), getPoint(1), getPoint(2), getPoint(3));
+            const points = getBoundingPoints(getPoint(0), getPoint(1), getPoint(2), getPoint(3));
             return (
                 <polygon points={points}
                     onMouseOver={handleMouseOver}
@@ -80,7 +80,7 @@ const HighlightPolygon = (props) => {
         }
     } else {
         try {
-            const points = getPoints(getPoint(0), getPoint(1), getPoint(2), getPoint(3));
+            const points = getBoundingPoints(getPoint(0), getPoint(1), getPoint(2), getPoint(3));
             return (
                 <polygon points={points}
                     onMouseOver={handleMouseOver}

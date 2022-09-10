@@ -10,6 +10,9 @@ const containerName = process.env.REACT_APP_storageContainerName || "";
 const storageAccountName = process.env.REACT_APP_storageresourcename || ""; // Fill string with your Storage resource name
 const storageConfigured = isStorageConfigured();
 
+const displayWidth = 450;
+const displayHeight = 800;
+
 const FileUpload = () => {
   // list of image's file name
   const [fileNames, setFileNames] = useState([]);
@@ -87,7 +90,7 @@ const FileUpload = () => {
             <li key={item}>
               <h2 className='h2FileName'>{Path.basename(item)}</h2>
               <div >
-                <FormRecongnizerResultDisplay receiptURL={item} receiptIndex={index} width={450} height={800} />
+                <FormRecongnizerResultDisplay receiptURL={item} receiptIndex={index} width={displayWidth} height={displayHeight} />
               </div>
             </li>
           );

@@ -12,14 +12,14 @@ const HighlightPolygon = (props) => {
     const displayHeight = props.height;
     const receiptIndex = props.receiptIndex;
     const importantInfoKey = ['Total', 'TransactionDate'];
-    const inputExist = document.getElementById('Receipt' + receiptIndex + key + 'Input');
+    const inputExist = document.getElementById(`Receipt-${receiptIndex}-${key}-Input`);
 
     const mouseOverColor = "rgb(0, 0, 255, 0.5)";
     const mouseOutColor = "transparent";
 
     const getPoint = (pointNo) => {
         if ('boundingRegions' in data) {
-            const point = data.boundingRegions[0].polygon[pointNo].x * xRatio.toString() + ',' + data.boundingRegions[0].polygon[pointNo].y * yRatio.toString();
+            const point = `${data.boundingRegions[0].polygon[pointNo].x * xRatio.toString()},${data.boundingRegions[0].polygon[pointNo].y * yRatio.toString()}`;
             return point;
         } else {
             return '';
@@ -32,13 +32,13 @@ const HighlightPolygon = (props) => {
 
     const handleMouseOver = (e) => {
         if (inputExist) {
-            document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = mouseOverColor;
+            document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).style.backgroundColor = mouseOverColor;
         }
     }
 
     const handleMouseOut = (e) => {
         if (inputExist) {
-            document.getElementById('Receipt' + receiptIndex + key + 'Input').style.backgroundColor = mouseOutColor;
+            document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).style.backgroundColor = mouseOutColor;
         }
     }
 
@@ -49,14 +49,14 @@ const HighlightPolygon = (props) => {
             (data.values.map((item, index) => (
                 <svg id={item} key={index}>
                     <HighlightPolygon
-                        objectKey={'Item' + index} objectValue={item}
+                        objectKey={`Item-${index}`} objectValue={item}
                         xRatio={xRatio} yRatio={yRatio}
                         width={displayWidth} height={displayHeight}
                         receiptIndex={receiptIndex} key={index}
                     />
                     {Object.keys(item.properties).map((propertie, propertiesIndex) => (
                         <HighlightPolygon
-                            objectKey={'Item' + index + '_' + propertie} objectValue={item.properties[propertie]}
+                            objectKey={`Item-${index}_${propertie}`} objectValue={item.properties[propertie]}
                             xRatio={xRatio} yRatio={yRatio}
                             width={displayWidth} height={displayHeight}
                             receiptIndex={receiptIndex} key={propertiesIndex}
@@ -73,7 +73,7 @@ const HighlightPolygon = (props) => {
                 <polygon points={points}
                     onMouseOver={handleMouseOver}
                     onMouseOut={handleMouseOut}
-                    className={"HighlightPolygon"} id={'Receipt' + receiptIndex + key + 'Polygon'}
+                    className={"HighlightPolygon"} id={`Receipt-${receiptIndex}-${key}-Polygon`}
                 />
             )
         } catch (error) {
@@ -86,7 +86,7 @@ const HighlightPolygon = (props) => {
                 <polygon points={points}
                     onMouseOver={handleMouseOver}
                     onMouseOut={handleMouseOut}
-                    className={"Polygon"} id={'Receipt' + receiptIndex + key + 'Polygon'}
+                    className={"Polygon"} id={`Receipt-${receiptIndex}-${key}-Polygon`}
                 />
             )
         } catch (error) {

@@ -5,6 +5,7 @@ import HighlightPolygon from './HighlightPolygon';
 // pass Form Recognizer result into ImageDisplay
 // then show origin receipt image and overlap information on it.
 const ImageDisplay = (props) => {
+    
     const receiptURL = props.receiptURL;
     const data = props.data;
     const displayWidth = props.width;

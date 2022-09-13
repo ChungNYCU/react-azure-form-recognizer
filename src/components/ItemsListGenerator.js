@@ -9,7 +9,7 @@ const ItemsListGenerator = (props) => {
     const itemProperties = props.data;
     const itemKey = props.objectKey;
     const receiptIndex = props.receiptIndex;
-    const polygonExist = document.getElementById('Receipt' + receiptIndex + itemKey + 'Polygon');
+    const polygonExist = document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Polygon`);
 
     const inputMouseOverColor = "rgb(0, 0, 255, .5)";
     const inputMouseOutColor = "transparent";
@@ -19,25 +19,25 @@ const ItemsListGenerator = (props) => {
 
     const handleMouseOver = (e) => {
         if (polygonExist) {
-            document.getElementById('Receipt' + receiptIndex + itemKey + 'Polygon').style.fill = polygonMouseOverColor;
-            document.getElementById('Receipt' + receiptIndex + itemKey + 'Input').style.backgroundColor = inputMouseOverColor;
+            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Polygon`).style.fill = polygonMouseOverColor;
+            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Input`).style.backgroundColor = inputMouseOverColor;
         }
     }
-
     const handleMouseOut = (e) => {
         if (polygonExist) {
-            document.getElementById('Receipt' + receiptIndex + itemKey + 'Polygon').style.fill = polygonMouseOutColor;
-            document.getElementById('Receipt' + receiptIndex + itemKey + 'Input').style.backgroundColor = inputMouseOutColor;
+            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Polygon`).style.fill = polygonMouseOutColor;
+            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Input`).style.backgroundColor = inputMouseOutColor;
         }
     }
 
+
     return (
-        <div key={itemKey} id={'Receipt' + receiptIndex + itemKey + 'Input'}>
+        <div key={itemKey} id={`Receipt-${receiptIndex}-${itemKey}-Input`}>
             <span onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} ><b>{itemKey}</b></span>
             {Object.keys(itemProperties).map((propertie, propertiesIndex) => (
                 <ResultInputFieldGenerator
                     passModifiedData={props.passModifiedData}
-                    objectKey={itemKey + '_' + propertie} objectValue={itemProperties[propertie]}
+                    objectKey={`${itemKey}_${propertie}`} objectValue={itemProperties[propertie]}
                     receiptIndex={receiptIndex} key={propertiesIndex} />
             ))}
             <br />

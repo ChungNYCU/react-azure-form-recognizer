@@ -12,9 +12,6 @@ const ResultInputFieldGenerator = (props) => {
     const labelContent = key.indexOf('_') === -1 ? key : key.slice(key.indexOf('_') + 1); // item detail's label name
     const polygonExist = document.getElementById(`Receipt-${receiptIndex}-${key}-Polygon`);
 
-    const inputMouseOverColor = "rgb(0, 0, 255, .5)";
-    const inputMouseOutColor = "transparent";
-
     const polygonMouseOverColor = "rgb(0, 0, 255, 1)";
     const polygonMouseOutColor = "rgba(0, 0, 0, 1)";
     const highlightPolygonMouseOutColor = "rgba(255, 255, 0, 1)";
@@ -45,21 +42,18 @@ const ResultInputFieldGenerator = (props) => {
     const handleMouseOver = (e) => {
         if (polygonExist) {
             document.getElementById(`Receipt-${receiptIndex}-${key}-Polygon`).style.fill = polygonMouseOverColor;
-            document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).style.backgroundColor = inputMouseOverColor;
         }
     }
 
     const handleMouseOut = (e) => {
         if (polygonExist) {
             document.getElementById(`Receipt-${receiptIndex}-${key}-Polygon`).style.fill = polygonMouseOutColor;
-            document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).style.backgroundColor = inputMouseOutColor;
         }
     }
 
     const handleHighlightMouseOut = (e) => {
         if (polygonExist) {
             document.getElementById(`Receipt-${receiptIndex}-${key}-Polygon`).style.fill = highlightPolygonMouseOutColor;
-            document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).style.backgroundColor = inputMouseOutColor;
         }
     }
 
@@ -82,7 +76,8 @@ const ResultInputFieldGenerator = (props) => {
         )
     } if (importantInfoKey.includes(key)) {
         return (
-            <div key={key} id={`Receipt-${receiptIndex}-${key}-Input`} onMouseOver={handleMouseOver} onMouseOut={handleHighlightMouseOut}>
+            <div className='Input' key={key} id={`Receipt-${receiptIndex}-${key}-Input`}
+                onMouseOver={handleMouseOver} onMouseOut={handleHighlightMouseOut}>
                 <label>{key + ': '}</label>
                 <input type={data.kind}
                     key={`${key}-Input`}
@@ -93,7 +88,8 @@ const ResultInputFieldGenerator = (props) => {
         )
     } else {
         return (
-            <div key={key} id={`Receipt-${receiptIndex}-${key}-Input`} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+            <div className='Input' key={key} id={`Receipt-${receiptIndex}-${key}-Input`}
+                onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
                 <label>{labelContent + ': '}</label>
                 <input type={data.kind}
                     key={`${key}-Input`}

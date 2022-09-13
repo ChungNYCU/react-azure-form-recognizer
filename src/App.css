@@ -38,7 +38,7 @@
   }
 }
 
-#fileUpload{
+#fileUpload {
   width: fit-content;
 }
 
@@ -101,3 +101,6 @@ input {
   text-align: left;
 }
 
+.Input:hover {
+  background: rgb(0, 0, 255, .5);
+}

@@ -14,9 +14,6 @@ const HighlightPolygon = (props) => {
     const importantInfoKey = ['Total', 'TransactionDate'];
     const inputExist = document.getElementById(`Receipt-${receiptIndex}-${key}-Input`);
 
-    const mouseOverColor = "rgb(0, 0, 255, 0.5)";
-    const mouseOutColor = "transparent";
-
     const getPoint = (pointNo) => {
         if ('boundingRegions' in data) {
             const point = `${data.boundingRegions[0].polygon[pointNo].x * xRatio.toString()},${data.boundingRegions[0].polygon[pointNo].y * yRatio.toString()}`;
@@ -32,13 +29,13 @@ const HighlightPolygon = (props) => {
 
     const handleMouseOver = (e) => {
         if (inputExist) {
-            document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).style.backgroundColor = mouseOverColor;
+            document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).setAttribute('class', 'inputMouseOverColor');
         }
     }
 
     const handleMouseOut = (e) => {
         if (inputExist) {
-            document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).style.backgroundColor = mouseOutColor;
+            document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).setAttribute('class', 'inputMouseOutColor');
         }
     }
 

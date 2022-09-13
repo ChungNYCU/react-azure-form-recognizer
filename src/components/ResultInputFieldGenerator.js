@@ -12,10 +12,6 @@ const ResultInputFieldGenerator = (props) => {
     const labelContent = key.indexOf('_') === -1 ? key : key.slice(key.indexOf('_') + 1); // item detail's label name
     const polygonExist = document.getElementById(`Receipt-${receiptIndex}-${key}-Polygon`);
 
-    const polygonMouseOverColor = "rgb(0, 0, 255, 1)";
-    const polygonMouseOutColor = "rgba(0, 0, 0, 1)";
-    const highlightPolygonMouseOutColor = "rgba(255, 255, 0, 1)";
-
     // update user input field
     const [userInput, setUserInput] = useState(
         key !== 'TransactionDate' ? data.value :
@@ -42,19 +38,19 @@ const ResultInputFieldGenerator = (props) => {
 
     const handleMouseOver = (e) => {
         if (polygonExist) {
-            document.getElementById(`Receipt-${receiptIndex}-${key}-Polygon`).style.fill = polygonMouseOverColor;
+            document.getElementById(`Receipt-${receiptIndex}-${key}-Polygon`).setAttribute('class', 'polygonMouseOverColor');
         }
     }
 
     const handleMouseOut = (e) => {
         if (polygonExist) {
-            document.getElementById(`Receipt-${receiptIndex}-${key}-Polygon`).style.fill = polygonMouseOutColor;
+            document.getElementById(`Receipt-${receiptIndex}-${key}-Polygon`).setAttribute('class', 'Polygon');
         }
     }
 
     const handleHighlightMouseOut = (e) => {
         if (polygonExist) {
-            document.getElementById(`Receipt-${receiptIndex}-${key}-Polygon`).style.fill = highlightPolygonMouseOutColor;
+            document.getElementById(`Receipt-${receiptIndex}-${key}-Polygon`).setAttribute('class', 'HighlightPolygon');
         }
     }
 

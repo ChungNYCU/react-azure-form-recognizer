@@ -11,22 +11,16 @@ const ItemsListGenerator = (props) => {
     const receiptIndex = props.receiptIndex;
     const polygonExist = document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Polygon`);
 
-    const inputMouseOverColor = "rgb(0, 0, 255, .5)";
-    const inputMouseOutColor = "transparent";
-
-    const polygonMouseOverColor = "rgb(0, 0, 255, 1)";
-    const polygonMouseOutColor = "rgba(0, 0, 0, 1)";
-
     const handleMouseOver = (e) => {
         if (polygonExist) {
-            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Polygon`).style.fill = polygonMouseOverColor;
-            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Input`).style.backgroundColor = inputMouseOverColor;
+            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Polygon`).setAttribute('class', 'polygonMouseOverColor');
+            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Input`).setAttribute('class', 'inputMouseOverColor');
         }
     }
     const handleMouseOut = (e) => {
         if (polygonExist) {
-            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Polygon`).style.fill = polygonMouseOutColor;
-            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Input`).style.backgroundColor = inputMouseOutColor;
+            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Polygon`).setAttribute('class', 'Polygon');
+            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Input`).setAttribute('class', 'inputMouseOutColor');
         }
     }
 

@@ -90,6 +90,11 @@ label {
   opacity: 0.2;
 }
 
+.polygonMouseOverColor {
+  fill: blue;
+  opacity: 0.2;
+}
+
 polygon:hover {
   opacity: 0.5;
 }
@@ -103,4 +108,12 @@ input {
 
 .Input:hover {
   background: rgb(0, 0, 255, .5);
+}
+
+.inputMouseOverColor{
+  background: rgb(0, 0, 255, .5);
+}
+
+.inputMouseOutColor{
+  background: transparent;
 }

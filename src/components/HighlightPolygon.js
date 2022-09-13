@@ -70,10 +70,10 @@ const HighlightPolygon = (props) => {
         try {
             const points = getBoundingPoints(getPoint(0), getPoint(1), getPoint(2), getPoint(3));
             return (
-                <polygon points={points}
+                <polygon className={"HighlightPolygon"} points={points}
                     onMouseOver={handleMouseOver}
                     onMouseOut={handleMouseOut}
-                    className={"HighlightPolygon"} id={`Receipt-${receiptIndex}-${key}-Polygon`}
+                    id={`Receipt-${receiptIndex}-${key}-Polygon`}
                 />
             )
         } catch (error) {
@@ -83,10 +83,10 @@ const HighlightPolygon = (props) => {
         try {
             const points = getBoundingPoints(getPoint(0), getPoint(1), getPoint(2), getPoint(3));
             return (
-                <polygon points={points}
+                <polygon className={"Polygon"} points={points}
                     onMouseOver={handleMouseOver}
                     onMouseOut={handleMouseOut}
-                    className={"Polygon"} id={`Receipt-${receiptIndex}-${key}-Polygon`}
+                    id={`Receipt-${receiptIndex}-${key}-Polygon`}
                 />
             )
         } catch (error) {

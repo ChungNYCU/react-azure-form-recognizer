@@ -38,6 +38,8 @@ const FormRecongnizerResultDisplay = (props) => {
     const checkAccuracy = () => {
       let totalCount = 0;
       let errorCount = 0;
+
+      // property 'origin' is the origin value from Form Recognizer, which means user correct the value.
       for (const [key, value] of Object.entries(data)) {
         if (key === 'Items') {
           for (const [, itemValue] of Object.entries(value.values)) {

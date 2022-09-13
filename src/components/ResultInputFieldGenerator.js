@@ -28,6 +28,7 @@ const ResultInputFieldGenerator = (props) => {
     data.value = userInput;
 
     const handleValueChange = (e) => {
+        // if user modify value will add property 'origin' into object to record origin value
         if (!data.hasOwnProperty('origin')) {
             data['origin'] = data.value;
         }

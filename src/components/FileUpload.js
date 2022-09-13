@@ -6,8 +6,8 @@ import uploadFileToBlob, { isStorageConfigured } from './azureBlob';
 
 import '../App.css';
 
-const containerName = process.env.REACT_APP_storageContainerName || "";
-const storageAccountName = process.env.REACT_APP_storageresourcename || ""; // Fill string with your Storage resource name
+const containerName = process.env.REACT_APP_STORAGE_CONTAINER_NAME;
+const storageAccountName = process.env.REACT_APP_STORAGE_RESOURCE_NAME; 
 const storageConfigured = isStorageConfigured();
 
 const displayWidth = 450;

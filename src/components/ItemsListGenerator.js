@@ -20,7 +20,7 @@ const ItemsListGenerator = (props) => {
     const handleMouseOut = (e) => {
         if (polygonExist) {
             document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Polygon`).setAttribute('class', 'Polygon');
-            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Input`).setAttribute('class', 'inputMouseOutColor');
+            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Input`).setAttribute('class', 'itemMouseOutColor');
         }
     }
 

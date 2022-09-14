@@ -110,10 +110,18 @@ input {
   background: rgb(0, 0, 255, .5);
 }
 
-.inputMouseOverColor{
+.inputMouseOverColor {
   background: rgb(0, 0, 255, .5);
 }
 
-.inputMouseOutColor{
+.inputMouseOutColor {
+  background: transparent;
+}
+
+.inputMouseOutColor:hover {
+  background: rgb(0, 0, 255, .5);
+}
+
+.itemMouseOutColor {
   background: transparent;
 }

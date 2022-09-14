@@ -13,6 +13,7 @@ const HighlightPolygon = (props) => {
     const receiptIndex = props.receiptIndex;
     const importantInfoKey = ['Total', 'TransactionDate'];
     const inputExist = document.getElementById(`Receipt-${receiptIndex}-${key}-Input`);
+    const isItemField = key.includes('Item-') && !key.includes('_'); // This constant is used to confirm that the key is the whole or detail of the item
 
     const getPoint = (pointNo) => {
         if ('boundingRegions' in data) {
@@ -35,7 +36,11 @@ const HighlightPolygon = (props) => {
 
     const handleMouseOut = (e) => {
         if (inputExist) {
-            document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).setAttribute('class', 'inputMouseOutColor');
+            if (isItemField) {
+                document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).setAttribute('class', 'itemMouseOutColor');
+            } else {
+                document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).setAttribute('class', 'inputMouseOutColor');
+            }
         }
     }
 

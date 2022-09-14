@@ -27,7 +27,7 @@ const FormRecongnizerResultDisplay = (props) => {
 
   // check props is updated or not
   const showTotalValue = () => {
-    alert(data.TransactionDate.value);
+    alert(data.TransactionTime.value);
   }
 
   useEffect(() => {
@@ -84,6 +84,11 @@ const FormRecongnizerResultDisplay = (props) => {
             'kind': 'date'
           }
         };
+
+        // normalize TransactionTime to fit <input type='time'>
+        if (result.fields.hasOwnProperty('TransactionTime')) {
+          result.fields.TransactionTime.value = result.fields.TransactionTime.value.slice(0, -3);
+        }
 
         setData(Object.assign(data, result.fields));
 

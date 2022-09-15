@@ -60,6 +60,7 @@ const ResultInputFieldGenerator = (props) => {
     if (key === 'Items') {
         return (
             <div key={key}>
+                <br />
                 <h3>Item list</h3>
                 {data.values.map((item, index) => (
                     <ItemsListGenerator
@@ -68,14 +69,15 @@ const ResultInputFieldGenerator = (props) => {
                         receiptIndex={receiptIndex} key={index}
                     />
                 ))}
+                <br />
                 <h3>Other information</h3>
             </div>
         )
     } if (importantInfoKey.includes(key)) {
         return (
-            <div className='Input' key={key} id={`Receipt-${receiptIndex}-${key}-Input`}
+            <div className='col Input' key={key} id={`Receipt-${receiptIndex}-${key}-Input`}
                 onMouseOver={handleMouseOver} onMouseOut={handleHighlightMouseOut}>
-                <label>{key + ': '}</label>
+                <label>{key + ': '}</label><br />
                 <input type={data.kind}
                     key={`${key}-Input`}
                     value={userInput}
@@ -85,9 +87,9 @@ const ResultInputFieldGenerator = (props) => {
         )
     } else {
         return (
-            <div className='Input' key={key} id={`Receipt-${receiptIndex}-${key}-Input`}
+            <div className='col Input' key={key} id={`Receipt-${receiptIndex}-${key}-Input`}
                 onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-                <label>{labelContent + ': '}</label>
+                <label>{labelContent + ': '}</label><br />
                 <input type={data.kind}
                     key={`${key}-Input`}
                     value={userInput}

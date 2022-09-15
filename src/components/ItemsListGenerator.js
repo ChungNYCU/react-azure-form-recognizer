@@ -14,20 +14,20 @@ const ItemsListGenerator = (props) => {
     const handleMouseOver = (e) => {
         if (polygonExist) {
             document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Polygon`).setAttribute('class', 'polygonMouseOverColor');
-            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Input`).setAttribute('class', 'inputMouseOverColor');
+            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Input`).setAttribute('class', 'row inputMouseOverColor');
         }
     }
     const handleMouseOut = (e) => {
         if (polygonExist) {
             document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Polygon`).setAttribute('class', 'Polygon');
-            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Input`).setAttribute('class', 'itemMouseOutColor');
+            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Input`).setAttribute('class', 'row itemMouseOutColor');
         }
     }
 
 
     return (
-        <div key={itemKey} id={`Receipt-${receiptIndex}-${itemKey}-Input`}>
-            <span onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} ><b>{itemKey}</b></span>
+        <div className='row' key={itemKey} id={`Receipt-${receiptIndex}-${itemKey}-Input`}>
+            <span onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}><b>{itemKey}</b></span>
             {Object.keys(itemProperties).map((propertie, propertiesIndex) => (
                 <ResultInputFieldGenerator
                     passModifiedData={props.passModifiedData}

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Button } from 'react-bootstrap';
 import ImageDisplay from './ImageDisplay';
 import ResultInputFieldGenerator from './ResultInputFieldGenerator';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // input: receiptURL(string)
 // pass receipt image url into FormRecongnizerResultDisplay
@@ -116,19 +119,25 @@ const FormRecongnizerResultDisplay = (props) => {
         <h3>Transaction information</h3>
         {fetchState === state.loading && <h3>Loading...</h3>}
         {fetchState === state.fail && <h3>Something went wrong, check console log</h3>}
-        {fetchState === state.success && Object.keys(data).map((key, index) => (
-          <ResultInputFieldGenerator
-            passModifiedData={setModifiedInput}
-            objectKey={key} objectValue={data[key]}
-            receiptIndex={receiptIndex} key={index}
-          />
-        ))}
-        <button onClick={showTotalValue}>Check TransactionDate</button><br />
+        {fetchState === state.success &&
+          <div className='container'>
+            <div className='row'>
+              {Object.keys(data).map((key, index) => (
+                <ResultInputFieldGenerator
+                  passModifiedData={setModifiedInput}
+                  objectKey={key} objectValue={data[key]}
+                  receiptIndex={receiptIndex} key={index} />
+              ))}
+            </div>
+          </div>
+        }
+        <br />
+        <Button onClick={showTotalValue}>Check TransactionDate</Button><br />
         {/* <button onClick={checkAccuracy}>Calculate accuracy</button><br /> */}
         <span>Accuracy:</span>
         <span>{accuracy}</span>
       </div>
-    </div>
+    </div >
 
   )
 }

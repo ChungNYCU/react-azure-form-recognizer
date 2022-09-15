@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { Button } from 'react-bootstrap';
 import Path from 'path';
 
 import FormRecongnizerResultDisplay from './FormRecongnizerResultDisplay';
 import uploadFileToBlob, { isStorageConfigured } from './azureBlob';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
 
 const containerName = process.env.REACT_APP_STORAGE_CONTAINER_NAME;
-const storageAccountName = process.env.REACT_APP_STORAGE_RESOURCE_NAME; 
+const storageAccountName = process.env.REACT_APP_STORAGE_RESOURCE_NAME;
 const storageConfigured = isStorageConfigured();
 
 const displayWidth = 450;
@@ -72,11 +74,13 @@ const FileUpload = () => {
 
   // display form
   const DisplayForm = () => (
-    <div>
-      <input type="file" onChange={onFileChange} key={inputKey || ''} multiple id="fileUpload" />
-      <button type="submit" onClick={onFileUpload}>
-        Upload!
-      </button>
+    <div className='row'>
+      <div className="col-auto">
+        <input className="form-control" type="file" onChange={onFileChange} key={inputKey || ''} multiple id="fileUpload" />
+      </div>
+      <div className="col-auto">
+        <Button type="submit" onClick={onFileUpload}>Upload</Button>
+      </div>
     </div>
   );
 
@@ -100,13 +104,16 @@ const FileUpload = () => {
   );
 
   return (
-    <div>
-      <h1>Upload receipts to Microsoft Form Recognizer</h1>
-      {storageConfigured && !uploading && DisplayForm()}
-      {storageConfigured && uploading && <div>Uploading</div>}
-      <hr />
-      {(storageConfigured && blobList.length > 0) && DisplayImagesFromContainer()}
-      {!storageConfigured && <div>Storage is not configured.</div>}
+    <div className='container'>
+      <br />
+      <div>
+        <h1>Upload receipts to Microsoft Form Recognizer</h1><br />
+        {storageConfigured && !uploading && DisplayForm()}
+        {storageConfigured && uploading && <div>Uploading</div>}
+        <hr />
+        {(storageConfigured && blobList.length > 0) && DisplayImagesFromContainer()}
+        {!storageConfigured && <div>Storage is not configured.</div>}
+      </div>
     </div>
   );
 };

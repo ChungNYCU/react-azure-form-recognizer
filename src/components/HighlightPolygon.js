@@ -29,17 +29,22 @@ const HighlightPolygon = (props) => {
     }
 
     const handleMouseOver = (e) => {
+
         if (inputExist) {
-            document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).setAttribute('class', 'inputMouseOverColor');
+            if (isItemField) {
+                document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).setAttribute('class', 'row itemMouseOverColor');
+            } else {
+                document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).setAttribute('class', 'col inputMouseOverColor');
+            }
         }
     }
 
     const handleMouseOut = (e) => {
         if (inputExist) {
             if (isItemField) {
-                document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).setAttribute('class', 'itemMouseOutColor');
+                document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).setAttribute('class', 'row itemMouseOutColor');
             } else {
-                document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).setAttribute('class', 'inputMouseOutColor');
+                document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).setAttribute('class', 'col inputMouseOutColor');
             }
         }
     }

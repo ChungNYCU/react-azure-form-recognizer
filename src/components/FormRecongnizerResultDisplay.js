@@ -117,7 +117,12 @@ const FormRecongnizerResultDisplay = (props) => {
       />
       <div key="Fields">
         <h3>Transaction information</h3>
-        {fetchState === state.loading && <h3>Loading...</h3>}
+        {fetchState === state.loading &&
+          <div>
+            <div class="spinner-border" role="status" /><br />
+            <span class="sr-only">Loading...</span>
+          </div>
+        }
         {fetchState === state.fail && <h3>Something went wrong, check console log</h3>}
         {fetchState === state.success &&
           <div className='container'>

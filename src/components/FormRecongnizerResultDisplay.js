@@ -132,8 +132,7 @@ const FormRecongnizerResultDisplay = (props) => {
           </div>
         }
         <br />
-        <Button onClick={showTotalValue}>Check TransactionDate</Button><br />
-        {/* <button onClick={checkAccuracy}>Calculate accuracy</button><br /> */}
+        <Button onClick={showTotalValue}>Check TransactionTime</Button><br />
         <span>Accuracy:</span>
         <span>{accuracy}</span>
       </div>

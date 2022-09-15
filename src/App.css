@@ -45,7 +45,7 @@
 label {
   display: inline-block;
   width: 200px;
-  text-align: right;
+  text-align: left;
 }
 
 .h2FileName {
@@ -119,6 +119,10 @@ input {
 }
 
 .inputMouseOutColor:hover {
+  background: rgb(0, 0, 255, .5);
+}
+
+.itemMouseOverColor {
   background: rgb(0, 0, 255, .5);
 }
 

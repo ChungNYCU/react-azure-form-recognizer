@@ -20,7 +20,7 @@ const FormRecongnizerResultDisplay = (props) => {
   const state = { loading: -1, fail: 0, success: 1 }
   const [data, setData] = useState([]);
   const [fetchState, setFetchState] = useState(state.loading);
-  const [accuracy, setAccuracy] = useState('NaN');
+  const [accuracy, setAccuracy] = useState(100);
   const [errorCount, setErrorCount] = useState(0);
   const [totalCount, setTotalCount] = useState('NaN');
   const [modifiedInput, setModifiedInput] = useState(null);

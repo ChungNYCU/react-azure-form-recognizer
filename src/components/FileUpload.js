@@ -106,7 +106,7 @@ const FileUpload = () => {
   return (
     <div className='container'>
       <br />
-      <div>
+      <div className="container bg-light p-5">
         <h1>Upload receipts to Microsoft Form Recognizer</h1><br />
         {storageConfigured && !uploading && DisplayForm()}
         {storageConfigured && uploading && <div>Uploading</div>}

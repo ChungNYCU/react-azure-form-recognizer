@@ -21,6 +21,8 @@ const FormRecongnizerResultDisplay = (props) => {
   const [data, setData] = useState([]);
   const [fetchState, setFetchState] = useState(state.loading);
   const [accuracy, setAccuracy] = useState('NaN');
+  const [errorCount, setErrorCount] = useState(0);
+  const [totalCount, setTotalCount] = useState('NaN');
   const [modifiedInput, setModifiedInput] = useState(null);
   const [modifyCounter, setModifyCounter] = useState(0);
 
@@ -61,6 +63,8 @@ const FormRecongnizerResultDisplay = (props) => {
         }
       }
       setAccuracy((100 * (1 - errorCount / totalCount)).toFixed(2) + '%');
+      setErrorCount(errorCount);
+      setTotalCount(totalCount);
     }
     checkAccuracy();
 
@@ -68,8 +72,11 @@ const FormRecongnizerResultDisplay = (props) => {
 
   useEffect(() => {
     const fetchData = async () => {
+
       const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
       const poller = await client.beginAnalyzeDocument("prebuilt-receipt", receiptURL);
+
+      let totalCount = 0;
 
       try {
         const {
@@ -92,8 +99,22 @@ const FormRecongnizerResultDisplay = (props) => {
         if (result.fields.hasOwnProperty('TransactionTime')) {
           result.fields.TransactionTime.value = result.fields.TransactionTime.value.slice(0, -3);
         }
-
+        
         setData(Object.assign(data, result.fields));
+
+        for (const [key, value] of Object.entries(data)) {
+          if (key === 'Items') {
+            for (const [, itemValue] of Object.entries(value.values)) {
+              for (const [,] of Object.entries(itemValue.properties)) {
+                totalCount++;
+              }
+            }
+          } else {
+            totalCount++;
+          }
+        }
+
+        setTotalCount(totalCount);
 
         // set state to success
         setFetchState(state.success);
@@ -119,8 +140,8 @@ const FormRecongnizerResultDisplay = (props) => {
         <h3>Transaction information</h3>
         {fetchState === state.loading &&
           <div>
-            <div class="spinner-border" role="status" /><br />
-            <span class="sr-only">Loading...</span>
+            <div className="spinner-border" role="status" /><br />
+            <span className="sr-only">Loading...</span>
           </div>
         }
         {fetchState === state.fail && <h3>Something went wrong, check console log</h3>}
@@ -139,7 +160,7 @@ const FormRecongnizerResultDisplay = (props) => {
         <br />
         <Button onClick={showTotalValue}>Check TransactionTime</Button><br />
         <span>Accuracy:</span>
-        <span>{accuracy}</span>
+        <span>{accuracy}, {totalCount - errorCount}/{totalCount}</span>
       </div>
     </div >
 

@@ -10,9 +10,9 @@ const HighlightPolygon = (props) => {
     const yRatio = props.yRatio;
     const displayWidth = props.width;
     const displayHeight = props.height;
-    const receiptIndex = props.receiptIndex;
+    const fileIndex = props.fileIndex;
     const importantInfoKey = ['Total', 'TransactionDate'];
-    const inputExist = document.getElementById(`Receipt-${receiptIndex}-${key}-Input`);
+    const inputExist = document.getElementById(`Receipt-${fileIndex}-${key}-Input`);
     const isItemField = key.includes('Item-') && !key.includes('_'); // This constant is used to confirm that the key is the whole or detail of the item
 
     const getPoint = (pointNo) => {
@@ -32,9 +32,9 @@ const HighlightPolygon = (props) => {
 
         if (inputExist) {
             if (isItemField) {
-                document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).setAttribute('class', 'row itemMouseOverColor');
+                document.getElementById(`Receipt-${fileIndex}-${key}-Input`).setAttribute('class', 'row itemMouseOverColor');
             } else {
-                document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).setAttribute('class', 'col inputMouseOverColor');
+                document.getElementById(`Receipt-${fileIndex}-${key}-Input`).setAttribute('class', 'col inputMouseOverColor');
             }
         }
     }
@@ -42,9 +42,9 @@ const HighlightPolygon = (props) => {
     const handleMouseOut = (e) => {
         if (inputExist) {
             if (isItemField) {
-                document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).setAttribute('class', 'row itemMouseOutColor');
+                document.getElementById(`Receipt-${fileIndex}-${key}-Input`).setAttribute('class', 'row itemMouseOutColor');
             } else {
-                document.getElementById(`Receipt-${receiptIndex}-${key}-Input`).setAttribute('class', 'col inputMouseOutColor');
+                document.getElementById(`Receipt-${fileIndex}-${key}-Input`).setAttribute('class', 'col inputMouseOutColor');
             }
         }
     }
@@ -59,14 +59,14 @@ const HighlightPolygon = (props) => {
                         objectKey={`Item-${index}`} objectValue={item}
                         xRatio={xRatio} yRatio={yRatio}
                         width={displayWidth} height={displayHeight}
-                        receiptIndex={receiptIndex} key={index}
+                        fileIndex={fileIndex} key={index}
                     />
                     {Object.keys(item.properties).map((propertie, propertiesIndex) => (
                         <HighlightPolygon
                             objectKey={`Item-${index}_${propertie}`} objectValue={item.properties[propertie]}
                             xRatio={xRatio} yRatio={yRatio}
                             width={displayWidth} height={displayHeight}
-                            receiptIndex={receiptIndex} key={propertiesIndex}
+                            fileIndex={fileIndex} key={propertiesIndex}
                         />
                     ))}
                 </svg>
@@ -80,7 +80,7 @@ const HighlightPolygon = (props) => {
                 <polygon className={"HighlightPolygon"} points={points}
                     onMouseOver={handleMouseOver}
                     onMouseOut={handleMouseOut}
-                    id={`Receipt-${receiptIndex}-${key}-Polygon`}
+                    id={`Receipt-${fileIndex}-${key}-Polygon`}
                 />
             )
         } catch (error) {
@@ -93,7 +93,7 @@ const HighlightPolygon = (props) => {
                 <polygon className={"Polygon"} points={points}
                     onMouseOver={handleMouseOver}
                     onMouseOut={handleMouseOut}
-                    id={`Receipt-${receiptIndex}-${key}-Polygon`}
+                    id={`Receipt-${fileIndex}-${key}-Polygon`}
                 />
             )
         } catch (error) {

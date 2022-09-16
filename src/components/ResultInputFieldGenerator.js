@@ -7,10 +7,10 @@ const ResultInputFieldGenerator = (props) => {
 
     const data = props.objectValue;
     const key = props.objectKey;
-    const receiptIndex = props.receiptIndex;
+    const fileIndex = props.fileIndex;
     const importantInfoKey = ['Total', 'TransactionDate'];
     const labelContent = key.indexOf('_') === -1 ? key : key.slice(key.indexOf('_') + 1); // item detail's label name
-    const polygonExist = document.getElementById(`Receipt-${receiptIndex}-${key}-Polygon`);
+    const polygonExist = document.getElementById(`Receipt-${fileIndex}-${key}-Polygon`);
 
     // update user input field
     const [userInput, setUserInput] = useState(
@@ -38,19 +38,19 @@ const ResultInputFieldGenerator = (props) => {
 
     const handleMouseOver = (e) => {
         if (polygonExist) {
-            document.getElementById(`Receipt-${receiptIndex}-${key}-Polygon`).setAttribute('class', 'polygonMouseOverColor');
+            document.getElementById(`Receipt-${fileIndex}-${key}-Polygon`).setAttribute('class', 'polygonMouseOverColor');
         }
     }
 
     const handleMouseOut = (e) => {
         if (polygonExist) {
-            document.getElementById(`Receipt-${receiptIndex}-${key}-Polygon`).setAttribute('class', 'Polygon');
+            document.getElementById(`Receipt-${fileIndex}-${key}-Polygon`).setAttribute('class', 'Polygon');
         }
     }
 
     const handleHighlightMouseOut = (e) => {
         if (polygonExist) {
-            document.getElementById(`Receipt-${receiptIndex}-${key}-Polygon`).setAttribute('class', 'HighlightPolygon');
+            document.getElementById(`Receipt-${fileIndex}-${key}-Polygon`).setAttribute('class', 'HighlightPolygon');
         }
     }
 
@@ -66,7 +66,7 @@ const ResultInputFieldGenerator = (props) => {
                     <ItemsListGenerator
                         passModifiedData={props.passModifiedData}
                         data={item.properties} objectKey={`Item-${index}`}
-                        receiptIndex={receiptIndex} key={index}
+                        fileIndex={fileIndex} key={index}
                     />
                 ))}
                 <br />
@@ -75,7 +75,7 @@ const ResultInputFieldGenerator = (props) => {
         )
     } if (importantInfoKey.includes(key)) {
         return (
-            <div className='col Input' key={key} id={`Receipt-${receiptIndex}-${key}-Input`}
+            <div className='col Input' key={key} id={`Receipt-${fileIndex}-${key}-Input`}
                 onMouseOver={handleMouseOver} onMouseOut={handleHighlightMouseOut}>
                 <label>{key + ': '}</label><br />
                 <input type={data.kind}
@@ -87,7 +87,7 @@ const ResultInputFieldGenerator = (props) => {
         )
     } else {
         return (
-            <div className='col Input' key={key} id={`Receipt-${receiptIndex}-${key}-Input`}
+            <div className='col Input' key={key} id={`Receipt-${fileIndex}-${key}-Input`}
                 onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
                 <label>{labelContent + ': '}</label><br />
                 <input type={data.kind}

@@ -1,27 +1,27 @@
 import React from 'react';
 import HighlightPolygon from './HighlightPolygon';
 
-// input: receiptURL(string), data(object)
+// input: fileURL(string), data(object)
 // pass Form Recognizer result into ImageDisplay
-// then show origin receipt image and overlap information on it.
+// then show origin file and overlap information on it.
 const ImageDisplay = (props) => {
     
-    const receiptURL = props.receiptURL;
+    const fileURL = props.fileURL;
     const data = props.data;
     const displayWidth = props.width;
     const displayHeight = props.height;
-    const receiptIndex = props.receiptIndex;
+    const fileIndex = props.fileIndex;
 
-    // calculate ratio between origin receipt image and compression image
+    // calculate ratio between origin file and compression image
     const img = new Image();
-    img.src = receiptURL;
+    img.src = fileURL;
     const xRatio = displayWidth / img.width;
     const yRatio = displayHeight / img.height;
 
     return (
         <div className="ImageDisplay-container">
             <div className="ImageDisplay-img">
-                <img src={receiptURL} alt={receiptURL} width={displayWidth} height={displayHeight} />
+                <img src={fileURL} alt={fileURL} width={displayWidth} height={displayHeight} />
             </div>
             <div className="ImageDisplay-overlapInfo">
                 <svg width={displayWidth} height={displayHeight}>
@@ -30,7 +30,7 @@ const ImageDisplay = (props) => {
                             objectKey={key} objectValue={data[key]}
                             xRatio={xRatio} yRatio={yRatio}
                             width={displayWidth} height={displayHeight}
-                            receiptIndex={receiptIndex} key={index}
+                            fileIndex={fileIndex} key={index}
                         />
                     ))}
                 </svg>

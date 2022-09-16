@@ -8,31 +8,31 @@ const ItemsListGenerator = (props) => {
 
     const itemProperties = props.data;
     const itemKey = props.objectKey;
-    const receiptIndex = props.receiptIndex;
-    const polygonExist = document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Polygon`);
+    const fileIndex = props.fileIndex;
+    const polygonExist = document.getElementById(`Receipt-${fileIndex}-${itemKey}-Polygon`);
 
     const handleMouseOver = (e) => {
         if (polygonExist) {
-            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Polygon`).setAttribute('class', 'polygonMouseOverColor');
-            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Input`).setAttribute('class', 'row inputMouseOverColor');
+            document.getElementById(`Receipt-${fileIndex}-${itemKey}-Polygon`).setAttribute('class', 'polygonMouseOverColor');
+            document.getElementById(`Receipt-${fileIndex}-${itemKey}-Input`).setAttribute('class', 'row inputMouseOverColor');
         }
     }
     const handleMouseOut = (e) => {
         if (polygonExist) {
-            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Polygon`).setAttribute('class', 'Polygon');
-            document.getElementById(`Receipt-${receiptIndex}-${itemKey}-Input`).setAttribute('class', 'row itemMouseOutColor');
+            document.getElementById(`Receipt-${fileIndex}-${itemKey}-Polygon`).setAttribute('class', 'Polygon');
+            document.getElementById(`Receipt-${fileIndex}-${itemKey}-Input`).setAttribute('class', 'row itemMouseOutColor');
         }
     }
 
 
     return (
-        <div className='row' key={itemKey} id={`Receipt-${receiptIndex}-${itemKey}-Input`}>
+        <div className='row' key={itemKey} id={`Receipt-${fileIndex}-${itemKey}-Input`}>
             <span onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}><b>{itemKey}</b></span>
             {Object.keys(itemProperties).map((propertie, propertiesIndex) => (
                 <ResultInputFieldGenerator
                     passModifiedData={props.passModifiedData}
                     objectKey={`${itemKey}_${propertie}`} objectValue={itemProperties[propertie]}
-                    receiptIndex={receiptIndex} key={propertiesIndex} />
+                    fileIndex={fileIndex} key={propertiesIndex} />
             ))}
             <br />
         </div>

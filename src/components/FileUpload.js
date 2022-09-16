@@ -25,6 +25,9 @@ const FileUpload = () => {
   // current file to upload into container
   const [fileSelected, setFileSelected] = useState([]);
 
+  // model selected
+  const [model, setModel] = useState('prebuilt-receipt');
+
   // UI/form management
   const [uploading, setUploading] = useState(false);
   const [inputKey, setInputKey] = useState(Math.random().toString(36));
@@ -72,9 +75,21 @@ const FileUpload = () => {
     setBlobList(blobsInContainer);
   };
 
+  const onModelChange = (event) => {
+    setModel(event.target.value);
+  };
+
   // display form
   const DisplayForm = () => (
     <div className='row'>
+      <div className="col-auto">
+        <select onChange={onModelChange} className="form-select" aria-label="Default select example">
+          <option defaultValue>Select model</option>
+          <option value="prebuilt-receipt">Receipt</option>
+          <option value="prebuilt-invoice">Invoice</option>
+          <option value="prebuilt-businessCard">Business Card</option>
+        </select>
+      </div>
       <div className="col-auto">
         <input className="form-control" type="file" onChange={onFileChange} key={inputKey || ''} multiple id="fileUpload" />
       </div>
@@ -87,14 +102,14 @@ const FileUpload = () => {
   // display file name and image
   const DisplayImagesFromContainer = () => (
     <div>
-      <h1>Uploaded Receipts</h1>
+      <h1>Uploaded Files</h1>
       <ul>
         {fileNames.map((item, index) => {
           return (
             <li key={item}>
               <h2 className='h2FileName'>{Path.basename(item)}</h2>
               <div >
-                <FormRecongnizerResultDisplay receiptURL={item} receiptIndex={index} width={displayWidth} height={displayHeight} />
+                <FormRecongnizerResultDisplay model={model} fileURL={item} fileIndex={index} width={displayWidth} height={displayHeight} />
               </div>
             </li>
           );
@@ -107,7 +122,7 @@ const FileUpload = () => {
     <div className='container'>
       <br />
       <div className="container bg-light p-5">
-        <h1>Upload receipts to Microsoft Form Recognizer</h1><br />
+        <h1>Upload files to Microsoft Form Recognizer</h1><br />
         {storageConfigured && !uploading && DisplayForm()}
         {storageConfigured && uploading && <div>Uploading</div>}
         <hr />

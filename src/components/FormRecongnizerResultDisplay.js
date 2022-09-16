@@ -5,18 +5,19 @@ import ResultInputFieldGenerator from './ResultInputFieldGenerator';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// input: receiptURL(string)
-// pass receipt image url into FormRecongnizerResultDisplay
+// input: fileURL(string)
+// pass file url into FormRecongnizerResultDisplay
 // then display all keyValue information as input fields
 const FormRecongnizerResultDisplay = (props) => {
 
   const key = process.env.REACT_APP_API_KEY1;
   const endpoint = process.env.REACT_APP_ENDPOINT;
-  const receiptURL = props.receiptURL;
+  const fileURL = props.fileURL;
 
+  const model = props.model;
   const displayWidth = props.width;
   const displayHeight = props.height;
-  const receiptIndex = props.receiptIndex;
+  const fileIndex = props.fileIndex;
   const state = { loading: -1, fail: 0, success: 1 }
   const [data, setData] = useState([]);
   const [fetchState, setFetchState] = useState(state.loading);
@@ -72,9 +73,9 @@ const FormRecongnizerResultDisplay = (props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-
+      
       const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
-      const poller = await client.beginAnalyzeDocument("prebuilt-receipt", receiptURL);
+      const poller = await client.beginAnalyzeDocument(model, fileURL);
 
       let totalCount = 0;
 
@@ -132,9 +133,9 @@ const FormRecongnizerResultDisplay = (props) => {
   return (
     <div className="FormRecongnizerResultDisplay-container">
       <ImageDisplay
-        receiptURL={receiptURL} data={data}
+        fileURL={fileURL} data={data}
         width={displayWidth} height={displayHeight}
-        receiptIndex={receiptIndex}
+        fileIndex={fileIndex}
       />
       <div key="Fields">
         <h3>Transaction information</h3>
@@ -152,7 +153,7 @@ const FormRecongnizerResultDisplay = (props) => {
                 <ResultInputFieldGenerator
                   passModifiedData={setModifiedInput}
                   objectKey={key} objectValue={data[key]}
-                  receiptIndex={receiptIndex} key={index} />
+                  fileIndex={fileIndex} key={index} />
               ))}
             </div>
           </div>

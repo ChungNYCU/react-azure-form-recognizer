@@ -63,7 +63,7 @@ const FormRecongnizerResultDisplay = (props) => {
           totalCount++;
         }
       }
-      setAccuracy((100 * (1 - errorCount / totalCount)).toFixed(2) + '%');
+      setAccuracy(totalCount === 0 ? 100 + '%' : (100 * (1 - errorCount / totalCount)).toFixed(2) + '%');
       setErrorCount(errorCount);
       setTotalCount(totalCount);
     }
@@ -73,7 +73,7 @@ const FormRecongnizerResultDisplay = (props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      
+
       const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
       const poller = await client.beginAnalyzeDocument(model, fileURL);
 
@@ -100,7 +100,7 @@ const FormRecongnizerResultDisplay = (props) => {
         if (result.fields.hasOwnProperty('TransactionTime')) {
           result.fields.TransactionTime.value = result.fields.TransactionTime.value.slice(0, -3);
         }
-        
+
         setData(Object.assign(data, result.fields));
 
         for (const [key, value] of Object.entries(data)) {

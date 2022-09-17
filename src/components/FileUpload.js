@@ -27,6 +27,11 @@ const FileUpload = () => {
 
   // model selected
   const [model, setModel] = useState('prebuilt-receipt');
+  const dropDownModelList = {
+    'Receipt': 'prebuilt-receipt',
+    'Invoice': 'prebuilt-invoice',
+    'Business Card': 'prebuilt-businessCard'
+  }
 
   // UI/form management
   const [uploading, setUploading] = useState(false);
@@ -85,9 +90,10 @@ const FileUpload = () => {
       <div className="col-auto">
         <select onChange={onModelChange} className="form-select" aria-label="Default select example">
           <option defaultValue>Select model</option>
-          <option value="prebuilt-receipt">Receipt</option>
-          <option value="prebuilt-invoice">Invoice</option>
-          <option value="prebuilt-businessCard">Business Card</option>
+          {Object.keys(dropDownModelList).map((key,)=>{
+            return(
+              <option value={dropDownModelList[key]}>{key}</option>
+            )})}
         </select>
       </div>
       <div className="col-auto">

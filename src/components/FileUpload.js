@@ -90,10 +90,11 @@ const FileUpload = () => {
       <div className="col-auto">
         <select onChange={onModelChange} className="form-select" aria-label="Default select example">
           <option defaultValue>Select model</option>
-          {Object.keys(dropDownModelList).map((key,)=>{
-            return(
-              <option value={dropDownModelList[key]}>{key}</option>
-            )})}
+          {Object.keys(dropDownModelList).map((key, index) => {
+            return (
+              <option value={dropDownModelList[key]} key={index}>{key}</option>
+            )
+          })}
         </select>
       </div>
       <div className="col-auto">

@@ -1,0 +1,348 @@
+{
+    "Addresses": {
+        "kind": "array",
+        "values": [
+            {
+                "kind": "string",
+                "value": "2495 Werninger Street,\nHouston, TX, 77002",
+                "boundingRegions": [
+                    {
+                        "pageNumber": 1,
+                        "polygon": [
+                            {
+                                "x": 52,
+                                "y": 310
+                            },
+                            {
+                                "x": 240,
+                                "y": 310
+                            },
+                            {
+                                "x": 240,
+                                "y": 348
+                            },
+                            {
+                                "x": 52,
+                                "y": 348
+                            }
+                        ]
+                    }
+                ],
+                "content": "2495 Werninger Street, Houston, TX, 77002",
+                "spans": [
+                    {
+                        "offset": 66,
+                        "length": 41
+                    }
+                ],
+                "confidence": 0.947
+            }
+        ]
+    },
+    "ContactNames": {
+        "kind": "array",
+        "values": [
+            {
+                "kind": "object",
+                "properties": {
+                    "FirstName": {
+                        "kind": "string",
+                        "value": "Shaun",
+                        "boundingRegions": [
+                            {
+                                "pageNumber": 1,
+                                "polygon": [
+                                    {
+                                        "x": 358,
+                                        "y": 237
+                                    },
+                                    {
+                                        "x": 458,
+                                        "y": 237
+                                    },
+                                    {
+                                        "x": 457,
+                                        "y": 268
+                                    },
+                                    {
+                                        "x": 358,
+                                        "y": 268
+                                    }
+                                ]
+                            }
+                        ],
+                        "content": "Shaun",
+                        "spans": [
+                            {
+                                "offset": 136,
+                                "length": 5
+                            }
+                        ],
+                        "confidence": 0.989
+                    },
+                    "LastName": {
+                        "kind": "string",
+                        "value": "Whitmore",
+                        "boundingRegions": [
+                            {
+                                "pageNumber": 1,
+                                "polygon": [
+                                    {
+                                        "x": 471,
+                                        "y": 238
+                                    },
+                                    {
+                                        "x": 635,
+                                        "y": 238
+                                    },
+                                    {
+                                        "x": 633,
+                                        "y": 269
+                                    },
+                                    {
+                                        "x": 470,
+                                        "y": 268
+                                    }
+                                ]
+                            }
+                        ],
+                        "content": "Whitmore",
+                        "spans": [
+                            {
+                                "offset": 142,
+                                "length": 8
+                            }
+                        ],
+                        "confidence": 0.989
+                    }
+                },
+                "boundingRegions": [
+                    {
+                        "pageNumber": 1,
+                        "polygon": [
+                            {
+                                "x": 358,
+                                "y": 237
+                            },
+                            {
+                                "x": 635,
+                                "y": 238
+                            },
+                            {
+                                "x": 635,
+                                "y": 269
+                            },
+                            {
+                                "x": 358,
+                                "y": 268
+                            }
+                        ]
+                    }
+                ],
+                "content": "Shaun Whitmore",
+                "spans": [
+                    {
+                        "offset": 136,
+                        "length": 14
+                    }
+                ],
+                "confidence": 0.975
+            }
+        ]
+    },
+    "Emails": {
+        "kind": "array",
+        "values": [
+            {
+                "kind": "string",
+                "value": "shaun.w@company.com",
+                "boundingRegions": [
+                    {
+                        "pageNumber": 1,
+                        "polygon": [
+                            {
+                                "x": 45,
+                                "y": 248
+                            },
+                            {
+                                "x": 232,
+                                "y": 249
+                            },
+                            {
+                                "x": 231,
+                                "y": 266
+                            },
+                            {
+                                "x": 45,
+                                "y": 266
+                            }
+                        ]
+                    }
+                ],
+                "content": "shaun.w@company.com",
+                "spans": [
+                    {
+                        "offset": 30,
+                        "length": 19
+                    }
+                ],
+                "confidence": 0.988
+            }
+        ]
+    },
+    "JobTitles": {
+        "kind": "array",
+        "values": [
+            {
+                "kind": "string",
+                "value": "AGRICULTURAL ENGINEER",
+                "boundingRegions": [
+                    {
+                        "pageNumber": 1,
+                        "polygon": [
+                            {
+                                "x": 359,
+                                "y": 282
+                            },
+                            {
+                                "x": 578,
+                                "y": 282
+                            },
+                            {
+                                "x": 578,
+                                "y": 298
+                            },
+                            {
+                                "x": 359,
+                                "y": 298
+                            }
+                        ]
+                    }
+                ],
+                "content": "AGRICULTURAL ENGINEER",
+                "spans": [
+                    {
+                        "offset": 151,
+                        "length": 21
+                    }
+                ],
+                "confidence": 0.988
+            }
+        ]
+    },
+    "Websites": {
+        "kind": "array",
+        "values": [
+            {
+                "kind": "string",
+                "value": "www.company.com",
+                "boundingRegions": [
+                    {
+                        "pageNumber": 1,
+                        "polygon": [
+                            {
+                                "x": 84,
+                                "y": 269
+                            },
+                            {
+                                "x": 231,
+                                "y": 270
+                            },
+                            {
+                                "x": 231,
+                                "y": 285
+                            },
+                            {
+                                "x": 84,
+                                "y": 285
+                            }
+                        ]
+                    }
+                ],
+                "content": "www.company.com",
+                "spans": [
+                    {
+                        "offset": 50,
+                        "length": 15
+                    }
+                ],
+                "confidence": 0.989
+            }
+        ]
+    },
+    "WorkPhones": {
+        "kind": "array",
+        "values": [
+            {
+                "kind": "phoneNumber",
+                "value": "+17112659193",
+                "boundingRegions": [
+                    {
+                        "pageNumber": 1,
+                        "polygon": [
+                            {
+                                "x": 118,
+                                "y": 181
+                            },
+                            {
+                                "x": 238,
+                                "y": 180
+                            },
+                            {
+                                "x": 238,
+                                "y": 200
+                            },
+                            {
+                                "x": 118,
+                                "y": 201
+                            }
+                        ]
+                    }
+                ],
+                "content": "(711) 265-9193",
+                "spans": [
+                    {
+                        "offset": 0,
+                        "length": 14
+                    }
+                ],
+                "confidence": 0.98
+            },
+            {
+                "kind": "phoneNumber",
+                "value": "+17113769284",
+                "boundingRegions": [
+                    {
+                        "pageNumber": 1,
+                        "polygon": [
+                            {
+                                "x": 116,
+                                "y": 200
+                            },
+                            {
+                                "x": 240,
+                                "y": 200
+                            },
+                            {
+                                "x": 240,
+                                "y": 221
+                            },
+                            {
+                                "x": 116,
+                                "y": 221
+                            }
+                        ]
+                    }
+                ],
+                "content": "(711) 376-9284",
+                "spans": [
+                    {
+                        "offset": 15,
+                        "length": 14
+                    }
+                ],
+                "confidence": 0.977
+            }
+        ]
+    }
+}

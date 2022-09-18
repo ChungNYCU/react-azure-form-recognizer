@@ -1,0 +1,707 @@
+{
+    "AmountDue": {
+        "kind": "currency",
+        "value": 0,
+        "boundingRegions": [
+            {
+                "pageNumber": 1,
+                "polygon": [
+                    {
+                        "x": 728,
+                        "y": 785
+                    },
+                    {
+                        "x": 755,
+                        "y": 785
+                    },
+                    {
+                        "x": 755,
+                        "y": 796
+                    },
+                    {
+                        "x": 728,
+                        "y": 795
+                    }
+                ]
+            }
+        ],
+        "content": "$0.00",
+        "spans": [
+            {
+                "offset": 1111,
+                "length": 5
+            }
+        ],
+        "confidence": 0.929
+    },
+    "CustomerAddress": {
+        "kind": "string",
+        "value": "21057 SE 7th Pl.\nNone\nSammamish WA 98074\nUnited States",
+        "boundingRegions": [
+            {
+                "pageNumber": 1,
+                "polygon": [
+                    {
+                        "x": 50,
+                        "y": 253
+                    },
+                    {
+                        "x": 158,
+                        "y": 253
+                    },
+                    {
+                        "x": 158,
+                        "y": 308
+                    },
+                    {
+                        "x": 50,
+                        "y": 308
+                    }
+                ]
+            }
+        ],
+        "content": "21057 SE 7th Pl.\nNone\nSammamish WA 98074\nUnited States",
+        "spans": [
+            {
+                "offset": 119,
+                "length": 54
+            }
+        ],
+        "confidence": 0.801
+    },
+    "CustomerAddressRecipient": {
+        "kind": "string",
+        "value": "Wei-Che Chung",
+        "boundingRegions": [
+            {
+                "pageNumber": 1,
+                "polygon": [
+                    {
+                        "x": 51,
+                        "y": 238
+                    },
+                    {
+                        "x": 124,
+                        "y": 240
+                    },
+                    {
+                        "x": 124,
+                        "y": 251
+                    },
+                    {
+                        "x": 51,
+                        "y": 249
+                    }
+                ]
+            }
+        ],
+        "content": "Wei-Che Chung",
+        "spans": [
+            {
+                "offset": 105,
+                "length": 13
+            }
+        ],
+        "confidence": 0.884
+    },
+    "CustomerId": {
+        "kind": "string",
+        "value": "No:900007",
+        "boundingRegions": [
+            {
+                "pageNumber": 1,
+                "polygon": [
+                    {
+                        "x": 92,
+                        "y": 332
+                    },
+                    {
+                        "x": 139,
+                        "y": 331
+                    },
+                    {
+                        "x": 138,
+                        "y": 341
+                    },
+                    {
+                        "x": 91,
+                        "y": 342
+                    }
+                ]
+            }
+        ],
+        "content": "No:900007",
+        "spans": [
+            {
+                "offset": 272,
+                "length": 9
+            }
+        ],
+        "confidence": 0.947
+    },
+    "CustomerName": {
+        "kind": "string",
+        "value": "Wei-Che Chung",
+        "boundingRegions": [
+            {
+                "pageNumber": 1,
+                "polygon": [
+                    {
+                        "x": 51,
+                        "y": 238
+                    },
+                    {
+                        "x": 124,
+                        "y": 240
+                    },
+                    {
+                        "x": 124,
+                        "y": 251
+                    },
+                    {
+                        "x": 51,
+                        "y": 249
+                    }
+                ]
+            }
+        ],
+        "content": "Wei-Che Chung",
+        "spans": [
+            {
+                "offset": 105,
+                "length": 13
+            }
+        ],
+        "confidence": 0.884
+    },
+    "InvoiceDate": {
+        "kind": "date",
+        "boundingRegions": [
+            {
+                "pageNumber": 1,
+                "polygon": [
+                    {
+                        "x": 286,
+                        "y": 956
+                    },
+                    {
+                        "x": 381,
+                        "y": 956
+                    },
+                    {
+                        "x": 381,
+                        "y": 969
+                    },
+                    {
+                        "x": 286,
+                        "y": 969
+                    }
+                ]
+            }
+        ],
+        "content": "September 15, 2022",
+        "spans": [
+            {
+                "offset": 1269,
+                "length": 18
+            }
+        ],
+        "confidence": 0.906
+    },
+    "InvoiceId": {
+        "kind": "string",
+        "value": "AJ34146802",
+        "boundingRegions": [
+            {
+                "pageNumber": 1,
+                "polygon": [
+                    {
+                        "x": 51,
+                        "y": 957
+                    },
+                    {
+                        "x": 111,
+                        "y": 957
+                    },
+                    {
+                        "x": 110,
+                        "y": 967
+                    },
+                    {
+                        "x": 50,
+                        "y": 968
+                    }
+                ]
+            }
+        ],
+        "content": "AJ34146802",
+        "spans": [
+            {
+                "offset": 1258,
+                "length": 10
+            }
+        ],
+        "confidence": 0.943
+    },
+    "InvoiceTotal": {
+        "kind": "currency",
+        "value": 2320.92,
+        "boundingRegions": [
+            {
+                "pageNumber": 1,
+                "polygon": [
+                    {
+                        "x": 705,
+                        "y": 768
+                    },
+                    {
+                        "x": 756,
+                        "y": 768
+                    },
+                    {
+                        "x": 755,
+                        "y": 779
+                    },
+                    {
+                        "x": 705,
+                        "y": 779
+                    }
+                ]
+            }
+        ],
+        "content": "$2,320.92",
+        "spans": [
+            {
+                "offset": 1090,
+                "length": 9
+            }
+        ],
+        "confidence": 0.956
+    },
+    "Items": {
+        "kind": "array",
+        "values": [
+            {
+                "kind": "object",
+                "properties": {
+                    "Amount": {
+                        "kind": "currency",
+                        "value": 2299,
+                        "boundingRegions": [
+                            {
+                                "pageNumber": 1,
+                                "polygon": [
+                                    {
+                                        "x": 707,
+                                        "y": 429
+                                    },
+                                    {
+                                        "x": 755,
+                                        "y": 429
+                                    },
+                                    {
+                                        "x": 755,
+                                        "y": 441
+                                    },
+                                    {
+                                        "x": 707,
+                                        "y": 441
+                                    }
+                                ]
+                            }
+                        ],
+                        "content": "$2,299.00",
+                        "spans": [
+                            {
+                                "offset": 417,
+                                "length": 9
+                            }
+                        ],
+                        "confidence": 0.957
+                    },
+                    "Description": {
+                        "kind": "string",
+                        "value": "MBP 14.2 SG",
+                        "boundingRegions": [
+                            {
+                                "pageNumber": 1,
+                                "polygon": [
+                                    {
+                                        "x": 51,
+                                        "y": 430
+                                    },
+                                    {
+                                        "x": 109,
+                                        "y": 430
+                                    },
+                                    {
+                                        "x": 109,
+                                        "y": 441
+                                    },
+                                    {
+                                        "x": 51,
+                                        "y": 441
+                                    }
+                                ]
+                            }
+                        ],
+                        "content": "MBP 14.2 SG",
+                        "spans": [
+                            {
+                                "offset": 386,
+                                "length": 11
+                            }
+                        ],
+                        "confidence": 0.434
+                    },
+                    "ProductCode": {
+                        "kind": "string",
+                        "value": "Z15H",
+                        "boundingRegions": [
+                            {
+                                "pageNumber": 1,
+                                "polygon": [
+                                    {
+                                        "x": 384,
+                                        "y": 429
+                                    },
+                                    {
+                                        "x": 408,
+                                        "y": 429
+                                    },
+                                    {
+                                        "x": 407,
+                                        "y": 440
+                                    },
+                                    {
+                                        "x": 384,
+                                        "y": 439
+                                    }
+                                ]
+                            }
+                        ],
+                        "content": "Z15H",
+                        "spans": [
+                            {
+                                "offset": 398,
+                                "length": 4
+                            }
+                        ],
+                        "confidence": 0.929
+                    },
+                    "Quantity": {
+                        "kind": "number",
+                        "value": 7,
+                        "boundingRegions": [
+                            {
+                                "pageNumber": 1,
+                                "polygon": [
+                                    {
+                                        "x": 617,
+                                        "y": 430
+                                    },
+                                    {
+                                        "x": 622,
+                                        "y": 430
+                                    },
+                                    {
+                                        "x": 623,
+                                        "y": 438
+                                    },
+                                    {
+                                        "x": 618,
+                                        "y": 439
+                                    }
+                                ]
+                            }
+                        ],
+                        "content": "7",
+                        "spans": [
+                            {
+                                "offset": 415,
+                                "length": 1
+                            }
+                        ],
+                        "confidence": 0.668
+                    },
+                    "UnitPrice": {
+                        "kind": "currency",
+                        "value": 2299,
+                        "boundingRegions": [
+                            {
+                                "pageNumber": 1,
+                                "polygon": [
+                                    {
+                                        "x": 462,
+                                        "y": 429
+                                    },
+                                    {
+                                        "x": 510,
+                                        "y": 429
+                                    },
+                                    {
+                                        "x": 509,
+                                        "y": 441
+                                    },
+                                    {
+                                        "x": 461,
+                                        "y": 441
+                                    }
+                                ]
+                            }
+                        ],
+                        "content": "$2,299.00",
+                        "spans": [
+                            {
+                                "offset": 403,
+                                "length": 9
+                            }
+                        ],
+                        "confidence": 0.955
+                    }
+                },
+                "boundingRegions": [
+                    {
+                        "pageNumber": 1,
+                        "polygon": [
+                            {
+                                "x": 51,
+                                "y": 429
+                            },
+                            {
+                                "x": 755,
+                                "y": 429
+                            },
+                            {
+                                "x": 755,
+                                "y": 441
+                            },
+                            {
+                                "x": 51,
+                                "y": 441
+                            }
+                        ]
+                    }
+                ],
+                "content": "MBP 14.2 SG\nZ15H\n$2,299.00\n1\n7\n$2,299.00",
+                "spans": [
+                    {
+                        "offset": 386,
+                        "length": 40
+                    }
+                ],
+                "confidence": 0.953
+            }
+        ]
+    },
+    "PaymentTerm": {
+        "kind": "string",
+        "value": "Credit Card",
+        "boundingRegions": [
+            {
+                "pageNumber": 1,
+                "polygon": [
+                    {
+                        "x": 523,
+                        "y": 957
+                    },
+                    {
+                        "x": 576,
+                        "y": 957
+                    },
+                    {
+                        "x": 576,
+                        "y": 968
+                    },
+                    {
+                        "x": 523,
+                        "y": 968
+                    }
+                ]
+            }
+        ],
+        "content": "Credit Card",
+        "spans": [
+            {
+                "offset": 1288,
+                "length": 11
+            }
+        ],
+        "confidence": 0.924
+    },
+    "ServiceAddress": {
+        "kind": "string",
+        "value": "1717 N 12th St\nUnt 432\nPhiladelphia PA 19122-2504\nUnited States",
+        "boundingRegions": [
+            {
+                "pageNumber": 1,
+                "polygon": [
+                    {
+                        "x": 405,
+                        "y": 253
+                    },
+                    {
+                        "x": 536,
+                        "y": 253
+                    },
+                    {
+                        "x": 536,
+                        "y": 308
+                    },
+                    {
+                        "x": 405,
+                        "y": 308
+                    }
+                ]
+            }
+        ],
+        "content": "1717 N 12th St\nUnt 432\nPhiladelphia PA 19122-2504\nUnited States",
+        "spans": [
+            {
+                "offset": 199,
+                "length": 63
+            }
+        ],
+        "confidence": 0.866
+    },
+    "ServiceAddressRecipient": {
+        "kind": "string",
+        "value": "WEI SHAN CHUNG",
+        "boundingRegions": [
+            {
+                "pageNumber": 1,
+                "polygon": [
+                    {
+                        "x": 406,
+                        "y": 238
+                    },
+                    {
+                        "x": 491,
+                        "y": 238
+                    },
+                    {
+                        "x": 491,
+                        "y": 249
+                    },
+                    {
+                        "x": 406,
+                        "y": 249
+                    }
+                ]
+            }
+        ],
+        "content": "WEI SHAN CHUNG",
+        "spans": [
+            {
+                "offset": 184,
+                "length": 14
+            }
+        ],
+        "confidence": 0.908
+    },
+    "SubTotal": {
+        "kind": "currency",
+        "value": 2299,
+        "boundingRegions": [
+            {
+                "pageNumber": 1,
+                "polygon": [
+                    {
+                        "x": 707,
+                        "y": 718
+                    },
+                    {
+                        "x": 756,
+                        "y": 718
+                    },
+                    {
+                        "x": 755,
+                        "y": 730
+                    },
+                    {
+                        "x": 706,
+                        "y": 730
+                    }
+                ]
+            }
+        ],
+        "content": "$2,299.00",
+        "spans": [
+            {
+                "offset": 1027,
+                "length": 9
+            }
+        ],
+        "confidence": 0.958
+    },
+    "TotalTax": {
+        "kind": "currency",
+        "value": 171.92,
+        "boundingRegions": [
+            {
+                "pageNumber": 1,
+                "polygon": [
+                    {
+                        "x": 721,
+                        "y": 735
+                    },
+                    {
+                        "x": 756,
+                        "y": 735
+                    },
+                    {
+                        "x": 755,
+                        "y": 745
+                    },
+                    {
+                        "x": 721,
+                        "y": 746
+                    }
+                ]
+            }
+        ],
+        "content": "$171.92",
+        "spans": [
+            {
+                "offset": 1047,
+                "length": 7
+            }
+        ],
+        "confidence": 0.908
+    },
+    "VendorName": {
+        "kind": "string",
+        "value": "Apple Store",
+        "boundingRegions": [
+            {
+                "pageNumber": 1,
+                "polygon": [
+                    {
+                        "x": 65,
+                        "y": 88
+                    },
+                    {
+                        "x": 158,
+                        "y": 89
+                    },
+                    {
+                        "x": 158,
+                        "y": 108
+                    },
+                    {
+                        "x": 65,
+                        "y": 106
+                    }
+                ]
+            }
+        ],
+        "content": "Apple Store",
+        "spans": [
+            {
+                "offset": 0,
+                "length": 11
+            }
+        ],
+        "confidence": 0.919
+    }
+}

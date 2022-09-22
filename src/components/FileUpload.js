@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import Path from 'path';
 
@@ -12,9 +12,6 @@ const containerName = process.env.REACT_APP_STORAGE_CONTAINER_NAME;
 const storageAccountName = process.env.REACT_APP_STORAGE_RESOURCE_NAME;
 const storageConfigured = isStorageConfigured();
 
-const displayWidth = 450;
-const displayHeight = 800;
-
 const FileUpload = () => {
   // list of image's file name
   const [fileNames, setFileNames] = useState([]);
@@ -27,11 +24,30 @@ const FileUpload = () => {
 
   // model selected
   const [model, setModel] = useState('prebuilt-receipt');
+  const [displayWidth, setDisplayWidth] = useState();
+  const [displayHeight, setDisplayHeight] = useState();
+
   const dropDownModelList = {
     'Receipt': 'prebuilt-receipt',
     'Invoice': 'prebuilt-invoice',
-    'Business Card': 'prebuilt-businessCard'
-  }
+    'Business Card': 'prebuilt-businessCard',
+    'Document': 'prebuilt-document',
+    'W2 Form': 'prebuilt-tax.us.w2',
+    'Read': 'prebuilt-read',
+    'Layout': 'prebuilt-layout',
+    'Id Document': 'prebuilt-idDocument',
+  };
+
+  const modelDisplaySize = {
+    'prebuilt-receipt': { 'Width': 450, 'Height': 800 },
+    'prebuilt-invoice': { 'Width': 900, 'Height': 1600 },
+    'prebuilt-businessCard': { 'Width': 800, 'Height': 450 },
+    'prebuilt-document': { 'Width': 450, 'Height': 800 },
+    'prebuilt-tax.us.w2': { 'Width': 450, 'Height': 800 },
+    'prebuilt-read': { 'Width': 450, 'Height': 800 },
+    'prebuilt-layout': { 'Width': 450, 'Height': 800 },
+    'prebuilt-idDocument': { 'Width': 450, 'Height': 800 },
+  };
 
   // UI/form management
   const [uploading, setUploading] = useState(false);
@@ -83,6 +99,11 @@ const FileUpload = () => {
   const onModelChange = (event) => {
     setModel(event.target.value);
   };
+
+  useEffect(() => {
+    setDisplayWidth(modelDisplaySize[model].Width);
+    setDisplayHeight(modelDisplaySize[model].Height);
+  }, [model]);
 
   // display form
   const DisplayForm = () => (

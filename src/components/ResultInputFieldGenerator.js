@@ -65,7 +65,7 @@ const ResultInputFieldGenerator = (props) => {
                         {data.values.map((item, index) => (
                             <ItemsListGenerator
                                 passModifiedData={props.passModifiedData}
-                                data={item.properties} objectKey={`Item-${index}`}
+                                data={item.properties} objectKey={`${key}-${index}`}
                                 fileIndex={fileIndex} key={index}
                             />
                         ))}

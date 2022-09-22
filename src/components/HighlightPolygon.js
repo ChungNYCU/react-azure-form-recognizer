@@ -13,7 +13,7 @@ const HighlightPolygon = (props) => {
     const fileIndex = props.fileIndex;
     const importantInfoKey = ['Total', 'TransactionDate'];
     const inputExist = document.getElementById(`Receipt-${fileIndex}-${key}-Input`);
-    const isItemField = key.includes('Item-') && !key.includes('_'); // This constant is used to confirm that the key is the whole or detail of the item
+    const isItemField = key.includes('Field-') && !key.includes('_'); // This constant is used to confirm that the key is the whole or detail of the item
 
     const getPoint = (pointNo) => {
         if ('boundingRegions' in data) {
@@ -29,7 +29,6 @@ const HighlightPolygon = (props) => {
     }
 
     const handleMouseOver = (e) => {
-
         if (inputExist) {
             if (isItemField) {
                 document.getElementById(`Receipt-${fileIndex}-${key}-Input`).setAttribute('class', 'row itemMouseOverColor');
@@ -52,19 +51,19 @@ const HighlightPolygon = (props) => {
     // if key equal to Items then call HighlightPolygon component again for each item to process data, 
     // otherwise generate polygon on image.
     if (data.kind === 'array') {
-        if (key === 'Items') {
+        if (data.values[0] && data.values[0].hasOwnProperty('properties')) {
             return (
-                (data.values.map((item, index) => (
-                    <svg id={item} key={index}>
+                (data.values.map((value, index) => (
+                    <svg id={value} key={index}>
                         <HighlightPolygon
-                            objectKey={`Item-${index}`} objectValue={item}
+                            objectKey={`Field-${key}-${index}`} objectValue={value}
                             xRatio={xRatio} yRatio={yRatio}
                             width={displayWidth} height={displayHeight}
                             fileIndex={fileIndex} key={index}
                         />
-                        {Object.keys(item.properties).map((propertie, propertiesIndex) => (
+                        {Object.keys(value.properties).map((propertie, propertiesIndex) => (
                             <HighlightPolygon
-                                objectKey={`Item-${index}_${propertie}`} objectValue={item.properties[propertie]}
+                                objectKey={`${key}-${index}_${propertie}`} objectValue={value.properties[propertie]}
                                 xRatio={xRatio} yRatio={yRatio}
                                 width={displayWidth} height={displayHeight}
                                 fileIndex={fileIndex} key={propertiesIndex}
@@ -74,41 +73,18 @@ const HighlightPolygon = (props) => {
                 )))
             )
         } else {
-            if (data.values[0] && data.values[0].hasOwnProperty('properties')) {
-                return (
-                    (data.values.map((value, index) => (
-                        <svg id={value} key={index}>
-                            <HighlightPolygon
-                                objectKey={`${key}-${index}`} objectValue={value}
-                                xRatio={xRatio} yRatio={yRatio}
-                                width={displayWidth} height={displayHeight}
-                                fileIndex={fileIndex} key={index}
-                            />
-                            {Object.keys(value.properties).map((propertie, propertiesIndex) => (
-                                <HighlightPolygon
-                                    objectKey={`${key}-${index}_${propertie}`} objectValue={value.properties[propertie]}
-                                    xRatio={xRatio} yRatio={yRatio}
-                                    width={displayWidth} height={displayHeight}
-                                    fileIndex={fileIndex} key={propertiesIndex}
-                                />
-                            ))}
-                        </svg>
-                    )))
-                )
-            } else {
-                return (
-                    (data.values.map((value, index) => (
-                        <svg id={value} key={index}>
-                            <HighlightPolygon
-                                objectKey={`${key}-${index}`} objectValue={value}
-                                xRatio={xRatio} yRatio={yRatio}
-                                width={displayWidth} height={displayHeight}
-                                fileIndex={fileIndex} key={index}
-                            />
-                        </svg>
-                    )))
-                )
-            }
+            return (
+                (data.values.map((value, index) => (
+                    <svg id={value} key={index}>
+                        <HighlightPolygon
+                            objectKey={`${key}-${index}`} objectValue={value}
+                            xRatio={xRatio} yRatio={yRatio}
+                            width={displayWidth} height={displayHeight}
+                            fileIndex={fileIndex} key={index}
+                        />
+                    </svg>
+                )))
+            )
         }
     }
 

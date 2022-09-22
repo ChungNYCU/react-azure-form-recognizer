@@ -4,6 +4,7 @@ import ImageDisplay from './ImageDisplay';
 import ResultInputFieldGenerator from './ResultInputFieldGenerator';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { resultParser } from './Parser';
 
 // input: fileURL(string)
 // pass file url into FormRecongnizerResultDisplay
@@ -85,23 +86,9 @@ const FormRecongnizerResultDisplay = (props) => {
         } = await poller.pollUntilDone();
         console.log(result.fields);
 
-        const data = {
-          'Total': {
-            'value': '',
-            'kind': 'number'
-          },
-          'TransactionDate': {
-            'value': null,
-            'kind': 'date'
-          }
-        };
+        const data = new resultParser(model, result.fields).parseResult();
 
-        // normalize TransactionTime to fit <input type='time'>
-        if (result.fields.hasOwnProperty('TransactionTime')) {
-          result.fields.TransactionTime.value = result.fields.TransactionTime.value.slice(0, -3);
-        }
-
-        setData(Object.assign(data, result.fields));
+        setData(data);
 
         for (const [key, value] of Object.entries(data)) {
           if (key === 'Items') {

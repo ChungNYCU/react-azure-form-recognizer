@@ -51,29 +51,69 @@ const HighlightPolygon = (props) => {
 
     // if key equal to Items then call HighlightPolygon component again for each item to process data, 
     // otherwise generate polygon on image.
-    if (key === 'Items') {
-        return (
-            (data.values.map((item, index) => (
-                <svg id={item} key={index}>
-                    <HighlightPolygon
-                        objectKey={`Item-${index}`} objectValue={item}
-                        xRatio={xRatio} yRatio={yRatio}
-                        width={displayWidth} height={displayHeight}
-                        fileIndex={fileIndex} key={index}
-                    />
-                    {Object.keys(item.properties).map((propertie, propertiesIndex) => (
+    if (data.kind === 'array') {
+        if (key === 'Items') {
+            return (
+                (data.values.map((item, index) => (
+                    <svg id={item} key={index}>
                         <HighlightPolygon
-                            objectKey={`Item-${index}_${propertie}`} objectValue={item.properties[propertie]}
+                            objectKey={`Item-${index}`} objectValue={item}
                             xRatio={xRatio} yRatio={yRatio}
                             width={displayWidth} height={displayHeight}
-                            fileIndex={fileIndex} key={propertiesIndex}
+                            fileIndex={fileIndex} key={index}
                         />
-                    ))}
-                </svg>
-            )))
+                        {Object.keys(item.properties).map((propertie, propertiesIndex) => (
+                            <HighlightPolygon
+                                objectKey={`Item-${index}_${propertie}`} objectValue={item.properties[propertie]}
+                                xRatio={xRatio} yRatio={yRatio}
+                                width={displayWidth} height={displayHeight}
+                                fileIndex={fileIndex} key={propertiesIndex}
+                            />
+                        ))}
+                    </svg>
+                )))
+            )
+        } else {
+            if (data.values[0] && data.values[0].hasOwnProperty('properties')) {
+                return (
+                    (data.values.map((value, index) => (
+                        <svg id={value} key={index}>
+                            <HighlightPolygon
+                                objectKey={`${key}-${index}`} objectValue={value}
+                                xRatio={xRatio} yRatio={yRatio}
+                                width={displayWidth} height={displayHeight}
+                                fileIndex={fileIndex} key={index}
+                            />
+                            {Object.keys(value.properties).map((propertie, propertiesIndex) => (
+                                <HighlightPolygon
+                                    objectKey={`${key}-${index}_${propertie}`} objectValue={value.properties[propertie]}
+                                    xRatio={xRatio} yRatio={yRatio}
+                                    width={displayWidth} height={displayHeight}
+                                    fileIndex={fileIndex} key={propertiesIndex}
+                                />
+                            ))}
+                        </svg>
+                    )))
+                )
+            } else {
+                return (
+                    (data.values.map((value, index) => (
+                        <svg id={value} key={index}>
+                            <HighlightPolygon
+                                objectKey={`${key}-${index}`} objectValue={value}
+                                xRatio={xRatio} yRatio={yRatio}
+                                width={displayWidth} height={displayHeight}
+                                fileIndex={fileIndex} key={index}
+                            />
+                        </svg>
+                    )))
+                )
+            }
+        }
+    }
 
-        )
-    } if (importantInfoKey.includes(key)) {
+
+    if (importantInfoKey.includes(key)) {
         try {
             const points = getBoundingPoints(getPoint(0), getPoint(1), getPoint(2), getPoint(3));
             return (

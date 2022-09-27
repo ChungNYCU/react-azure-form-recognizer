@@ -46,7 +46,7 @@ const FileUpload = () => {
     'prebuilt-tax.us.w2': { 'Width': 450, 'Height': 800 },
     'prebuilt-read': { 'Width': 450, 'Height': 800 },
     'prebuilt-layout': { 'Width': 450, 'Height': 800 },
-    'prebuilt-idDocument': { 'Width': 450, 'Height': 800 },
+    'prebuilt-idDocument': { 'Width': 600, 'Height': 400 },
   };
 
   // UI/form management

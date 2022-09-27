@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from 'react-bootstrap';
 import ImageDisplay from './ImageDisplay';
 import ResultInputFieldGenerator from './ResultInputFieldGenerator';
 
@@ -30,12 +29,6 @@ const FormRecongnizerResultDisplay = (props) => {
 
   const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
   // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
-
-
-  // check props is updated or not
-  const showTotalValue = () => {
-    alert(data.TransactionTime.value);
-  }
 
   useEffect(() => {
     setModifyCounter(modifyCounter + 1);
@@ -146,7 +139,6 @@ const FormRecongnizerResultDisplay = (props) => {
           </div>
         }
         <br />
-        <Button onClick={showTotalValue}>Check TransactionTime</Button><br />
         <span>Accuracy:</span>
         <span>{accuracy}, {totalCount - errorCount}/{totalCount}</span>
       </div>

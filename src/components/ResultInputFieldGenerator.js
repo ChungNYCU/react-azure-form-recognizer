@@ -3,14 +3,14 @@ import ItemsListGenerator from './ItemsListGenerator';
 import { dataValueFormatParser } from './Parser';
 
 
-// input: objectValue(object), objectKey(string)
+// input: objectValue(object), objectKey(string), fileIndex(number)
 // pass keyValue in and display input fields 
 const ResultInputFieldGenerator = (props) => {
 
     const valueParser = new dataValueFormatParser(props.objectKey, props.objectValue);
     valueParser.parseValue();
-    const data = valueParser.objectValue;
     const key = valueParser.objectKey;
+    const data = valueParser.objectValue;
     const fileIndex = props.fileIndex;
     const importantInfoKey = ['Total', 'TransactionDate'];
     const labelContent = key.indexOf('_') === -1 ? key : key.slice(key.indexOf('_') + 1); // item detail's label name

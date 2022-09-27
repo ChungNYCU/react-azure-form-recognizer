@@ -1,6 +1,6 @@
 import React from 'react';
 
-// input: objectKey(string), objectValue(object), xRatio(float), yRatio(float), key(int)
+// input: objectKey(string), objectValue(object), xRatio(float), yRatio(float), width(number), height(number), fileIndex(number), key(int)
 // pass data in HighlightPolygon and get points to generate polygon.
 const HighlightPolygon = (props) => {
 

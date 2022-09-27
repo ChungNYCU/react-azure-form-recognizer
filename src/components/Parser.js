@@ -1,3 +1,4 @@
+// class for pre-process different kind of value from form recognizer
 class dataValueFormatParser {
     constructor(objectKey, objectValue) {
         this.objectKey = objectKey;
@@ -24,7 +25,6 @@ class dataValueFormatParser {
                     }).replaceAll("/", "-");
                 break;
             case 'time':
-                //this.objectValue.value = this.objectValue.value.slice(0, -3);
                 break;
             case 'array':
                 break;
@@ -36,6 +36,7 @@ class dataValueFormatParser {
     }
 }
 
+// class for pre-process different model from form recognizer
 class resultParser {
     constructor(model, result) {
         this.model = model;

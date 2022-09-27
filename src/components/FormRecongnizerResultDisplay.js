@@ -5,7 +5,7 @@ import ResultInputFieldGenerator from './ResultInputFieldGenerator';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { resultParser } from './Parser';
 
-// input: fileURL(string)
+// input: fileURL(string), model(string), width(number), height(number), fileIndex(number)
 // pass file url into FormRecongnizerResultDisplay
 // then display all keyValue information as input fields
 const FormRecongnizerResultDisplay = (props) => {

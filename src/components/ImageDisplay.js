@@ -1,7 +1,7 @@
 import React from 'react';
 import HighlightPolygon from './HighlightPolygon';
 
-// input: fileURL(string), data(object)
+// input: fileURL(string), data(object), width(number), height(number), fileIndex(number)
 // pass Form Recognizer result into ImageDisplay
 // then show origin file and overlap information on it.
 const ImageDisplay = (props) => {

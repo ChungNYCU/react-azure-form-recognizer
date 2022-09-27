@@ -1,9 +1,9 @@
 import React from 'react';
 import ResultInputFieldGenerator from './ResultInputFieldGenerator';
 
-// input: item(object)
-// pass items list in ItemsListDisplay 
-// then call FormRecognizerKeyValuePairDisplay to process keyValue pairs.
+// input: data(object), objectKey(string), fileIndex(number)
+// pass items list in ItemsListGenerator 
+// then call ResultInputFieldGenerator to process keyValue pairs.
 const ItemsListGenerator = (props) => {
 
     const itemProperties = props.data;

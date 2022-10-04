@@ -14,7 +14,7 @@ const ResultInputFieldGenerator = (props) => {
     const fileIndex = props.fileIndex;
     const importantInfoKey = ['Total', 'TransactionDate'];
     const labelContent = key.indexOf('_') === -1 ? key : key.slice(key.indexOf('_') + 1); // item detail's label name
-    const polygonExist = document.getElementById(`Receipt-${fileIndex}-${key}-Polygon`);
+    const polygonExist = document.getElementById(`File-${fileIndex}-${key}-Polygon`);
 
     // update user input field
 
@@ -36,19 +36,19 @@ const ResultInputFieldGenerator = (props) => {
 
     const handleMouseOver = (e) => {
         if (polygonExist) {
-            document.getElementById(`Receipt-${fileIndex}-${key}-Polygon`).setAttribute('class', 'polygonMouseOverColor');
+            document.getElementById(`File-${fileIndex}-${key}-Polygon`).setAttribute('class', 'polygonMouseOverColor');
         }
     }
 
     const handleMouseOut = (e) => {
         if (polygonExist) {
-            document.getElementById(`Receipt-${fileIndex}-${key}-Polygon`).setAttribute('class', 'Polygon');
+            document.getElementById(`File-${fileIndex}-${key}-Polygon`).setAttribute('class', 'Polygon');
         }
     }
 
     const handleHighlightMouseOut = (e) => {
         if (polygonExist) {
-            document.getElementById(`Receipt-${fileIndex}-${key}-Polygon`).setAttribute('class', 'HighlightPolygon');
+            document.getElementById(`File-${fileIndex}-${key}-Polygon`).setAttribute('class', 'HighlightPolygon');
         }
     }
 
@@ -102,7 +102,7 @@ const ResultInputFieldGenerator = (props) => {
 
     } if (importantInfoKey.includes(key)) {
         return (
-            <div className='col Input' key={key} id={`Receipt-${fileIndex}-${key}-Input`}
+            <div className='col Input' key={key} id={`File-${fileIndex}-${key}-Input`}
                 onMouseOver={handleMouseOver} onMouseOut={handleHighlightMouseOut}>
                 <label>{key + ': '}</label><br />
                 <input type={data.kind}
@@ -114,7 +114,7 @@ const ResultInputFieldGenerator = (props) => {
         )
     } else {
         return (
-            <div className='col Input' key={key} id={`Receipt-${fileIndex}-${key}-Input`}
+            <div className='col Input' key={key} id={`File-${fileIndex}-${key}-Input`}
                 onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
                 <label>{labelContent + ': '}</label><br />
                 <input type={data.kind}

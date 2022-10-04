@@ -12,7 +12,7 @@ const HighlightPolygon = (props) => {
     const displayHeight = props.height;
     const fileIndex = props.fileIndex;
     const importantInfoKey = ['Total', 'TransactionDate'];
-    const inputExist = document.getElementById(`Receipt-${fileIndex}-${key}-Input`);
+    const inputExist = document.getElementById(`File-${fileIndex}-${key}-Input`);
     const isItemField = key.includes('Field-') && !key.includes('_'); // This constant is used to confirm that the key is the whole or detail of the item
 
     const getPoint = (pointNo) => {
@@ -31,9 +31,9 @@ const HighlightPolygon = (props) => {
     const handleMouseOver = (e) => {
         if (inputExist) {
             if (isItemField) {
-                document.getElementById(`Receipt-${fileIndex}-${key}-Input`).setAttribute('class', 'row itemMouseOverColor');
+                document.getElementById(`File-${fileIndex}-${key}-Input`).setAttribute('class', 'row itemMouseOverColor');
             } else {
-                document.getElementById(`Receipt-${fileIndex}-${key}-Input`).setAttribute('class', 'col inputMouseOverColor');
+                document.getElementById(`File-${fileIndex}-${key}-Input`).setAttribute('class', 'col inputMouseOverColor');
             }
         }
     }
@@ -41,9 +41,9 @@ const HighlightPolygon = (props) => {
     const handleMouseOut = (e) => {
         if (inputExist) {
             if (isItemField) {
-                document.getElementById(`Receipt-${fileIndex}-${key}-Input`).setAttribute('class', 'row itemMouseOutColor');
+                document.getElementById(`File-${fileIndex}-${key}-Input`).setAttribute('class', 'row itemMouseOutColor');
             } else {
-                document.getElementById(`Receipt-${fileIndex}-${key}-Input`).setAttribute('class', 'col inputMouseOutColor');
+                document.getElementById(`File-${fileIndex}-${key}-Input`).setAttribute('class', 'col inputMouseOutColor');
             }
         }
     }
@@ -96,7 +96,7 @@ const HighlightPolygon = (props) => {
                 <polygon className={"HighlightPolygon"} points={points}
                     onMouseOver={handleMouseOver}
                     onMouseOut={handleMouseOut}
-                    id={`Receipt-${fileIndex}-${key}-Polygon`}
+                    id={`File-${fileIndex}-${key}-Polygon`}
                 />
             )
         } catch (error) {
@@ -109,7 +109,7 @@ const HighlightPolygon = (props) => {
                 <polygon className={"Polygon"} points={points}
                     onMouseOver={handleMouseOver}
                     onMouseOut={handleMouseOut}
-                    id={`Receipt-${fileIndex}-${key}-Polygon`}
+                    id={`File-${fileIndex}-${key}-Polygon`}
                 />
             )
         } catch (error) {

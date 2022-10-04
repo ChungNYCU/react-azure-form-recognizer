@@ -105,8 +105,8 @@ const FileUpload = () => {
     setDisplayHeight(modelDisplaySize[model].Height);
   }, [model]);
 
-  // display form
-  const DisplayForm = () => (
+  // display model choice
+  const DisplayModelChoice = () => (
     <div className='row'>
       <div className="col-auto">
         <select onChange={onModelChange} className="form-select" aria-label="Default select example">
@@ -151,7 +151,7 @@ const FileUpload = () => {
       <br />
       <div className="container bg-light p-5">
         <h1>Upload files to Microsoft Form Recognizer</h1><br />
-        {storageConfigured && !uploading && DisplayForm()}
+        {storageConfigured && !uploading && DisplayModelChoice()}
         {storageConfigured && uploading && <div>Uploading</div>}
         <hr />
         {(storageConfigured && blobList.length > 0) && DisplayImagesFromContainer()}

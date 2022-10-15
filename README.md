@@ -69,7 +69,7 @@ REACT_APP_STORAGE_RESOURCE_NAME = 'Your Microsoft storage resource name'
 ### Usage
 
 Here's an example of basic usage:
-```jsx=!
+```js
 import FormRecongnizerResultDisplay from './FormRecongnizerResultDisplay';
 
 const [model, setModel] = useState('prebuilt-receipt');
